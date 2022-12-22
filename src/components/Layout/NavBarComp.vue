@@ -27,6 +27,7 @@
 <script setup>
 import { ref } from 'vue'
 let toggleNavBar = ref(false)
+
 </script>
 
 <style scoped>
@@ -43,4 +44,4 @@ let toggleNavBar = ref(false)
     border-radius: 10px;
 }
 </style>
-x   
+x
