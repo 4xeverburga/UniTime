@@ -3,10 +3,13 @@
   <!--   <router-link to="/">Home</router-link> | -->
   <!--   <router-link to="/about">About</router-link> -->
   <!-- </nav> -->
-
-  <nav-bar-comp-vue></nav-bar-comp-vue>
-  <router-view></router-view>
-  <router-view/>
+  <v-app>
+    <nav-bar-comp-vue></nav-bar-comp-vue>
+    <v-main>
+      <!-- <HelloWorld /> -->
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
 
 <script setup>
