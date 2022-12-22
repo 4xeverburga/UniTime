@@ -1,10 +1,17 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <!-- <nav> -->
+  <!--   <router-link to="/">Home</router-link> | -->
+  <!--   <router-link to="/about">About</router-link> -->
+  <!-- </nav> -->
+
+  <nav-bar-comp-vue></nav-bar-comp-vue>
+  <router-view></router-view>
   <router-view/>
 </template>
+
+<script setup>
+import NavBarCompVue from './components/Layout/NavBarComp.vue';
+</script>
 
 <style>
 #app {
