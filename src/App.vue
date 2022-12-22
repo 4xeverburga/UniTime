@@ -9,11 +9,14 @@
       <!-- <HelloWorld /> -->
       <router-view></router-view>
     </v-main>
+  <footer-comp-vue></footer-comp-vue>
+
   </v-app>
 </template>
 
 <script setup>
 import NavBarCompVue from './components/Layout/NavBarComp.vue';
+import FooterCompVue from './components/Layout/FooterComp.vue';
 </script>
 
 <style>
