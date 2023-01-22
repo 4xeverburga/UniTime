@@ -1,7 +1,8 @@
 <template>
-    <div class="title">
+    <v-card>
+    <v-card-title>
         <h2>AREAS</h2>
-    </div>
+    </v-card-title>
     <ol>
         <li>Academica</li>
         <li>IDI</li>
@@ -9,4 +10,5 @@
         <li>Tec. Informacion</li>
         <li>GTH</li>
     </ol>
+</v-card>
 </template>
