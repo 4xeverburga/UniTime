@@ -1,15 +1,13 @@
 <template>
-  <!-- <nav> -->
-  <!--   <router-link to="/">Home</router-link> | -->
-  <!--   <router-link to="/about">About</router-link> -->
-  <!-- </nav> -->
+  
   <v-app>
-    <nav-bar-comp-vue></nav-bar-comp-vue>
+    
+    <DrawerComp/>
     <v-main>
-      <!-- <HelloWorld /> -->
       <router-view></router-view>
     </v-main>
-  <footer-comp-vue></footer-comp-vue>
+    
+    <footer-comp-vue></footer-comp-vue>
 
   </v-app>
 </template>
@@ -17,6 +15,8 @@
 <script setup>
 import NavBarCompVue from './components/Layout/NavBarComp.vue';
 import FooterCompVue from './components/Layout/FooterComp.vue';
+import DrawerComp from './components/Layout/DrawerComp.vue';
+import DrawerTest from './components/Layout/DrawerTest.vue';
 </script>
 
 <style>
@@ -27,7 +27,7 @@ import FooterCompVue from './components/Layout/FooterComp.vue';
   text-align: center;
   color: #2c3e50;
 }
-
+/* 
 nav {
   padding: 30px;
 }
@@ -39,5 +39,5 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
-}
+} */
 </style>
