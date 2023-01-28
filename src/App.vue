@@ -16,7 +16,6 @@
 import NavBarCompVue from './components/Layout/NavBarComp.vue';
 import FooterCompVue from './components/Layout/FooterComp.vue';
 import DrawerComp from './components/Layout/DrawerComp.vue';
-import DrawerTest from './components/Layout/DrawerTest.vue';
 </script>
 
 <style>
