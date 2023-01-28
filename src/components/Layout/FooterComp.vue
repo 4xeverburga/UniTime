@@ -18,36 +18,36 @@
         title
         icon
         color="transparent"
-        class="white--text my-5 mx-1"
+        class="text-white my-5 mx-1"
       >
-      <v-icon size="41px">{{ link.icon }}</v-icon>
+      <v-icon size="41px" color="white">{{ link.icon }}</v-icon>
       </v-btn>
       
       <v-col
-        class="primary lighten-2 py-4 text-center white--text"
+        class="primary lighten-2 py-4 text-center text-white"
+        color="white"
         cols="12"
       >
-        <strong>Escribenos!</strong>
+        <strong >Escribenos!</strong>
       </v-col>
     </v-row>
     <v-row
       justify="center"
       no-gutters
+      class="text-white"
     >
       <v-col
         v-for="contact in contacts"
         :key="contact.id"
         flat
         color="transparent"
-        class="my-5 mx-1 white--text"
+        class="my-5 mx-1 text-white"
         text
         center
         rounded
       >
-      <v-card-text
-        class="white--text"
-        >
-        <v-icon> {{ contact.icon }} </v-icon>
+      <v-card-text class="text-white"  color="white">
+        <v-icon > {{ contact.icon }} </v-icon>
         {{ contact.description }}
       </v-card-text>
       </v-col>
@@ -59,9 +59,9 @@
 import { ref } from 'vue'
 const links = ref([
       {id: 1, icon: 'mdi-youtube', url: "https://www.youtube.com/@CCATFIIS"},
-      {id: 2, icon: 'mdi-facebook', url: ""},
-      {id: 3, icon: 'mdi-instagram', url: ""},
-      {id: 4, icon: 'mdi-linkedin', url: ""},
+      {id: 2, icon: 'mdi-facebook', url: "https://www.facebook.com/ccat.pe/"},
+      {id: 3, icon: 'mdi-instagram', url: "https://www.instagram.com/ccat.pe/?hl=en"},
+      {id: 4, icon: 'mdi-linkedin', url: "https://www.linkedin.com/company/ccatpe?originalSubdomain=pe"},
       ])
 const contacts = ref([
       {id: 1, icon: 'mdi-map', description: 'Facultad de Ingeniería Industrial y de Sistemas - UNI, Rímac 15333 Lima, Perú'},
