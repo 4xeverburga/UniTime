@@ -13,8 +13,7 @@
         ></v-img>
       </v-card>
 
-      <v-card>cscse</v-card>
-      <v-app-bar-title>CCAT</v-app-bar-title>
+      <v-app-bar-title class="ccat-name">CCAT</v-app-bar-title>
 
       <!-- spacer -->
       <v-spacer></v-spacer>
@@ -70,3 +69,45 @@
   };
   </script>
 
+  <style scoped>
+  /* align text of the name to the left  */
+  .ccat-name{
+    text-align: left;
+    /* max-width: 300px;
+    max-height: 200px; */
+    /* shorten text size */
+    /* font-size: 0.8rem; */
+  }
+  /* add a margin to the buttons container */
+  .areas-buttons{
+    margin-right: 40px;
+  }
+  /* hide the hamburger menu */
+  .hamburger{
+    display: none;
+  }
+  /* font size of nav-button is bigger */
+  .nav-button{
+    text-align: center;
+    font-size: 1.5rem;
+    min-width: 200px;
+    max-width: 400px;
+  }
+  /* the logo has a left margin of 10 px */
+  .logo{
+    margin-left: 40px;
+  }
+
+  /* when reached mobile dimensions hide .areas-buttons and show the hamburger menu */
+  @media (max-width: 600px) {
+    .areas-buttons{
+      display: none;
+    }
+    .hamburger{
+      display: block;
+    }
+    .logo{
+      margin-left: 0px;
+    }
+  }
+  </style>
