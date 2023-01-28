@@ -13,17 +13,18 @@
         ></v-img>
       </v-card>
 
-      <v-app-bar-title class="ccat-name">CCAT</v-app-bar-title>  
+      <v-app-bar-title class="ccat-name">CENTRO CULTURAL AVANZADA TECNOLÓGICA</v-app-bar-title>  
+
 
       <!-- spacer -->
       <v-spacer></v-spacer>
 
 
       <v-card class="areas-buttons">
-        <v-btn text>Inicio</v-btn>
-        <v-btn text>Areas</v-btn>
-        <v-btn text>Proyectos</v-btn>
-        <v-btn text>Eventos</v-btn>
+        <v-btn class="nav-button" text>Inicio</v-btn>
+        <v-btn class="nav-button" text>Areas</v-btn>
+        <v-btn class="nav-button" text>Proyectos</v-btn>
+        <v-btn class="nav-button" text>Eventos</v-btn>
       </v-card>
 
     </v-app-bar>
@@ -69,12 +70,15 @@
     }),
   };
   </script>
-  
+
   <style scoped>
   /* align text of the name to the left  */
   .ccat-name{
     text-align: left;
-    flex: auto;
+    max-width: 300px;
+    max-height: 200px;
+    /* shorten text size */
+    font-size: 0.8rem;
   }
   /* add a margin to the buttons container */
   .areas-buttons{
@@ -84,7 +88,10 @@
   .hamburger{
     display: none;
   }
-  
+  /* font size of nav-button is bigger */
+  .nav-button{
+    font-size: 1.5rem;
+  }
   /* the logo has a left margin of 10 px */
   .logo{
     margin-left: 10px;
