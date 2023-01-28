@@ -7,19 +7,23 @@
       justify="center"
       no-gutters
     >
-      <v-card-text 
+      <v-btn
         v-for="link in links"
-        :key="link"
+        :key="link.id"
         rounded
+        flat
+        title
+        icon
+        color="transparent"
         class="my-5 mx-1 white--text"
       >
-      <v-icon size="41px">{{ link }}</v-icon>
-      </v-card-text>
+      <v-icon size="39px">{{ link.icon }}</v-icon>
+      </v-btn>
       <v-col
         class="primary lighten-2 py-4 text-center white--text"
         cols="12"
       >
-        <strong>Escribenos</strong>
+        <strong>Escribenos!</strong>
       </v-col>
     </v-row>
     <v-row
@@ -28,13 +32,13 @@
     >
       <v-btn
         v-for="link in links"
-        :key="link"
+        :key="link.id"
         color="red"
         text
         rounded
         class="my-2"
       >
-        {{ link }}
+        {{ link.icon }}
       </v-btn>
       <v-col
         class="primary lighten-2 py-4 text-center white--text"
@@ -62,7 +66,7 @@
         class="primary lighten-2 py-4 text-center white--text"
         cols="12"
       >
-  
+
       </v-col>
     </v-row>
   </v-footer>
@@ -71,9 +75,10 @@
 <script setup>
 import { ref } from 'vue'
 const links = ref([
-        'mdi-youtube',
-        'mdi-facebook',
-        'mdi-instagram',
-        'mdi-linkedin',
+
+    {id: 1, icon: 'mdi-youtube', url: "https://www.youtube.com/@CCATFIIS"},
+    {id: 2, icon: 'mdi-facebook', url: ""},
+    {id: 3, icon: 'mdi-instagram', url: ""},
+    {id: 4, icon: 'mdi-linkedin', url: ""},
       ])
 </script>
