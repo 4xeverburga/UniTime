@@ -16,7 +16,6 @@
 import NavBarCompVue from './components/Layout/NavBarComp.vue';
 import FooterCompVue from './components/Layout/FooterComp.vue';
 import DrawerComp from './components/Layout/DrawerComp.vue';
-import DrawerTest from './components/Layout/DrawerTest.vue';
 </script>
 
 <style>
@@ -33,6 +32,7 @@ import DrawerTest from './components/Layout/DrawerTest.vue';
 .nav-button{
   font-family: 'Inter', sans-serif;
   font-weight: bold;
+  color: white;
 }
 
 </style>
