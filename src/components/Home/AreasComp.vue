@@ -16,8 +16,8 @@
             title
             class="my-11 mx-1 text-black"
             size="500px"
-        >
-        <v-icon size="300px">mdi-numeric-{{area.id}}</v-icon>
+           >
+        <font-awesome-icon icon="fa-solid fa-circle-2" />
         <span size="300px">
         {{ area.name }}
         </span>
