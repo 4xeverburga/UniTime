@@ -1,30 +1,29 @@
 <template>
 
     <!-- navbar -->
-    <v-app-bar color="primary" class="flex-grow-0" flat app dark>
+    <v-app-bar color="#778DA9" class="flex-grow-0" flat app dark>
 
       <!-- button hamburguer -->
-      <v-app-bar-nav-icon class="hamburger" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <!-- logo -->
       <v-card class="logo" elevation="0" flat>
         <v-img src="src/assets/logo.png"
-        height="36"
-        width="36"
+        height="240"
+        width="240"
         ></v-img>
       </v-card>
 
-      <v-app-bar-title class="ccat-name">CENTRO CULTURAL AVANZADA TECNOLÓGICA</v-app-bar-title>  
-
+      <v-card>cscse</v-card>
+      <v-app-bar-title>CCAT</v-app-bar-title>
 
       <!-- spacer -->
       <v-spacer></v-spacer>
 
-
       <v-card class="areas-buttons">
-        <v-btn class="nav-button" text>Inicio</v-btn>
-        <v-btn class="nav-button" text>Areas</v-btn>
-        <v-btn class="nav-button" text>Proyectos</v-btn>
-        <v-btn class="nav-button" text>Eventos</v-btn>
+        <v-btn text>Inicio</v-btn>
+        <v-btn text>Areas</v-btn>
+        <v-btn text>Proyectos</v-btn>
+        <v-btn text>Eventos</v-btn>
       </v-card>
 
     </v-app-bar>
@@ -71,42 +70,3 @@
   };
   </script>
 
-  <style scoped>
-  /* align text of the name to the left  */
-  .ccat-name{
-    text-align: left;
-    max-width: 300px;
-    max-height: 200px;
-    /* shorten text size */
-    font-size: 0.8rem;
-  }
-  /* add a margin to the buttons container */
-  .areas-buttons{
-    margin-right: 20px;
-  }
-  /* hide the hamburger menu */
-  .hamburger{
-    display: none;
-  }
-  /* font size of nav-button is bigger */
-  .nav-button{
-    font-size: 1.5rem;
-  }
-  /* the logo has a left margin of 10 px */
-  .logo{
-    margin-left: 10px;
-  }
-
-  /* when reached mobile dimensions hide .areas-buttons and show the hamburger menu */ 
-  @media (max-width: 600px) {
-    .areas-buttons{
-      display: none;
-    }
-    .hamburger{
-      display: block;
-    }
-    .logo{
-      margin-left: 0px;
-    }  
-  }
-  </style>

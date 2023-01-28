@@ -7,7 +7,7 @@
       justify="center"
       no-gutters
     >
-    
+
       <v-btn
         v-for="link in links"
         :key="link.id"
@@ -22,13 +22,13 @@
       >
       <v-icon size="41px" color="white">{{ link.icon }}</v-icon>
       </v-btn>
-      
+
       <v-col
         class="primary lighten-2 py-4 text-center text-white"
         color="white"
         cols="12"
       >
-        <strong >Escribenos!</strong>
+        <strong>Escribenos!</strong>
       </v-col>
     </v-row>
     <v-row
@@ -64,8 +64,8 @@ const links = ref([
       {id: 4, icon: 'mdi-linkedin', url: "https://www.linkedin.com/company/ccatpe?originalSubdomain=pe"},
       ])
 const contacts = ref([
-      {id: 1, icon: 'mdi-map', description: 'Facultad de Ingeniería Industrial y de Sistemas - UNI, Rímac 15333 Lima, Perú'},
+      {id: 1, icon: 'mdi-map-marker', description: 'Facultad de Ingeniería Industrial y de Sistemas - UNI, Rímac 15333 Lima, Perú'},
       {id: 2, icon: 'mdi-clock', description: 'Lun-Vie 8:30 - 21:00'},
-      {id: 3, icon: 'mdi-mail', description: 'ccat.fiis@uni.edu.pe'},
+      {id: 3, icon: 'mdi-email', description: 'ccat.fiis@uni.edu.pe'},
 ])
 </script>
