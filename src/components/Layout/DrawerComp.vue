@@ -13,7 +13,7 @@
         ></v-img>
       </v-card>
 
-      <v-app-bar-title class="ccat-name">CENTRO CULTURAL AVANZADA TECNOLÓGICA</v-app-bar-title>  
+      <v-app-bar-title class="ccat-name">CCAT</v-app-bar-title>  
 
 
       <!-- spacer -->
@@ -75,14 +75,14 @@
   /* align text of the name to the left  */
   .ccat-name{
     text-align: left;
-    max-width: 300px;
-    max-height: 200px;
+    /* max-width: 300px;
+    max-height: 200px; */
     /* shorten text size */
-    font-size: 0.8rem;
+    /* font-size: 0.8rem; */
   }
   /* add a margin to the buttons container */
   .areas-buttons{
-    margin-right: 20px;
+    margin-right: 40px;
   }
   /* hide the hamburger menu */
   .hamburger{
@@ -90,11 +90,14 @@
   }
   /* font size of nav-button is bigger */
   .nav-button{
+    text-align: center;
     font-size: 1.5rem;
+    min-width: 200px;
+    max-width: 400px;
   }
   /* the logo has a left margin of 10 px */
   .logo{
-    margin-left: 10px;
+    margin-left: 40px;
   }
 
   /* when reached mobile dimensions hide .areas-buttons and show the hamburger menu */ 
