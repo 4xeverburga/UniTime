@@ -7,6 +7,7 @@
       justify="center"
       no-gutters
     >
+    
       <v-btn
         v-for="link in links"
         :key="link.id"
@@ -19,6 +20,7 @@
       >
       <v-icon size="39px">{{ link.icon }}</v-icon>
       </v-btn>
+      
       <v-col
         class="primary lighten-2 py-4 text-center white--text"
         cols="12"

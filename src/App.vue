@@ -27,17 +27,12 @@ import DrawerTest from './components/Layout/DrawerTest.vue';
   text-align: center;
   color: #2c3e50;
 }
-/* 
-nav {
-  padding: 30px;
-}
 
-nav a {
+
+/* change the font of the buttons globally to poppins. Make them bold*/
+.nav-button{
+  font-family: 'Inter', sans-serif;
   font-weight: bold;
-  color: #2c3e50;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-} */
 </style>
