@@ -4,20 +4,20 @@
     <v-app-bar color="primary" class="flex-grow-0" flat app dark>
 
       <!-- button hamburguer -->
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon class="hamburger" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <!-- logo -->
       <v-card class="logo" elevation="0" flat>
         <v-img src="src/assets/logo.png"
-        height="240"
-        width="240"
+        height="36"
+        width="36"
         ></v-img>
       </v-card>
 
-      <v-card>cscse</v-card>
-      <v-app-bar-title>CCAT</v-app-bar-title>  
+      <v-app-bar-title class="ccat-name">CCAT</v-app-bar-title>  
 
       <!-- spacer -->
       <v-spacer></v-spacer>
+
 
       <v-card class="areas-buttons">
         <v-btn text>Inicio</v-btn>
@@ -70,3 +70,36 @@
   };
   </script>
   
+  <style scoped>
+  /* align text of the name to the left  */
+  .ccat-name{
+    text-align: left;
+    flex: auto;
+  }
+  /* add a margin to the buttons container */
+  .areas-buttons{
+    margin-right: 20px;
+  }
+  /* hide the hamburger menu */
+  .hamburger{
+    display: none;
+  }
+  
+  /* the logo has a left margin of 10 px */
+  .logo{
+    margin-left: 10px;
+  }
+
+  /* when reached mobile dimensions hide .areas-buttons and show the hamburger menu */ 
+  @media (max-width: 600px) {
+    .areas-buttons{
+      display: none;
+    }
+    .hamburger{
+      display: block;
+    }
+    .logo{
+      margin-left: 0px;
+    }  
+  }
+  </style>
