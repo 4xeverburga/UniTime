@@ -16,7 +16,7 @@
 
     <v-app-bar-title class="ccat-name">CCAT</v-app-bar-title>  
 
-
+ 
     <!-- spacer -->
     <v-spacer></v-spacer>
 
