@@ -1,4 +1,5 @@
 <template>
+
 <v-card id="conocenos">
 
     <v-card-title>
@@ -24,6 +25,7 @@
     />
 
 </v-card>
+
 <v-card id="vision">
     
     <v-card-title>
@@ -35,6 +37,7 @@
     </v-card-text>
 
 </v-card>
+
 <v-card id="mision">
     
     <v-card-title>
@@ -46,14 +49,19 @@
     </v-card-text>
 
 </v-card>
-<Areas></Areas>
-<Aliados></Aliados>
+
+<!-- areas y aliados -->
+
+<AreasComp></AreasComp>
+<AliadosComp></AliadosComp>
+
+<!-- FIN -->
 
 </template>
 
 <script setup>
-import Areas from '@/components/Home/Areas.vue';
-import Aliados from '@/components/Home/Aliados.vue';
+import AreasComp from '@/components/Home/AreasComp.vue';
+import AliadosComp from '@/components/Home/AliadosComp.vue';
 </script>
 
 <style>
