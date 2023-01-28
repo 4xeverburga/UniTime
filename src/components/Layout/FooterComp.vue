@@ -55,6 +55,12 @@
   </v-footer>
 </template>
 
+<style scoped>
+template {
+  font-family: 'Open Sans';
+}
+</style>
+
 <script setup>
 import { ref } from 'vue'
 const links = ref([
