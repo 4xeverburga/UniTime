@@ -2,7 +2,7 @@
 
 <v-card id="conocenos">
 
-    <v-card-title align-left>
+    <v-card-title>
         <img id="icon"/>
         <h2>CONOCENOS</h2>
     </v-card-title>
@@ -75,10 +75,13 @@ import AliadosComp from '@/components/Home/AliadosComp.vue';
 
 <style>
 template{
-    font-family: 'Poppins';
+    font-family: 'Inter';
 }
 h2{
     font-size: 48px;
+}
+.v-card-title {
+    font-family: 'Poppins';
 }
 .v-card-text{
     font-size: 24px;
