@@ -1,5 +1,5 @@
 <template>
-    
+
     <!-- navbar -->
     <v-app-bar color="primary" class="flex-grow-0" flat app dark>
 
@@ -14,7 +14,7 @@
       </v-card>
 
       <v-card>cscse</v-card>
-      <v-app-bar-title>CCAT</v-app-bar-title>  
+      <v-app-bar-title>CCAT</v-app-bar-title>
 
       <!-- spacer -->
       <v-spacer></v-spacer>
@@ -29,7 +29,7 @@
     </v-app-bar>
 
     <!-- drawer -->
-    <v-navigation-drawer  v-model="drawer" 
+    <v-navigation-drawer  v-model="drawer"
     app fixed clipped temporary
     mini-variant
     expand-on-hover
@@ -53,9 +53,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-      
+
   </template>
-  
+
   <script>
   export default {
     name: 'App',
@@ -69,4 +69,4 @@
     }),
   };
   </script>
-  
+
