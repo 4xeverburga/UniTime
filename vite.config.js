@@ -13,6 +13,7 @@ export default defineConfig({
       autoImport: true,
     }),
   ],
+  base: '/ccat_rework/',
   define: { 'process.env': {} },
   resolve: {
     alias: {
