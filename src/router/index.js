@@ -18,7 +18,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory("/ccat_rework/"),
+  history: createWebHistory(process.env.BASE_URL),
   routes
 })
 

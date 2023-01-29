@@ -60,6 +60,8 @@
 
 <!-- areas y aliados -->
 
+<br>
+<br>
 
 <AreasComp></AreasComp>
 <AliadosComp></AliadosComp>

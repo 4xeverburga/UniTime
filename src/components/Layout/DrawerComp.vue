@@ -15,9 +15,9 @@
     </v-card>
 
 
-    <v-app-bar-title class="ccat-name">CCAT</v-app-bar-title>  
+    <v-app-bar-title class="ccat-name">CCAT</v-app-bar-title>
 
- 
+
     <!-- spacer -->
     <v-spacer></v-spacer>
 
@@ -27,7 +27,7 @@
       <v-btn v-for="button in buttons" :key="button.id" class="nav-button" text>
         {{ button.title }}
       </v-btn>
-      
+
     </v-card>
 
   </v-app-bar>
@@ -83,7 +83,7 @@ const items = ref([
 <style scoped>
 .navbar{
   /* background-color: #D9E8F6; */
-  background-color: #778DA9; 
+  background-color: #778DA9;
 }
 
 /* align text of the name to the left  */
@@ -121,7 +121,7 @@ const items = ref([
   text-transform: none;
   /* align text in the center from top to bottom  */
   align-items: center;
-  height: 40px; 
+  height: 40px;
 }
 
 /* the logo has a left margin of 10 px */
@@ -129,7 +129,7 @@ const items = ref([
   margin-left: 40px;
 }
 
-/* when reaching mobile dimensions hide .areas-buttons and show the hamburger menu */ 
+/* when reaching mobile dimensions hide .areas-buttons and show the hamburger menu */
 @media (max-width: 600px) {
   .areas-buttons{
     display: none;
@@ -139,6 +139,6 @@ const items = ref([
   }
   .logo{
     margin-left: 0px;
-  }  
+  }
 }
 </style>
