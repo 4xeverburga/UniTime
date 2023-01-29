@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vite preview",
-    "build": "vite build",
+    "build": "vite build --base=/ccat_rework",
     "lint": "vue-cli-service lint",
     "dev": "vite",
-    "deploy": "sh deploy.sh"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
