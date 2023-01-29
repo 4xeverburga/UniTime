@@ -83,9 +83,7 @@ const items = ref([
 <style scoped>
 .navbar{
   /* background-color: #D9E8F6; */
-  background-color: #778DA9;
-;
-;
+  background-color: #778DA9; 
 }
 
 /* align text of the name to the left  */
