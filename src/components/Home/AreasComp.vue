@@ -1,6 +1,10 @@
 <template>
-    <v-card>
-    <v-card-title>
+    <v-card
+        elevation="0"
+    >
+    <v-card-title
+        class="text-left"
+    >
         <h2>AREAS</h2>
     </v-card-title>
 
@@ -11,13 +15,18 @@
     >
         <v-btn
             v-for="area in areas" :key="area.id" link
+            height="50px"
+            min-width="600px"
             rounded
             flat
             title
-            class="my-11 mx-1 text-black"
-            size="500px"
+            class="my-11 mx-1 text-black text-h2"
+            size="100px"
            >
-        <font-awesome-icon icon="fa-solid fa-circle-2" />
+            <v-icon
+                color="gray"
+            >
+            mdi-numeric-{{ area.id }}-circle</v-icon>
         <span size="300px">
         {{ area.name }}
         </span>

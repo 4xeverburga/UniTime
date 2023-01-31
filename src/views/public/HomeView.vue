@@ -1,6 +1,8 @@
 <template>
 
-<v-card id="conocenos">
+<v-card id="conocenos"
+    elevation="0"
+>
 
     <v-card-title>
         <img id="icon"/>
@@ -27,35 +29,43 @@
 
 <v-row>
     <v-col>
-    <v-card id="vision">
+        <v-card id="vision"
+            elevation="0"
+        >
 
-        <v-card-title>
-            <h2>VISION</h2>
-        </v-card-title>
+            <v-card-title>
+                <h2>VISION</h2>
+            </v-card-title>
 
-        <v-card-text>
-            Ser reconocido a nivel nacional como el principal centro universitario en formación empresarial, profesional
-            y de investigación.
-        </v-card-text>
+            <v-card-text>
+                Ser reconocido a nivel nacional como el principal centro universitario en formación empresarial, profesional
+                y de investigación.
+            </v-card-text>
 
-    </v-card>
-</v-col>
+        </v-card>
+    </v-col>
+    
+    <v-divider
+        vertical
+    ></v-divider>
 
-<v-col>
-<v-card id="mision">
-
-    <v-card-title>
-        <h2>MISION</h2>
-    </v-card-title>
-
-    <v-card-text>
-            Contribuir con la formación humana de profesionales y líderes empresariales con vocación de servicio y actitud
-            de trabajo en equipo; profesionales competentes y capacitados que puedan emprender y enfrentar los retos que
-            nuestra sociedad requiere para su desarrollo.
-    </v-card-text>
-
-</v-card>
-</v-col>
+    <v-col>
+        <v-card id="mision"
+            elevation="0"
+        >
+        
+            <v-card-title>
+                <h2>MISION</h2>
+            </v-card-title>
+        
+            <v-card-text>
+                    Contribuir con la formación humana de profesionales y líderes empresariales con vocación de servicio y actitud
+                    de trabajo en equipo; profesionales competentes y capacitados que puedan emprender y enfrentar los retos que
+                    nuestra sociedad requiere para su desarrollo.
+            </v-card-text>
+        
+        </v-card>
+    </v-col>
 </v-row>
 
 <!-- areas y aliados -->
