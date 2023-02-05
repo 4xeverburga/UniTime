@@ -7,8 +7,10 @@
     <v-app-bar-nav-icon class="hamburger" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
     <!-- logo -->
+    <!-- :src="require('@/assets/logo.png')" -->
     <v-card class="logo" elevation="0" flat color="transparent">
-      <v-img src="src/assets/logo.png"
+      <v-img 
+      src="src/assets/logo.png"
       height="48"
       width="48"
       ></v-img>

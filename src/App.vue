@@ -7,6 +7,7 @@
     <v-main>
       <router-view></router-view>
     </v-main>
+    
     <footer-comp-vue></footer-comp-vue>
 
   </v-app>
