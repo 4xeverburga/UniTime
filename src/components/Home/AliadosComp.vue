@@ -1,11 +1,11 @@
 <template>
-<v-card>
+<v-card elevation="0">
     <v-card-title>
         <h2>Aliados</h2>
     </v-card-title>
     <v-list>
     <v-list-item
-        v-for="(alido, id) in aliados" :key="id" link>
+        v-for="(aliado, id) in aliados" :key="id" link>
         <v-list-content>
             <v-list-content-tittle>{{ aliado.name }}</v-list-content-tittle>
         </v-list-content>

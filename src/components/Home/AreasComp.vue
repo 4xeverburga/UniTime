@@ -1,5 +1,6 @@
 <template>
     <v-card
+        class="mx-16"
         elevation="0"
     >
     <v-card-title
@@ -14,22 +15,22 @@
         mb-6
     >
         <v-btn
-            v-for="area in areas" :key="area.id" link
-            height="50px"
-            min-width="600px"
-            rounded
-            flat
+            v-for="area in areas" :key="area.id" 
+            height="80px"
             title
-            class="my-11 mx-1 text-black text-h2"
-            size="100px"
+            flat
+            plain
+            link
+            rounded
+            class="my-11 mx-16 text-black text-h2"
            >
-            <v-icon
-                color="gray"
-            >
-            mdi-numeric-{{ area.id }}-circle</v-icon>
-        <span size="300px">
-        {{ area.name }}
-        </span>
+            <v-icon color="gray">
+                mdi-numeric-{{ area.id }}-circle
+            </v-icon>
+
+            <span size="300px">
+                {{ area.name }}
+            </span>
         </v-btn>
 
     </v-row>
