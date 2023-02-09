@@ -10,8 +10,9 @@
     </v-card>
 </template>
 
-<script>
-const proyectos = reft([
+<script setup>
+import { ref, computed } from 'vue'
+const proyectos = ref([
     {id: 1, name: "proyecto 1", descripcion:"patata suprema"},
     {id: 2, name: "proyecto 2", descripcion:"patata suprema 1"},
     {id: 3, name: "proyecto 3", descripcion:"patata suprema 2"},

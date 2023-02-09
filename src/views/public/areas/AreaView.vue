@@ -12,7 +12,6 @@
 
 <FuncionComp></FuncionComp>
 <ProyectosComp></ProyectosComp>
-
 </template>
 
 <script setup>
