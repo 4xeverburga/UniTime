@@ -1,20 +1,19 @@
 <template>
-  
+
   <v-app>
-    
+
     <DrawerComp/>
 
     <v-main>
       <router-view></router-view>
     </v-main>
-    
+
     <footer-comp-vue></footer-comp-vue>
 
   </v-app>
 </template>
 
 <script setup>
-import NavBarCompVue from './components/Layout/NavBarComp.vue';
 import FooterCompVue from './components/Layout/FooterComp.vue';
 import DrawerComp from './components/Layout/DrawerComp.vue';
 </script>
