@@ -8,6 +8,7 @@
         <v-card-text>
             Breve descripcion del area
         </v-card-text>
+        
         <!-- img -->
         <v-img
             :src="imgSrc"
