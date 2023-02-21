@@ -16,6 +16,7 @@
     "@mdi/font": "5.9.55",
     "core-js": "^3.8.3",
     "roboto-fontface": "*",
+    "sails-mongo": "^2.0.0",
     "vue": "^3.2.13",
     "vue-fontawesome": "^0.0.2",
     "vue-router": "^4.0.3",

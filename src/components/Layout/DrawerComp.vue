@@ -9,7 +9,7 @@
     <!-- logo -->
     <!-- :src="require('@/assets/logo.png')" -->
     <v-card class="logo" elevation="0" flat color="transparent">
-      <v-img 
+      <v-img
       src="src/assets/logo.png"
       height="48"
       width="48"
@@ -74,11 +74,6 @@ const buttons = ref(
     {id:4, title: 'Eventos', icon: 'mdi-cog' },
   ]
 )
-const items = ref([
-  { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-  { title: 'Account', icon: 'mdi-account-box' },
-  { title: 'Settings', icon: 'mdi-cog' },
-])
 
 </script>
 

@@ -14,6 +14,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/public/areas/AreaView.vue')
+    // component: AreaView
   },
   {
     path: '/projects',
@@ -22,7 +23,16 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/public/projects/ProjectView.vue')
+  },
+  {
+    path: '/project/:id',
+    name: 'projectDetails',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/public/projects/ProjectDetailView.vue')
   }
+
 ]
 
 const router = createRouter({
