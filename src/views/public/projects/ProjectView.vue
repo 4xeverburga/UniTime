@@ -7,7 +7,7 @@
 </h1>
 
 <!-- search bar -->
-<span> search bar</span>
+<QuerySelector />
 
 
 <!-- carousel -->
@@ -17,6 +17,14 @@
 <v-row class="mx-0">
     <v-col cols="4" v-for="item in visible" :key="item.id">
       {{ item.title }}
+
+      <ProjectItem 
+        img-src="src/assets/patata.jpg"
+        :title="item.title"
+        description="item.description"
+        :id="item.id"
+        />
+
     </v-col>
 </v-row>
 
@@ -33,6 +41,8 @@
 
 <script setup>
 
+import ProjectItem from '@/components/SearchProjects/ProjectItem.vue';
+import QuerySelector from '@/components/SearchProjects/QuerySelector.vue';
 import {reactive, computed} from 'vue'
 
 const itemWidth= "33.33%"
@@ -65,6 +75,7 @@ const items = [
     { id: 16, title: 'Item 16' },
     { id: 17, title: 'Item 17' },
     { id: 18, title: 'Item 18' },
+    {id:19, title: 'Item 19'}
 ]
 
 const pages = computed(() => {
