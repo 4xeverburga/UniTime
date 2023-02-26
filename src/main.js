@@ -10,8 +10,8 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 loadFonts()
 library.add(faUserSecret)
 
+
 createApp(App).use(router).use(router)
   .use(vuetify)
   .mount('#app')
   .component('font-awesome-icon', FontAwesomeIcon)
-
