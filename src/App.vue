@@ -32,7 +32,7 @@ import DrawerComp from './components/Layout/DrawerComp.vue';
 .nav-button{
   font-family: 'Inter', sans-serif;
   font-weight: bold;
-  color: white;
+  color: rgb(254, 254, 254);
 }
 
 </style>
