@@ -1,7 +1,7 @@
 <template>
 
   <!-- NAVBAR -->
-  <v-app-bar class="navbar flex-grow-0" elevation="0" flat app >
+  <v-app-bar class="navbar flex-grow-0" elevation="0" flat app style="background-color: #d5ecfb;" >
 
     <!-- button hamburguer -->
     <v-app-bar-nav-icon class="hamburger" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
