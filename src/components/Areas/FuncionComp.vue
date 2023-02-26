@@ -23,3 +23,11 @@
         </v-container>
     </v-card>
 </template>
+
+<style scoped>
+
+template {
+    font-family: 'Poppins';
+}
+
+</style>
