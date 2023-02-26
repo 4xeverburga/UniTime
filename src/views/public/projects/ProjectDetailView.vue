@@ -4,3 +4,6 @@
 <style scoped>
 
 </style>
+
+<script setup>
+</script>

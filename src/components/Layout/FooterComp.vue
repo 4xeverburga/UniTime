@@ -11,7 +11,7 @@
         <v-row
 			class="d-flex justify-center"
 		>
-        	<v-btn
+          <v-btn
         		v-for="link in links"
         		:key="link.id"
         		:href="link.url"
