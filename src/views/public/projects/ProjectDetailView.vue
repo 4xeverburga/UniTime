@@ -5,16 +5,32 @@
     <!-- param id -->
     {{ $route.params.id  }}
 </p>
+
+
+<v-col>
+    <ProjectDescription></ProjectDescription>
+</v-col>
+
+<v-divider
+    vertical
+    color="black"
+></v-divider>
+
+<v-col>
+    <ProjectTeam></ProjectTeam>
+</v-col>
+
+
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
-import { useRouter } from 'vue-router';
+import ProjectDescription from '@/components/ProjectDetail/ProjectDescription.vue';
+import ProjectTeam from '@/components/ProjectDetail/ProjectTeam.vue';
+
+
 
 </script>
 
 <style scoped>
-</style>
 
-<script setup>
-</script>
+</style>

@@ -34,3 +34,7 @@
 
 
 </template>
+
+<script setup>
+defineProps(['id'])
+</script>
