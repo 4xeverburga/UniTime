@@ -10,7 +10,7 @@
     <!-- :src="require('@/assets/logo.png')" -->
     <v-card class="logo" elevation="0" flat color="transparent">
       <v-img
-      src="src/assets/logo.png"
+      :src="ccat_logo"
       height="48"
       width="48"
       ></v-img>
@@ -58,12 +58,13 @@
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-
+  
 </template>
 
 <script setup>
 
 import {ref} from 'vue'
+import ccat_logo from "@/assets/logo.png"
 // // state of the drawer/buttons
 const drawer = ref(false)
 const buttons = ref(
