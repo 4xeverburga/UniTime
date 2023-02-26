@@ -15,3 +15,6 @@ import { useRouter } from 'vue-router';
 
 <style scoped>
 </style>
+
+<script setup>
+</script>
