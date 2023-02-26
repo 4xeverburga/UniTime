@@ -104,7 +104,7 @@ import AreasComp from '@/components/Home/AreasComp.vue';
 import AliadosComp from '@/components/Home/AliadosComp.vue';
 </script>
 
-<style>
+<style scoped>
 template{
 	font-family: 'Inter';
 }

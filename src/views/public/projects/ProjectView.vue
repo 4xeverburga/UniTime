@@ -15,10 +15,10 @@
 <!-- make a 3x3 grid carousel of items -->
 
 <v-row class="mx-0">
-    <v-col cols="4" v-for="item in visible" :key="item.id">
+    <v-col cols="4" v-for="(item, id) in visible" :key="id">
       {{ item.title }}
 
-      <ProjectItem 
+      <ProjectItem
         img-src="src/assets/patata.jpg"
         :title="item.title"
         description="item.description"
