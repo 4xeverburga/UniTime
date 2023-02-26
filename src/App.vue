@@ -1,16 +1,16 @@
 <template>
 
-  <v-app>
+	<v-app>
 
-    <DrawerComp/>
+		<DrawerComp/>
 
-    <v-main>
-      <router-view></router-view>
-    </v-main>
+		<v-main>
+			<router-view></router-view>
+		</v-main>
 
-    <footer-comp-vue></footer-comp-vue>
+		<footer-comp-vue></footer-comp-vue>
 
-  </v-app>
+	</v-app>
 </template>
 
 <script setup>
@@ -20,19 +20,19 @@ import DrawerComp from './components/Layout/DrawerComp.vue';
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
 }
 
 
 /* change the font of the buttons globally to poppins. Make them bold*/
 .nav-button{
-  font-family: 'Inter', sans-serif;
-  font-weight: bold;
-  color: rgb(254, 254, 254);
+	font-family: 'Inter', sans-serif;
+	font-weight: bold;
+	color: rgb(254, 254, 254);
 }
 
 </style>

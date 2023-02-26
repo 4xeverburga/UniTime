@@ -1,9 +1,9 @@
 <!-- This component has the description of a unique project given its id. -->
 <template>
-  
+
 <p>
-    <!-- param id -->
-    {{ $route.params.id  }}
+	<!-- param id -->
+	{{ $route.params.id  }}
 </p>
 
 
