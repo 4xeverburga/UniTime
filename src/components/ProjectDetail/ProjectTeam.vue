@@ -38,12 +38,12 @@
     
 <script setup>
 
-import ProjectMember from '@/components/SearchProjects/ProjectItem.vue';
+import ProjectMember from '@/components/ProjectDetail/ProjectMember.vue';
 import {reactive, computed} from 'vue'
 
 defineProps(['id'])
 
-const itemsPerPage = 9
+const itemsPerPage = 3
 const page = reactive({val: 1})
 
 function clicked () {
