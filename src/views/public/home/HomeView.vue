@@ -105,17 +105,19 @@ import AliadosComp from '@/components/Home/AliadosComp.vue';
 </script>
 
 <style scoped>
-template{
-	font-family: 'Inter';
-}
-h2{
-	font-size: 48px;
-}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
 .v-card-title {
-	font-family: 'Poppins';
+	font-family: 'Poppins', sans-serif;
+	font-size: 40px;
+	font-weight: 600;
 }
 .v-card-text{
 	font-size: 24px;
+	line-height: normal;
+	font-family: 'Inter', sans-serif;
 }
 
 #conocenos-logo{
