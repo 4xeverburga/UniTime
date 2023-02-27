@@ -26,8 +26,9 @@
 
 		<v-card class="areas-buttons"  dark elevation="0">
 			<!-- iterate over the list of buttons  -->
-			<v-btn v-for="button in buttons" :key="button.id" class="nav-button" text>
-				{{ button.title }}
+			<v-btn v-for="button in buttons" 
+			:key="button.id" class="nav-button" :href="button.path" >
+				{{ button.title }}	
 			</v-btn>
 
 		</v-card>
@@ -69,10 +70,10 @@ import ccat_logo from "@/assets/logo.png"
 const drawer = ref(false)
 const buttons = ref(
 	[
-		{id:1, title: 'Inicio', icon: 'mdi-home' },
-		{id:2, title: 'Áreas', icon: 'mdi-account-box' },
-		{id:3, title: 'Proyectos', icon: 'mdi-cog' },
-		{id:4, title: 'Eventos', icon: 'mdi-cog' },
+		{id:1, title: 'Inicio', icon: 'mdi-home', path:'/' },
+		{id:2, title: 'Áreas', icon: 'mdi-account-box', path:'/areas'},
+		{id:3, title: 'Proyectos', icon: 'mdi-cog', path:'/projects' },
+		{id:4, title: 'Eventos', icon: 'mdi-cog', path:'/events' },
 	]
 )
 
