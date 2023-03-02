@@ -11,7 +11,7 @@
                     <v-row>
                         <v-col>
                             Generente
-                             :D
+                            :D
                         </v-col>
                         <v-col>
                             Sub Generente
@@ -26,8 +26,6 @@
 
 <style scoped>
 
-template {
-    font-family: 'Poppins';
-}
+
 
 </style>
