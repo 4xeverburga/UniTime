@@ -9,6 +9,7 @@
 		>
 			<img id="icon"/>
 			<h2>Nombre del proyecto</h2>
+
 		</v-card-title>
 
 

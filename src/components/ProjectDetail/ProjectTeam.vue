@@ -12,7 +12,7 @@
     <!-- make a 3x3 grid carousel of items -->
     
     <v-row class="mx-0">
-        <v-col cols="4" v-for="(item, id) in visible" :key="id">
+        <v-col cols="4" v-for="(item, id) in three_groups" :key="id">
           {{ item.title }}
     
           <ProjectMember
@@ -21,19 +21,20 @@
             description="item.description"
             :id="item.id"
             />
-    
+        </v-col>
+        <!-- remaining items, centered -->
+        <v-col centered cols="4" v-for="(item, id) in remaining" :key="id">
+            <ProjectMember
+            img-src="src/assets/patata.jpg"
+            :title="item.title"
+            description="item.description"
+            :id="item.id"
+            />
         </v-col>
     </v-row>
     
-    <v-row class="my-5">
-        <v-col class="text-center" cols="12">
-            <!-- a pagination linked to "page" -->
-            <v-pagination v-model="page.val" :length="pages" circle></v-pagination>
-        </v-col>
-    </v-row>
-    
-    <!-- pagination component -->
-    
+
+
     </template>
     
 <script setup>
@@ -43,8 +44,7 @@ import {reactive, computed} from 'vue'
 
 defineProps(['id'])
 
-const itemsPerPage = 3
-const page = reactive({val: 1})
+const itemsPerRow = 3
 
 function clicked () {
     console.log('clicked')
@@ -74,13 +74,19 @@ const items = [
     {id:19, title: 'Item 19'}
 ]
 
-const pages = computed(() => {
-    return Math.ceil(items.length / itemsPerPage)
+const module = computed(() => {
+    return Math.floor(items.length / itemsPerRow)
 })
 
-const visible = computed(() => {
-    console.log('visible')
-    return items.slice((page.val - 1) * itemsPerPage, page.val * itemsPerPage)
+const three_groups = computed(() => {
+    // truncate items up to the max 3 multiple number
+
+    return items.slice(0, module.value * itemsPerRow)
+})
+
+const remaining = computed(() => {
+    // the rest of items that don't fit in the 3 multiple number
+    return items.slice(module.value * itemsPerRow, items.length)
 })
 
 </script>

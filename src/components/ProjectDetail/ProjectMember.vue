@@ -2,12 +2,6 @@
     <v-card
         id="title"
     >
-        <v-card-title>
-            INTEGRANTE
-        </v-card-title>
-        <v-card-text>
-            Descripcion de integrante 
-        </v-card-text>
         
         <!-- img -->
         <v-img
@@ -17,12 +11,42 @@
             max-height="100%"
             contain
         ></v-img>
+
+        <v-card-title>
+            INTEGRANTE
+        </v-card-title>
+        <v-card-text>
+            Descripcion de integrante 
+
+            rol
+        </v-card-text>
+
     </v-card>
 </template>
+
+<style scoped>
+template {
+    font-size: "Inter";
+}
+
+/* max dimensions of the v-card */
+.v-card {
+    max-width: 400px;
+    max-height: 800px;
+}
+
+.v-card-title {
+    font-weight: 600;
+}
+
+.v-card-text {
+    font-weight: 400;
+}
+</style>
 
 
 <script setup>
 
 // define props for img-src, title, description, and id
-defineProps(['img-src', 'title', 'description', 'id'])
+defineProps(['img-src', 'title', 'description', 'id', 'media', 'rol'])
 </script>
