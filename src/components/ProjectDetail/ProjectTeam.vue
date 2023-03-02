@@ -22,15 +22,23 @@
             :id="item.id"
             />
         </v-col>
-        <!-- remaining items, centered -->
-        <v-col centered cols="4" v-for="(item, id) in remaining" :key="id">
-            <ProjectMember
+    </v-row>
+
+    <!-- remaining items, less than 3, centered with spacers -->
+    <v-row class="mx-0">
+        <v-spacer></v-spacer>
+        <v-col class=".v-col-auto" cols="4" v-for="(item, id) in remaining" :key="id">
+            
+          {{ item.title }}
+    
+          <ProjectMember
             img-src="src/assets/patata.jpg"
             :title="item.title"
             description="item.description"
             :id="item.id"
             />
         </v-col>
+        <v-spacer></v-spacer>
     </v-row>
     
 
@@ -71,7 +79,8 @@ const items = [
     { id: 16, title: 'Item 16' },
     { id: 17, title: 'Item 17' },
     { id: 18, title: 'Item 18' },
-    {id:19, title: 'Item 19'}
+    {id:19, title: 'Item 19'},
+    {id:20, title: 'Item 20'}
 ]
 
 const module = computed(() => {

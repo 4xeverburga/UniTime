@@ -2,6 +2,7 @@
   <v-footer
     color="#1B263B"
     padless
+    center
   >
     <v-col
 		cols="3"
@@ -43,51 +44,57 @@
         </v-row>
     </v-col>
 
-    <v-col
+    <v-row
         justify="center"
-        no-gutters
         class="text-white d-flex"
     >
-        <v-card
-            v-for="contact in contacts"
-            :key="contact.id"
-            flat
-            color="transparent"
-            max-width="45%"
-            class="my-5 mx-1 text-white"
-            text
-            center
-        >
-            <v-card-text
-                class="text-white"
-                color="white"
+            <v-card 
+                v-for="contact in contacts"
+                :key="contact.id"
+                flat
+                color="transparent"
+                max-width="60%"
+                class=" footer-contact my-5 mx-1 text-white"
+                text
             >
-                <v-icon > {{ contact.icon }} </v-icon>
-                {{ contact.description }}
-            </v-card-text>
-        </v-card>
-    </v-col>
+                <v-card-text
+                    class="text-white"
+                    color="white"
+                >
+                    <v-icon > {{ contact.icon }} </v-icon>
+                    {{ contact.description }}
+                </v-card-text>
+            </v-card>
+    </v-row>
 
   </v-footer>
-  </template>
+</template>
 
-  <style scoped>
-  template {
-    font-family: 'Open Sans';
-  }
-  </style>
+<style scoped>
+template {
+font-family: 'Open Sans';
+}
+/* .v-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+</style>
 
-  <script setup>
-  import { ref } from 'vue'
-  const links = ref([
-    { id: 1, icon: 'mdi-youtube', url: "https://www.youtube.com/@CCATFIIS" },
-    { id: 2, icon: 'mdi-facebook', url: "https://www.facebook.com/ccat.pe/" },
-    { id: 3, icon: 'mdi-instagram', url: "https://www.instagram.com/ccat.pe/?hl=en" },
-    { id: 4, icon: 'mdi-linkedin', url: "https://www.linkedin.com/company/ccatpe?originalSubdomain=pe" },
-  ])
-  const contacts = ref([
-    { id: 1, icon: 'mdi-map-marker', description: 'Facultad de Ingeniería Industrial y de Sistemas - UNI, Rímac 15333 Lima, Perú' },
-    { id: 2, icon: 'mdi-clock', description: 'Lun-Vie 8:30 - 21:00' },
-    { id: 3, icon: 'mdi-email', description: 'ccat.fiis@uni.edu.pe' },
-  ])
-  </script>
+<script setup>
+import { ref } from 'vue'
+const links = ref([
+{ id: 1, icon: 'mdi-youtube', url: "https://www.youtube.com/@CCATFIIS" },
+{ id: 2, icon: 'mdi-facebook', url: "https://www.facebook.com/ccat.pe/" },
+{ id: 3, icon: 'mdi-instagram', url: "https://www.instagram.com/ccat.pe/?hl=en" },
+{ id: 4, icon: 'mdi-linkedin', url: "https://www.linkedin.com/company/ccatpe?originalSubdomain=pe" },
+])
+const contacts = ref([
+{ id: 1, icon: 'mdi-map-marker', description: 'Facultad de Ingeniería Industrial y de Sistemas - UNI, Rímac 15333 Lima, Perú' },
+{ id: 2, icon: 'mdi-clock', description: 'Lun-Vie 8:30 - 21:00' },
+{ id: 3, icon: 'mdi-email', description: 'ccat.fiis@uni.edu.pe' },
+// { id: 4, icon: 'mdi-phone', description: '(01) 626-2000 anexo 1111' },
+// { id: 5, icon: 'mdi-whatsapp', description: '943 000 000'}
+])
+</script>

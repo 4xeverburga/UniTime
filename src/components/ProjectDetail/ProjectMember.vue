@@ -25,6 +25,9 @@
 </template>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Inter');
 template {
     font-size: "Inter";
 }
@@ -33,6 +36,7 @@ template {
 .v-card {
     max-width: 400px;
     max-height: 800px;
+    text-align: center;
 }
 
 .v-card-title {

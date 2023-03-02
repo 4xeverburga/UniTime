@@ -108,6 +108,7 @@ import AliadosComp from '@/components/Home/AliadosComp.vue';
 <style scoped>
 
 @import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Inter');
 
 template{
 	font-family: 'Inter';
