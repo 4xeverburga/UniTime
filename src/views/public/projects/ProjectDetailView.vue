@@ -6,18 +6,20 @@
 	{{ $route.params.id  }}
 </p> -->
 
-<v-col>
-    <ProjectDescription></ProjectDescription>
-</v-col>
+<section ref="project_description" >
+	<ProjectDescription></ProjectDescription>
+</section>
+
 
 <v-divider
-    vertical
-    color="black"
+	vertical
+	color="black"
 ></v-divider>
 
-<v-col>
-    <ProjectTeam></ProjectTeam>
-</v-col>
+
+<section ref = "project_team">
+	<ProjectTeam></ProjectTeam>
+</section>
 
 
 </template>

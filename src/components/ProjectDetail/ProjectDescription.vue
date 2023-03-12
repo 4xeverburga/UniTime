@@ -51,3 +51,10 @@ defineProps(['id'])
 <style scoped>
 
 </style>
+
+
+<style scoped>
+.v-img {
+	height: 100px;
+}
+</style>
