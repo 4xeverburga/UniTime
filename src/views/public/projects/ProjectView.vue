@@ -92,13 +92,7 @@ const visible = computed(() => {
 </script>
 
 <style scoped>
-<<<<<<< HEAD
-.text-primary{
-	color: #212529;
-=======
-
 .text-primary-test {
 	color: #778DA9;
->>>>>>> refs/remotes/origin/master
 }
 </style>
