@@ -7,18 +7,20 @@
 </p>
 
 
-<v-col>
+<section ref="project_description" >
     <ProjectDescription></ProjectDescription>
-</v-col>
+</section>
+
 
 <v-divider
     vertical
     color="black"
 ></v-divider>
 
-<v-col>
+
+<section ref = "project_team">
     <ProjectTeam></ProjectTeam>
-</v-col>
+</section>
 
 
 </template>
