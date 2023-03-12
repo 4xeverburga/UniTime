@@ -3,19 +3,22 @@
 <template>
     <!-- title -->
     <h1>
-        <span class="text-primary">integrantes equipo</span>
+        <span class="text-primary">EQUIPO</span>
     </h1>
-    
-    
+
+
     <!-- carousel -->
-    
-    
+
+    <!-- make a 3x3 grid carousel of items -->
+
+
+
     <v-row class="mx-0">
         <v-col cols="4" v-for="(item, id) in three_groups" :key="id">
           {{ item.title }}
-    
+
           <ProjectMember
-            img-src="src/assets/patata.jpg"
+            img-src="../src/assets/patata.jpg"
             :title="item.title"
             description="item.description"
             :id="item.id"
@@ -27,9 +30,9 @@
     <v-row class="mx-0">
         <v-spacer></v-spacer>
         <v-col class=".v-col-auto" cols="4" v-for="(item, id) in remaining" :key="id">
-            
+
           {{ item.title }}
-    
+
           <ProjectMember
             img-src="src/assets/patata.jpg"
             :title="item.title"
@@ -39,11 +42,11 @@
         </v-col>
         <v-spacer></v-spacer>
     </v-row>
-    
+
 
 
     </template>
-    
+
 <script setup>
 
 import ProjectMember from '@/components/ProjectDetail/ProjectMember.vue';
@@ -102,5 +105,5 @@ const remaining = computed(() => {
 <style scoped>
 
 </style>
-    
+
 
