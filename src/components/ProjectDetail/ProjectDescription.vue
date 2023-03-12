@@ -25,10 +25,10 @@
 
 	<v-img
 		id="conocenos-logo"
-		lazy-src="src/assets/patata.jpg"
+		lazy-src="../src/assets/patata.jpg"
 		height="240"
 		width="240"
-		src="src/assets/patata.jpg"
+		src="../src/assets/patata.jpg"
 		contain
 	/>
 

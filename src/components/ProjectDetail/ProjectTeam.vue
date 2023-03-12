@@ -3,7 +3,7 @@
 <template>
     <!-- title -->
     <h1>
-        <span class="text-primary">integrantes equipo</span>
+        <span class="text-primary">EQUIPO</span>
     </h1>
     
     
@@ -16,7 +16,7 @@
           {{ item.title }}
     
           <ProjectMember
-            img-src="src/assets/patata.jpg"
+            img-src="../src/assets/patata.jpg"
             :title="item.title"
             description="item.description"
             :id="item.id"
@@ -71,7 +71,7 @@ const items = [
     { id: 16, title: 'Item 16' },
     { id: 17, title: 'Item 17' },
     { id: 18, title: 'Item 18' },
-    {id:19, title: 'Item 19'}
+    { id: 19, title: 'Item 19' }
 ]
 
 const pages = computed(() => {
