@@ -1,11 +1,10 @@
 <!-- This component has the description of a unique project given its id. -->
 <template>
 
-<p>
-	<!-- param id -->
+<!-- <p>
+	param id
 	{{ $route.params.id  }}
-</p>
-
+</p> -->
 
 <v-col>
     <ProjectDescription></ProjectDescription>

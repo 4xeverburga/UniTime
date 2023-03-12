@@ -13,9 +13,9 @@
     
     <v-row class="mx-0">
         <v-col cols="4" v-for="(item, id) in three_groups" :key="id">
-          {{ item.title }}
+        {{ item.title }}
     
-          <ProjectMember
+        <ProjectMember
             img-src="src/assets/patata.jpg"
             :title="item.title"
             description="item.description"
@@ -29,9 +29,9 @@
         <v-spacer></v-spacer>
         <v-col class=".v-col-auto" cols="4" v-for="(item, id) in remaining" :key="id">
             
-          {{ item.title }}
+        {{ item.title }}
     
-          <ProjectMember
+        <ProjectMember
             img-src="src/assets/patata.jpg"
             :title="item.title"
             description="item.description"
