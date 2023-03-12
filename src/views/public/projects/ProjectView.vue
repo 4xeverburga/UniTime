@@ -3,7 +3,9 @@
 <template>
 <!-- title -->
 <h1>
-	<span class="text-primary" style="color: #FFFFFF;">Portafolio de proyectos</span>
+	<!-- white text colour in style -->
+	<span class="text-primary-test"
+	>Portafolio de proyectos</span>
 </h1>
 
 <!-- search bar -->
@@ -90,7 +92,13 @@ const visible = computed(() => {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 .text-primary{
 	color: #212529;
+=======
+
+.text-primary-test {
+	color: #778DA9;
+>>>>>>> refs/remotes/origin/master
 }
 </style>
