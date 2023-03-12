@@ -13,13 +13,16 @@
 
 <FuncionComp></FuncionComp>
 <ProyectosComp></ProyectosComp>
+<MemberProfileComp></MemberProfileComp>
 </template>
 
 <script setup>
 import FuncionComp from "@/components/Areas/FuncionComp.vue"
 import ProyectosComp from "@/components/Areas/ProyectosComp.vue"
+import MemberProfileComp from "@/components/Areas/MemberProfileComp.vue"
 
 defineProps(['id'])
+
 </script>
 
 <style scoped>
