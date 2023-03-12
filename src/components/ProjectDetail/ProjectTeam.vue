@@ -5,37 +5,46 @@
     <h1>
         <span class="text-primary">EQUIPO</span>
     </h1>
-    
-    
+
+
     <!-- carousel -->
-    
+
     <!-- make a 3x3 grid carousel of items -->
-    
+
     <v-row class="mx-0">
-        <v-col cols="4" v-for="(item, id) in visible" :key="id">
+        <v-col cols="4" v-for="(item, id) in three_groups" :key="id">
           {{ item.title }}
-    
+
           <ProjectMember
             img-src="../src/assets/patata.jpg"
             :title="item.title"
             description="item.description"
             :id="item.id"
             />
-    
         </v-col>
     </v-row>
-    
-    <v-row class="my-5">
-        <v-col class="text-center" cols="12">
-            <!-- a pagination linked to "page" -->
-            <v-pagination v-model="page.val" :length="pages" circle></v-pagination>
+
+    <!-- remaining items, less than 3, centered with spacers -->
+    <v-row class="mx-0">
+        <v-spacer></v-spacer>
+        <v-col class=".v-col-auto" cols="4" v-for="(item, id) in remaining" :key="id">
+
+          {{ item.title }}
+
+          <ProjectMember
+            img-src="src/assets/patata.jpg"
+            :title="item.title"
+            description="item.description"
+            :id="item.id"
+            />
         </v-col>
+        <v-spacer></v-spacer>
     </v-row>
-    
-    <!-- pagination component -->
-    
+
+
+
     </template>
-    
+
 <script setup>
 
 import ProjectMember from '@/components/ProjectDetail/ProjectMember.vue';
@@ -43,8 +52,7 @@ import {reactive, computed} from 'vue'
 
 defineProps(['id'])
 
-const itemsPerPage = 3
-const page = reactive({val: 1})
+const itemsPerRow = 3
 
 function clicked () {
     console.log('clicked')
@@ -71,16 +79,23 @@ const items = [
     { id: 16, title: 'Item 16' },
     { id: 17, title: 'Item 17' },
     { id: 18, title: 'Item 18' },
-    { id: 19, title: 'Item 19' }
+    {id:19, title: 'Item 19'},
+    {id:20, title: 'Item 20'}
 ]
 
-const pages = computed(() => {
-    return Math.ceil(items.length / itemsPerPage)
+const module = computed(() => {
+    return Math.floor(items.length / itemsPerRow)
 })
 
-const visible = computed(() => {
-    console.log('visible')
-    return items.slice((page.val - 1) * itemsPerPage, page.val * itemsPerPage)
+const three_groups = computed(() => {
+    // truncate items up to the max 3 multiple number
+
+    return items.slice(0, module.value * itemsPerRow)
+})
+
+const remaining = computed(() => {
+    // the rest of items that don't fit in the 3 multiple number
+    return items.slice(module.value * itemsPerRow, items.length)
 })
 
 </script>
@@ -88,5 +103,5 @@ const visible = computed(() => {
 <style scoped>
 
 </style>
-    
+
 

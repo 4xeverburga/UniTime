@@ -19,13 +19,11 @@ import DrawerComp from './components/Layout/DrawerComp.vue';
 </script>
 
 <style>
-#app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+
 
 
 /* change the font of the buttons globally to poppins. Make them bold*/
