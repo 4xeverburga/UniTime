@@ -32,41 +32,43 @@ import ProjectDescription from '@/components/ProjectDetail/ProjectDescription.vu
 import ProjectTeam from '@/components/ProjectDetail/ProjectTeam.vue';
 import { onMounted, onBeforeMount, ref } from 'vue';
 
+// TODO: add scroll behavior to jump to project_team section when scroll is inside project_description section 
+// and be able to return with the scroll to project_description section
 
-const project_description = ref(null);
-const test_section = ref(null);
-const project_team = ref(null);
-
-
-// mounted 
-onMounted(() => {
-	console.log("mounted");
-	window.addEventListener('scroll', handleScroll);
-});
-onBeforeMount(() => {
-	console.log("before mount");
-	window.removeEventListener('scroll', handleScroll);
-});
+// const project_description = ref(null);
+// const test_section = ref(null);
+// const project_team = ref(null);
 
 
-const handleScroll = () => {
-	// position from project_description section
-	const scroll_position = window.scrollY;
-	const project_description_top = project_description.value.offsetTop;
-	const project_description_height = project_description.value.offsetHeight;
-	// if scroll is inside 2/3 of project_description section then scroll jump to project_team section
-	// // log all the values
-	// console.log("scroll position", scroll_position);
+// // mounted 
+// onMounted(() => {
+// 	console.log("mounted");
+// 	window.addEventListener('scroll', handleScroll);
+// });
+// onBeforeMount(() => {
+// 	console.log("before mount");
+// 	window.removeEventListener('scroll', handleScroll);
+// });
 
-	if (scroll_position > 400){
-		console.log("scroll inside project_description section");
-		const nextSectionTop = test_section.value.offsetTop;
-        window.scrollTo({
-          top: nextSectionTop,
-          behavior: 'smooth'
-        });
-	}
-}
+
+// const handleScroll = () => {
+// 	// position from project_description section
+// 	const scroll_position = window.scrollY;
+// 	const project_description_top = project_description.value.offsetTop;
+// 	const project_description_height = project_description.value.offsetHeight;
+// 	// if scroll is inside 2/3 of project_description section then scroll jump to project_team section
+// 	// // log all the values
+// 	// console.log("scroll position", scroll_position);
+
+// 	if (scroll_position > 400){
+// 		console.log("scroll inside project_description section");
+// 		const nextSectionTop = test_section.value.offsetTop;
+//         window.scrollTo({
+//           top: nextSectionTop,
+//           behavior: 'smooth'
+//         });
+// 	}
+// }
 
 
 

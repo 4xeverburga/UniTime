@@ -1,4 +1,5 @@
 <template>
+	{{ $props.id  }}
 <v-card
 	id="title"
 >
@@ -15,11 +16,13 @@
 </template>
 
 <script setup>
-	import FuncionComp from "@/components/Areas/FuncionComp.vue"
-	import ProyectosComp from "@/components/Areas/ProyectosComp.vue"
+import FuncionComp from "@/components/Areas/FuncionComp.vue"
+import ProyectosComp from "@/components/Areas/ProyectosComp.vue"
 
+defineProps(['id'])
 </script>
 
 <style scoped>
+
 
 </style>

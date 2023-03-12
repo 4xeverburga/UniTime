@@ -31,7 +31,7 @@
 		<v-spacer></v-spacer>
 		<v-col class=".v-col-auto" cols="4" v-for="(item, id) in remaining" :key="id">
 			
-		{{ item.title }}
+		{{ item.title }}x
 	
 		<ProjectMember
 			img-src="src/assets/patata.jpg"
@@ -42,10 +42,11 @@
 		</v-col>
 		<v-spacer></v-spacer>
 	</v-row>
+	<!-- foot margin  -->
+	<div class = "foot-margin"> 
+	</div>
 
-
-
-	</template>
+</template>
 
 <script setup>
 
@@ -103,7 +104,9 @@ const remaining = computed(() => {
 </script>
 
 <style scoped>
-
+.foot-margin {
+	height: 20px;
+}
 </style>
 
 
