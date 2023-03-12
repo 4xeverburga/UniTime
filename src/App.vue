@@ -18,7 +18,7 @@ import FooterCompVue from './components/Layout/FooterComp.vue';
 import DrawerComp from './components/Layout/DrawerComp.vue';
 </script>
 
-<style>
+<style scoped>
 
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 @import url('https://fonts.googleapis.com/css?family=Inter');

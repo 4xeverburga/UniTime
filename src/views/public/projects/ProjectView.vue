@@ -3,7 +3,7 @@
 <template>
 <!-- title -->
 <h1>
-	<span class="text-primary">Portafolio de proyectos</span>
+	<span class="text-primary" style="color: #FFFFFF;">Portafolio de proyectos</span>
 </h1>
 
 <!-- search bar -->
@@ -90,5 +90,7 @@ const visible = computed(() => {
 </script>
 
 <style scoped>
-
+.text-primary{
+	color: #212529;
+}
 </style>

@@ -2,14 +2,14 @@
  <!-- a search bar that filters the items in the carousel
  with a button for saving the query -->
     <v-row class="mx-0">
-        <v-col cols="12">
+        <v-col cols="4">
             <v-text-field
                 v-model="name_filter"
                 label="Nombre del proyecto"
                 outlined
             ></v-text-field>
         </v-col>
-        <v-col cols="12">
+        <v-col cols="4">
             <v-autocomplete
                 chips
                 clearable
@@ -20,7 +20,7 @@
                 label="Area"
             ></v-autocomplete>
         </v-col>
-        <v-col cols="12">
+        <v-col cols="4">
             <v-autocomplete
                 chips
                 clearable
