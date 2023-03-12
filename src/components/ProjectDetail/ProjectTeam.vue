@@ -9,7 +9,6 @@
     
     <!-- carousel -->
     
-    <!-- make a 3x3 grid carousel of items -->
     
     <v-row class="mx-0">
         <v-col cols="4" v-for="(item, id) in three_groups" :key="id">
