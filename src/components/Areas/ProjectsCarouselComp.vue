@@ -1,30 +1,34 @@
 <template>
     <!-- a carousel with cycle and pagination  -->
-	<v-carousel 
-	cycle
-	show-arrows="hover"
-	>
-		<v-carousel-item
-			v-for="(item, id) in project_items_test"
-			:key="id"
-			:src="item.image"
-			:lazy-src="item.image"
-			:alt="item.title"
-			:to="item.link"
-			cover
+	<section class="ma-5">
+	
+		<v-carousel 
+		cycle
+		show-arrows="hover"	
 		>
-		<!-- FIX: can't add text when there is an image -->
-			<!-- <v-sheet
-				height="100%"
-				>
-				<div class="d-flex fill-height justify-center align-center">
-					<div class="text-h2">
-					{{ item.title }} Slide
+			<v-carousel-item
+				v-for="(item, id) in project_items_test"
+				:key="id"
+				:src="item.image"
+				:lazy-src="item.image"
+				:alt="item.title"
+				:to="item.link"
+				cover
+			>
+			<!-- FIX: can't add text when there is an image -->
+				<!-- <v-sheet
+					height="100%"
+					>
+					<div class="d-flex fill-height justify-center align-center">
+						<div class="text-h2">
+						{{ item.title }} Slide
+						</div>
 					</div>
-				</div>
-			</v-sheet> -->
-		</v-carousel-item>
-	</v-carousel>
+				</v-sheet> -->
+			</v-carousel-item>
+		</v-carousel>
+		
+	</section>
 </template>
 
 <script setup>
@@ -59,7 +63,5 @@ const project_items_test = [
 
 <style scoped>
 /* add margin to the carousel to make it look better */
-.v-carousel__controls {
-	margin: 10px;
-}
+
 </style>
