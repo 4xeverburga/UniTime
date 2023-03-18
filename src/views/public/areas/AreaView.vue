@@ -2,6 +2,8 @@
 
 <v-card
 	id="title"
+	flat
+	elevation="0"
 >
 	<v-card-title>
 		NOMBRE DEL AREA
