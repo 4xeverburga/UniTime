@@ -62,9 +62,14 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
+.v-card-title{
+	font-family: 'Poppins';
+	font-size: 48px;
+	font-weight: 600;
+	line-height: 3;
+}
+
 .v-col {
-
-
 	font-family: 'Poppins';
 	font-weight: 700;
 	font-size: 48px;
