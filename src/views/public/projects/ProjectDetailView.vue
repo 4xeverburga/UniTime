@@ -17,7 +17,7 @@
 ></v-divider>
 
 
-<section ref = "project_team">
+<section ref = "project_team" center>
 	<ProjectTeam></ProjectTeam>
 </section>
 

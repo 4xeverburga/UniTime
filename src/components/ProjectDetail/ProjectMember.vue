@@ -33,11 +33,12 @@ template {
 }
 
 /* max dimensions of the v-card */
-.v-card {
+/* .v-card {
     max-width: 400px;
     max-height: 800px;
     text-align: center;
-}
+    align-self: center;
+} */
 
 .v-card-title {
     font-weight: 600;

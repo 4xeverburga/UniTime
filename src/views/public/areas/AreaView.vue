@@ -16,6 +16,7 @@
 <FuncionComp></FuncionComp>
 <ProyectosComp></ProyectosComp>
 <MemberProfileComp></MemberProfileComp>
+
 </template>
 
 <script setup>
