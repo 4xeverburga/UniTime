@@ -25,7 +25,6 @@
 				class="pa-4 text-center secondary text-no-wrap rounded-lg"
 				color="#778da94d"
 				>
-				<v-container>
 
 					<v-row
 						>
@@ -55,7 +54,6 @@
 					</v-row>
 				</v-card>
 
-				</v-card>
 			</v-col>
 		</v-row>
 </template>
