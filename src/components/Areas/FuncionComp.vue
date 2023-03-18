@@ -7,7 +7,9 @@
 				no-gutters
 				cols="6"
 			>
-				<v-card>
+				<v-card
+					elevation="0"
+				>
 					<v-card-title class="font-weight-medium">
 						Funcion del area
 					</v-card-title>
@@ -21,11 +23,10 @@
 				cols="6"
 			>
 				<v-card
+				elevation="0"
+				class="pa-4 text-center secondary text-no-wrap rounded-lg"
+				color="#778da94d"
 				>
-				<v-card
-					class="pa-4 text-center secondary text-no-wrap rounded-t-xl"
-					color="#778da94d"
-					>
 
 					<v-row
 						>
@@ -55,7 +56,6 @@
 					</v-row>
 				</v-card>
 
-				</v-card>
 			</v-col>
 		</v-row>
 </template>
