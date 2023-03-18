@@ -6,7 +6,7 @@
 	<v-card-title>
 		NOMBRE DEL AREA
 	</v-card-title>
-	<v-card-text>
+	<v-card-text >
 		Breve descripcion del area
 	</v-card-text>
 

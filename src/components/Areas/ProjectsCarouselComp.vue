@@ -1,34 +1,44 @@
 <template>
     <!-- a carousel with cycle and pagination  -->
-	<section class="ma-5">
-	
-		<v-carousel 
-		cycle
-		show-arrows="hover"	
-		>
+	<section>
+		<v-card-title>
+			Proyectos
+		</v-card-title>
+		<div class="ma-5">
+			
+			<v-carousel 
+			cycle
+			show-arrows="hover"	
+			>
 			<v-carousel-item
-				v-for="(item, id) in project_items_test"
-				:key="id"
-				:src="item.image"
-				:lazy-src="item.image"
-				:alt="item.title"
-				:to="item.link"
-				cover
+			v-for="(item, id) in project_items_test"
+			:key="id"
+			:alt="item.title"
+			cover
 			>
 			<!-- FIX: can't add text when there is an image -->
-				<!-- <v-sheet
-					height="100%"
-					>
-					<div class="d-flex fill-height justify-center align-center">
-						<div class="text-h2">
-						{{ item.title }} Slide
+			<!-- <v-sheet
+				height="100%"
+						>
+						<div class="d-flex fill-height justify-center align-center">
+							<div class="text-h2">
+								{{ item.title }} Slide
+							</div>
 						</div>
-					</div>
-				</v-sheet> -->
-			</v-carousel-item>
-		</v-carousel>
-		
+					</v-sheet> -->
+					<a :href="item.link">
+						<v-img
+						:src="item.image"
+						:lazy-src="item.image"
+						cover
+						></v-img>
+					</a>
+				</v-carousel-item>
+			</v-carousel>
+			
+		</div>
 	</section>
+
 </template>
 
 <script setup>

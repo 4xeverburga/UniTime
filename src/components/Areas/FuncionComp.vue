@@ -8,6 +8,7 @@
 				cols="6"
 			>
 				<v-card
+				elevation="0"
 					>
 				<v-card-title>  Funcion del area </v-card-title>
 				<v-card-text>
@@ -20,6 +21,7 @@
 				cols="6"
 			>
 				<v-card
+				elevation="0"
 				class="pa-4 text-center secondary text-no-wrap rounded-lg"
 				color="#778da94d"
 				>
@@ -41,6 +43,7 @@
 							link
 							rounded
 							flat
+							href="https://www.linkedin.com"
 							>
 							<v-icon dark>mdi-linkedin</v-icon>
 							visitar LinkedIn
@@ -63,6 +66,10 @@
 </template>
 
 <style scoped>
+/* elevation 0 for all v-cards */
+.v-card {
+  box-shadow: none;
+}
 </style>
 
 <script setup>

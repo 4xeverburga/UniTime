@@ -1,5 +1,5 @@
 <template>
-	<v-card>
+	<section class="ml-4 mr-4">
 		<v-card-title>
 			Perfil para nuevos miembros
 		</v-card-title>
@@ -17,7 +17,7 @@
 			<v-col cols="4"> grupo 2</v-col>
 
 		</v-row>
-	</v-card>
+	</section>
 </template>
 
 <style scoped>
