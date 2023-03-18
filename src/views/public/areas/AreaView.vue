@@ -12,9 +12,8 @@
 
 </v-card>
 
-<ProjectsCarouselComp></ProjectsCarouselComp>
 <FuncionComp></FuncionComp>
-<ProyectosComp></ProyectosComp>
+<ProjectsCarouselComp></ProjectsCarouselComp>
 <MemberProfileComp></MemberProfileComp>
 
 </template>
