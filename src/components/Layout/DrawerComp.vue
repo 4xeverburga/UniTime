@@ -1,7 +1,7 @@
 <template>
 
 	<!-- NAVBAR -->
-	<v-app-bar class="navbar flex-grow-0" elevation="0" flat app style="background-color: #d5ecfb;" >
+	<v-app-bar class="navbar flex-grow-0" elevation="0" flat app style="background-color: #778DA9" >
 
 		<!-- button hamburguer -->
 		<v-app-bar-nav-icon class="hamburger" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -26,8 +26,8 @@
 
 		<v-card class="areas-buttons"  dark elevation="0">
 			<!-- iterate over the list of buttons  -->
-			<v-btn v-for="button in buttons" 
-			:key="button.id" class="nav-button" 
+			<v-btn v-for="button in buttons"
+			:key="button.id" class="nav-button"
 			:href="button.path"
 			>
 				{{ button.title }}
@@ -61,7 +61,7 @@
 			</v-list-item>
 		</v-list>
 	</v-navigation-drawer>
-	
+
 </template>
 
 <script setup>

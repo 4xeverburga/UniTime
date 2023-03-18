@@ -28,6 +28,7 @@
 .v-card-title{
 	font-size: 48px;
 	font-weight: 600;
+	font-family: 'Poppins';
 }
 
 .v-card-text{
