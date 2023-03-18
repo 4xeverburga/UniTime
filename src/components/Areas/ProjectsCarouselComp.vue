@@ -66,13 +66,13 @@ const project_items_test = [
 </script>
 
 <style scoped>
-/* add margin to the carousel to make it look better */
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
 .v-carousel__controls {
 	margin: 10px;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Poppins');
-@import url('https://fonts.googleapis.com/css?family=Inter');
 
 .v-card-title{
 	font-family: 'Poppins';

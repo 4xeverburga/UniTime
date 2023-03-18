@@ -1,6 +1,6 @@
 <template>
 	<v-card>
-		<v-card-title>
+		<v-card-title class="font-weight-medium">
 			Perfil para nuevos miembros
 		</v-card-title>
 		<br>
@@ -26,9 +26,10 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
 .v-card-title{
+	font-family: 'Poppins';
 	font-size: 48px;
 	font-weight: 600;
-	font-family: 'Poppins';
+	line-height: 3;
 }
 
 .v-card-text{
