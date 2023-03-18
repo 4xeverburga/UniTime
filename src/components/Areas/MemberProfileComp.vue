@@ -21,6 +21,10 @@
 </template>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
 .v-card-title{
 	font-size: 48px;
 	font-weight: 600;
@@ -28,10 +32,11 @@
 
 .v-card-text{
 
-	font-size: 24;
+	font-family: 'Poppins';
+	font-style: normal;
 	font-weight: 300;
-	text-align: center;
+	font-size: 24px;
 	line-height: 36px;
-	font-family: Poppins
+	text-align: center;
 }
 </style>
