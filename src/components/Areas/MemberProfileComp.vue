@@ -40,5 +40,6 @@
 	font-size: 24px;
 	line-height: 36px;
 	text-align: center;
+	line-height: 2;
 }
 </style>

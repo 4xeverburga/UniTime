@@ -28,10 +28,10 @@
 
 	<v-img
 		id="conocenos-logo"
-		lazy-src="src/assets/patata.jpg"
+		lazy-src="https://scontent.flim28-1.fna.fbcdn.net/v/t1.6435-9/83150382_2534126020138580_692631879750629304_n.png?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=h3qYMLqnEkMAX_hzRVF&_nc_ht=scontent.flim28-1.fna&oh=00_AfBQIvDvRToZm2v92MVkzt66i77s83DwW4IfhXAbxpgx5Q&oe=643CE7C2"
 		height="240"
 		width="240"
-		src="src/assets/patata.jpg"
+		src="https://scontent.flim28-1.fna.fbcdn.net/v/t1.6435-9/83150382_2534126020138580_692631879750629304_n.png?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=h3qYMLqnEkMAX_hzRVF&_nc_ht=scontent.flim28-1.fna&oh=00_AfBQIvDvRToZm2v92MVkzt66i77s83DwW4IfhXAbxpgx5Q&oe=643CE7C2"
 		contain
 	/>
 
