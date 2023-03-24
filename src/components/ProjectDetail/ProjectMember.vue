@@ -30,6 +30,7 @@
             <v-spacer></v-spacer>
         </v-row>
 
+        <div class = "margin"></div>
     </v-card>
 </template>
 
@@ -76,6 +77,10 @@ template {
 
 .v-card-text {
     font-weight: 400;
+}
+
+.margin {
+    margin-top: 20px;
 }
 </style>
 
