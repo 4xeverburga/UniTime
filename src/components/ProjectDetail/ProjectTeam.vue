@@ -3,7 +3,7 @@
 <template>
 	<!-- title -->
 	<h1>
-		<span class="text-primary">EQUIPO</span>
+		<span class="title">EQUIPO</span>
 	</h1>
 
 
@@ -16,7 +16,7 @@
 	<v-row class="mx-0">
 		<v-col cols="4" v-for="(item, id) in three_groups" :key="id">
 		{{ item.title }}
-	
+
 		<ProjectMember
 			img-src="src/assets/patata.jpg"
 			:title="item.title"
@@ -30,9 +30,9 @@
 	<v-row class="mx-0">
 		<v-spacer></v-spacer>
 		<v-col class=".v-col-auto" cols="4" v-for="(item, id) in remaining" :key="id">
-			
+
 		{{ item.title }}x
-	
+
 		<ProjectMember
 			img-src="src/assets/patata.jpg"
 			:title="item.title"
@@ -43,7 +43,7 @@
 		<v-spacer></v-spacer>
 	</v-row>
 	<!-- foot margin  -->
-	<div class = "foot-margin"> 
+	<div class = "foot-margin">
 	</div>
 
 </template>
@@ -64,7 +64,7 @@ function clicked () {
 }
 
 const items = [
-	{ id: 1, title: 'Item 1' },
+	{ id: 1, title: 'Item 1', networks: []},
 	{ id: 2, title: 'Item 2' },
 	{ id: 3, title: 'Item 3' },
 	{ id: 4, title: 'Item 4' },
@@ -104,8 +104,21 @@ const remaining = computed(() => {
 </script>
 
 <style scoped>
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
 .foot-margin {
 	height: 20px;
+}
+
+.title {
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 72px;
+	line-height: 87px;
+	letter-spacing: -0.02em;
 }
 </style>
 
