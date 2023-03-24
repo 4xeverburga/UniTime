@@ -10,29 +10,33 @@
 			cycle
 			show-arrows="hover"	
 			>
-			<v-carousel-item
-			v-for="(item, id) in project_items_test"
-			:key="id"
-			:alt="item.title"
-			cover
-			>
-			<!-- FIX: can't add text when there is an image -->
-			<!-- <v-sheet
-				height="100%"
-						>
-						<div class="d-flex fill-height justify-center align-center">
-							<div class="text-h2">
-								{{ item.title }} Slide
+				<v-carousel-item
+				v-for="(item, id) in project_items_test"
+				:key="id"		
+				>
+				<!-- FIX: can't add text when there is an image -->
+				<!-- <v-sheet
+					height="100%"
+							>
+							<div class="d-flex fill-height justify-center align-center">
+								<div class="text-h2">
+									{{ item.title }} Slide
+								</div>
 							</div>
-						</div>
-					</v-sheet> -->
-					<a :href="item.link">
-						<v-img
-						:src="item.image"
-						:lazy-src="item.image"
-						cover
-						></v-img>
-					</a>
+						</v-sheet> -->
+
+						<!-- <a :href="item.link">
+							<v-img
+							:src="item.image"
+							:lazy-src="item.image"
+							cover
+							center
+							></v-img>
+						</a>	 -->
+				<a :href="item.link" >
+					<v-img :src="item.image" :lazy-src="item.image" height="100%" cover />
+				</a>
+
 				</v-carousel-item>
 			</v-carousel>
 			
@@ -86,4 +90,5 @@ const project_items_test = [
 	font-size: 48px;
 	line-height: 3;
 }
+
 </style>
