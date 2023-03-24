@@ -37,7 +37,6 @@
 	</v-col>
 </v-row>
 
-<!-- pagination component -->
 
 </template>
 
