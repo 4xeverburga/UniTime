@@ -23,6 +23,10 @@ import DrawerComp from './components/Layout/DrawerComp.vue';
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
+.v-card {
+	elevation: 0;
+}
+
 
 
 

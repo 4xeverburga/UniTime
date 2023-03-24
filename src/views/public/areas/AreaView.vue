@@ -17,14 +17,15 @@
 <FuncionComp></FuncionComp>
 <ProjectsCarouselComp></ProjectsCarouselComp>
 <MemberProfileComp></MemberProfileComp>
+<AreaBenefitComp></AreaBenefitComp>
 
 </template>
 
 <script setup>
 import FuncionComp from "@/components/Areas/FuncionComp.vue"
-import ProyectosComp from "@/components/Areas/ProyectosComp.vue"
 import MemberProfileComp from "@/components/Areas/MemberProfileComp.vue"
 import ProjectsCarouselComp from "@/components/Areas/ProjectsCarouselComp.vue";
+import AreaBenefitComp from "@/components/Areas/AreaBenefitComp.vue";
 
 defineProps(['id'])
 

@@ -93,7 +93,7 @@ const buttons = ref(
 	/* make it bold */
 	font-weight: bold;
 	/* make it white*/
-	color: black;
+	color: #D9D9D9;
 }
 
 /* add a margin to the buttons container */
