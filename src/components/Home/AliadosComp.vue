@@ -1,12 +1,15 @@
 <template>
-<v-card elevation="0" class="mx-16">
+<v-card
+	elevation="0"
+	class="mx-16"
+	>
 	<v-card-title>
 		<h2>Aliados</h2>
 	</v-card-title>
 	<v-row
 	class="mx-16">
 		<v-col cols="4" v-for="(aliado, id) in visible" :key="id">
-			<v-card>
+			<v-card elevation="0" flat>
 				<v-img
 					:src="aliado.img"
 					height="200px"

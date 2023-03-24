@@ -1,6 +1,7 @@
 <!-- Project Portfolio -->
 
 <template>
+	<v-card elevation="0" flat class="mx-11">
 	<!-- title -->
 	<h1>
 		<span class="title">EQUIPO</span>
@@ -46,6 +47,8 @@
 	<div class = "foot-margin">
 	</div>
 
+	</v-card>
+
 </template>
 
 <script setup>
@@ -64,7 +67,8 @@ function clicked () {
 }
 
 const items = [
-	{ id: 1, title: 'Item 1', networks: []},
+	{ id: 1, title: 'Item 1',
+		networks: [{'linkedin': 'https://www.linkedin.com/'}, {'facebook': 'https://www.facebook.com'}]},
 	{ id: 2, title: 'Item 2' },
 	{ id: 3, title: 'Item 3' },
 	{ id: 4, title: 'Item 4' },

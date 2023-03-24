@@ -18,7 +18,6 @@
 
 <v-row class="mx-0">
 	<v-col cols="4" v-for="(item, id) in visible" :key="id">
-		{{ item.title }}
 
 		<ProjectItem
 		img-src="src/assets/patata.jpg"

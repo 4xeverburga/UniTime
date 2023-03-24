@@ -15,14 +15,15 @@
 		mb-6
 	>
 		<v-btn
-			v-for="area in areas" :key="area.id" 
+			v-for="area in areas" :key="area.id"
+			class="my-11 mx-16 text-black text-h2"
 			height="80px"
 			title
 			flat
 			plain
 			link
 			rounded
-			class="my-11 mx-16 text-black text-h2"
+			:href="area/area.id"
 		>
 			<v-icon color="gray">
 				mdi-numeric-{{ area.id }}-circle

@@ -6,8 +6,8 @@
 >
 	<v-card
 		class="text-start"
-		width="60%"
 		elevation="0"
+		flat
 	>
 		<v-card-title
 			class="mb-10"
@@ -69,6 +69,7 @@
 			id="mision"
 			class="mx-13"
 			elevation="0"
+			flat
 		>
 
 			<v-card-title
