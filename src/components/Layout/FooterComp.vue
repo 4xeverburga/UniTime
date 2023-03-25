@@ -48,7 +48,7 @@
         justify="center"
         class="text-white d-flex"
     >
-            <v-card 
+            <v-card
                 v-for="contact in contacts"
                 :key="contact.id"
                 flat

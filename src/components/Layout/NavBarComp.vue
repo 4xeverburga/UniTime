@@ -12,7 +12,28 @@
 
 		<v-card v-if="drawer" class="v-card">
 			<v-btn text>Inicio</v-btn>
-			<v-btn text>Areas</v-btn>
+			<!-- <v-btn text>Areas</v-btn> -->
+			<v-menu
+				open-on-hover
+				>
+				<template v-slot:activator="{ props }">
+					<v-btn
+						v-bind="props"
+					>
+					Areas
+					</v-btn>
+
+				</template>
+
+				<v-list>
+					<v-list-item
+						v-for="(item, index) in items"
+						:key="index"
+					>
+					<v-list-item-title>{{ item.title }}</v-list-item-title>
+					</v-list-item>
+				</v-list>
+				</v-menu>
 			<v-btn text>Proyectos</v-btn>
 			<v-btn text>Eventos</v-btn>
 		</v-card>
@@ -26,6 +47,13 @@ import {computed} from 'vue'
 import {ref} from 'vue'
 // state of the drawer/buttons
 const drawer = ref(false)
+
+const items = ref([
+	{id: 1, title: 'IDI'},
+	{id: 2, title: 'Academica'},
+	{id: 3, title: 'GTH'},
+	{id: 4, title: 'Logistica'},
+])
 
 function toggleDrawer() {
 	drawer.value = !drawer.value

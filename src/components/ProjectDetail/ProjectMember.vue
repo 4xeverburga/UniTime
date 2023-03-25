@@ -2,7 +2,7 @@
     <v-card
     class = "main-card"
     id="title"
-    >   
+    >
 
             <!-- img -->
             <div class = "ma-2">
@@ -70,13 +70,12 @@ template {
 
 /* max dimensions of the v-card */
 .main-card {
-    aspect-ratio: 3/4;
     background-color: #F5F5F5;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .v-card {
-    text-align: center; 
+    text-align: center;
     align-self: center;
 }
 
