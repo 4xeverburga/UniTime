@@ -1,7 +1,7 @@
 <template>
  <!-- a search bar that filters the items in the carousel
  with a button for saving the query -->
-    <v-row class="mx-0">
+    <v-row class="mx-16">
         <v-col cols="4">
             <v-text-field
                 v-model="name_filter"

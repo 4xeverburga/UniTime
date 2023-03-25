@@ -14,7 +14,7 @@ const routes = [
   },
 
   {
-    path: '/area/:id',
+    path: '/areas/:id',
     name: 'area',
     component: () => import(/* webpackChunkName: "about" */ '../views/public/areas/AreaView.vue')
   },

@@ -2,7 +2,7 @@
 
 <template>
 <!-- title -->
-<h1>
+<h1 class="mx-16">
 	<!-- white text colour in style -->
 	<span class="text-primary-test"
 	>Portafolio de proyectos</span>
@@ -92,5 +92,9 @@ const visible = computed(() => {
 <style scoped>
 .text-primary-test {
 	color: #778DA9;
+}
+
+h1 {
+	line-height: 3;
 }
 </style>

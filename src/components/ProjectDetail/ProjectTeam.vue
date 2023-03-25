@@ -16,11 +16,10 @@
 
 	<v-row class="mx-0">
 		<v-col cols="4" v-for="(item, id) in three_groups" :key="id">
-		{{ item.title }}
+		<!-- {{ item.title }} -->
 
 		<ProjectMember
 			img-src="src/assets/patata.jpg"
-			:title="item.title"
 			description="item.description"
 			:id="item.id"
 			/>
@@ -31,8 +30,6 @@
 	<v-row class="mx-0">
 		<v-spacer></v-spacer>
 		<v-col class=".v-col-auto" cols="4" v-for="(item, id) in remaining" :key="id">
-
-		{{ item.title }}x
 
 		<ProjectMember
 			img-src="src/assets/patata.jpg"
@@ -121,7 +118,7 @@ const remaining = computed(() => {
 	font-style: normal;
 	font-weight: 700;
 	font-size: 72px;
-	line-height: 87px;
+	line-height: 2;
 	letter-spacing: -0.02em;
 }
 </style>

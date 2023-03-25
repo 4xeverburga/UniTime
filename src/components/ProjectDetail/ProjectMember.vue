@@ -1,26 +1,30 @@
 <template>
     <v-card
     id="title"
+    elevation="0"
     >
-    
+
             <!-- img -->
-            <v-img
-                :src="imgSrc"
-                :aspect-ratio="1"
-                max-width="100%"
-                max-height="100%"
-                contain
-            ></v-img>
+            <div class="square">
+                <v-img
+                    class="rounded-circle"
+                    src="https://www.allthingsdogs.com/wp-content/uploads/2020/01/Chow-Chow-Feature-678x381.jpg"
+                    max-width="100%"
+                    max-height="100%"
+                    contain
+                ></v-img>
+
+            </div>
 
             <v-card-title>
                 INTEGRANTE
             </v-card-title>
             <v-card-text>
-                Descripcion de integrante 
+                Descripcion de integrante
 
                 rol
             </v-card-text>
-        
+
         <!-- social media sub-component -->
         <v-row>
             <v-spacer></v-spacer>
@@ -39,12 +43,6 @@
 // define props for img-src, title, description, and id
 defineProps(['img-src', 'title', 'description', 'id', 'media', 'rol'])
 
-const social_media = [
-    {media: "facebook", link: "https://www.facebook.com/"},
-    {media: "instagram", link: "https://www.instagram.com/"},
-    {media: "twitter", link: "https://twitter.com/"},
-    {media: "linkedin", link: "https://www.linkedin.com/"},
-]
 const social_group = [
     {icon: "mdi-facebook", link: "https://www.facebook.com/"},
     {icon: "mdi-instagram", link: "https://www.instagram.com/"},
