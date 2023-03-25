@@ -1,17 +1,14 @@
 <template>
     <v-card
+    class = "main-card"
     id="title"
-    elevation="0"
-    >
+    >   
 
             <!-- img -->
-            <div class="square">
+            <div class = "ma-2">
                 <v-img
                     class="rounded-circle"
                     src="https://www.allthingsdogs.com/wp-content/uploads/2020/01/Chow-Chow-Feature-678x381.jpg"
-                    max-width="100%"
-                    max-height="100%"
-                    contain
                 ></v-img>
 
             </div>
@@ -26,7 +23,7 @@
             </v-card-text>
 
         <!-- social media sub-component -->
-        <v-row>
+        <v-row >
             <v-spacer></v-spacer>
             <v-btn
                 v-for="(item, id) in social_group"
@@ -72,10 +69,14 @@ template {
 }
 
 /* max dimensions of the v-card */
+.main-card {
+    aspect-ratio: 3/4;
+    background-color: #F5F5F5;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .v-card {
-    /* max-width: 400px; */
-    max-height: 800px;
-    text-align: center;
+    text-align: center; 
     align-self: center;
 }
 
