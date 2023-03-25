@@ -7,7 +7,6 @@
 		<v-app-bar-nav-icon class="hamburger" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
 		<!-- logo -->
-		<!-- :src="require('@/assets/logo.png')" -->
 		<v-card class="logo" elevation="0" flat color="transparent">
 			<v-img
 			:src="ccat_logo"
@@ -15,7 +14,6 @@
 			width="48"
 			></v-img>
 		</v-card>
-
 
 		<v-app-bar-title class="ccat-name">CCAT</v-app-bar-title>
 

@@ -1,3 +1,4 @@
+<!-- currently not in use  -->
 <template>
 		<!-- A sticky navbar with a logo on the left and links on the right for Inicio, Areas, Proyectos and Eventos -->
 		<!-- it has 2 columns, one for the logo and the other for the links, the links are inside a container with rounded corners and a background color -->
