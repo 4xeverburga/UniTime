@@ -28,9 +28,19 @@
         <!-- social media sub-component -->
         <v-row>
             <v-spacer></v-spacer>
-            <v-col cols="2" v-for="(item, id) in social_group" :key="id">
-                <v-icon>{{ item.icon }}</v-icon>
-            </v-col>
+            <v-btn
+                v-for="(item, id) in social_group"
+                :key="id"
+                :href="item.link"
+                cols="2"
+                flat
+                icon
+                title
+                color="transparent"
+                target="_plank"
+                >
+                <v-icon>mdi-{{ item.icon }}</v-icon>
+            </v-btn>
             <v-spacer></v-spacer>
         </v-row>
 
@@ -44,10 +54,10 @@
 defineProps(['img-src', 'title', 'description', 'id', 'media', 'rol'])
 
 const social_group = [
-    {icon: "mdi-facebook", link: "https://www.facebook.com/"},
-    {icon: "mdi-instagram", link: "https://www.instagram.com/"},
-    {icon: "mdi-twitter", link: "https://twitter.com/"},
-    {icon: "mdi-linkedin", link: "https://www.linkedin.com/"},
+    {icon: "facebook", link: "https://www.facebook.com/"},
+    {icon: "instagram", link: "https://www.instagram.com/"},
+    {icon: "twitter", link: "https://twitter.com/"},
+    {icon: "linkedin", link: "https://www.linkedin.com/"},
 ]
 
 

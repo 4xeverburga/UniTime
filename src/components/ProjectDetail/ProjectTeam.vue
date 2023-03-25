@@ -36,6 +36,7 @@
 			:title="item.title"
 			description="item.description"
 			:id="item.id"
+			:media="item.media"
 			/>
 		</v-col>
 		<v-spacer></v-spacer>
