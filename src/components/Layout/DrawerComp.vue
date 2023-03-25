@@ -31,6 +31,25 @@
 				{{ button.title }}
 			</v-btn>
 
+			<v-menu
+				open-on-hover
+				>
+				<template v-slot:activator="{ props }">
+					<v-btn
+						v-bind="props"
+					>
+					Areas
+					</v-btn>
+
+				</template>
+
+					<v-btn v-for="(item, index) in items"
+						:key="index"
+					>
+					{{ item.title }}
+					</v-btn>
+				</v-menu>
+
 		</v-card>
 
 	</v-app-bar>
@@ -71,11 +90,18 @@ const drawer = ref(false)
 const buttons = ref(
 	[
 		{id:1, title: 'Inicio', icon: 'mdi-home', path: '/' },
-		{id:2, title: 'Áreas', icon: 'mdi-account-box', path:'/areas' },
-		{id:3, title: 'Proyectos', icon: 'mdi-cog', path:'/projects' },
-		{id:4, title: 'Eventos', icon: 'mdi-cog', path:'/events' },
+		// {id:2, title: 'Áreas', icon: 'mdi-account-box', path:'/areas' },
+		{id:2, title: 'Proyectos', icon: 'mdi-cog', path:'/projects' },
+		{id:3, title: 'Eventos', icon: 'mdi-cog', path:'/events' },
 	]
 )
+
+const items = ref([
+	{id: 1, title: 'IDI'},
+	{id: 2, title: 'Academica'},
+	{id: 3, title: 'GTH'},
+	{id: 4, title: 'Logistica'},
+])
 
 </script>
 
