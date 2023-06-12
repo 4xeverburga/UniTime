@@ -8,32 +8,8 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/areas',
-    name: 'areas',
-    component: HomeView // this should scroll to the areas section
-  },
-
-  {
-    path: '/areas/:id',
-    name: 'area',
-    component: () => import(/* webpackChunkName: "about" */ '../views/public/areas/AreaView.vue')
-  },
-
-  {
-    path: '/projects',
-    name: 'projects',
-    component: () => import(/* webpackChunkName: "about" */ '../views/public/projects/ProjectView.vue')
-  },
-
-  {
-    path: '/projects/:id',
-    name: 'projectDetails',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/public/projects/ProjectDetailView.vue')
-  },
-
+    
+  }
 
 ]
 

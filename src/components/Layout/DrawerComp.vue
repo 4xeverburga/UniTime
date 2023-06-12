@@ -15,7 +15,7 @@
 			></v-img>
 		</v-card>
 
-		<v-app-bar-title class="ccat-name">CCAT</v-app-bar-title>
+		<v-app-bar-title class="ccat-name">unitime</v-app-bar-title>
 
 
 		<!-- spacer -->
@@ -34,14 +34,7 @@
 			<v-menu
 				open-on-hover
 				>
-				<template v-slot:activator="{ props }">
-					<v-btn
-						v-bind="props"
-					>
-					Areas
-					</v-btn>
-
-				</template>
+		
 
 					<v-btn v-for="(item, index) in items"
 						:key="index"
@@ -90,9 +83,10 @@ const drawer = ref(false)
 const buttons = ref(
 	[
 		{id:1, title: 'Inicio', icon: 'mdi-home', path: '/' },
-		// {id:2, title: 'Áreas', icon: 'mdi-account-box', path:'/areas' },
-		{id:2, title: 'Proyectos', icon: 'mdi-cog', path:'/projects' },
-		{id:3, title: 'Eventos', icon: 'mdi-cog', path:'/events' },
+		{id:2, title: 'Grupos', icon: 'mdi-cog', path:'/projects' },
+		{id:3, title: 'Horarios', icon: 'mdi-cog', path:'/events' },
+		{id:4, title: 'Tareas', icon: 'mdi-cog', path:'/events' },
+		{id:5, title: 'Estadísticas', icon: 'mdi-cog', path:'/events' },
 	]
 )
 

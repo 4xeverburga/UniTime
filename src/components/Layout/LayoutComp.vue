@@ -1,3 +1,0 @@
-<template>
-	stub
-</template>
