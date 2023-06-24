@@ -27,21 +27,7 @@
                 <v-icon size="41px" color="white">{{ link.icon }}</v-icon>
             </v-btn>
         </v-row>
-        <v-row
-            class="primary lighten-2 py-4 text-center text-white d-flex flex-row justify-center"
-            color="white"
-            cols="12"
-        >
-            <v-card
-                height="30"
-                width="90"
-                rounded
-                color="#778DA9"
-                class="text-white"
-            >
-            Escribenos
-            </v-card>
-        </v-row>
+
     </v-col>
 
     <v-row
@@ -93,7 +79,7 @@ const links = ref([
 const contacts = ref([
 { id: 1, icon: 'mdi-map-marker', description: 'Facultad de Ingeniería Industrial y de Sistemas - UNI, Rímac 15333 Lima, Perú' },
 { id: 2, icon: 'mdi-clock', description: 'Lun-Vie 8:30 - 21:00' },
-{ id: 3, icon: 'mdi-email', description: 'ccat.fiis@uni.edu.pe' },
+{ id: 3, icon: 'mdi-email', description: 'kekeros@uni.edu.pe' },
 // { id: 4, icon: 'mdi-phone', description: '(01) 626-2000 anexo 1111' },
 // { id: 5, icon: 'mdi-whatsapp', description: '943 000 000'}
 ])

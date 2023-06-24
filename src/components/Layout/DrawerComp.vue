@@ -1,7 +1,7 @@
 <template>
 
 	<!-- NAVBAR -->
-	<v-app-bar class="navbar flex-grow-0" elevation="0" flat app style="background-color: #778DA9" >
+	<v-app-bar class="navbar flex-grow-0" elevation="0" flat app style="background-color: #6c8dbb" >
 
 		<!-- button hamburguer -->
 		<v-app-bar-nav-icon class="hamburger" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -117,7 +117,7 @@ const items = ref([
 /* add a margin to the buttons container */
 .areas-buttons{
 	margin-right: 20px;
-	background-color: rgba(82, 175, 236, 0.24);
+	background-color: rgba(135, 204, 250, 0.24);
 	/* align the text in the middle of the container */
 	align-items: center;
 
@@ -135,7 +135,7 @@ const items = ref([
 	min-width: 200px;
 	max-width: 300px;
 	font-family: 'Roboto', sans-serif;
-	color: #01225E;
+	color: #031535;
 	/* text in lowercase */
 	text-transform: none;
 	/* align text in the center from top to bottom  */
