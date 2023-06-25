@@ -31,22 +31,37 @@
     <v-card-title>
         <h4 class="group-description"><b>Proyectos del grupo:</b></h4>
     </v-card-title>
-    <v-table>
-        <tr v-for="item in proyectos" :key="item.nombre">
-            <td>
-                {{ item.fecha }}
-            </td>
-            <td>
-                {{ item.hora }}
-            </td>
-            <td>
-                {{ item.nombre }}
-            </td>
-        </tr>
-    </v-table>
+    <v-data-table
+    v-model:items-per-page="itemsPerPage_proyectos"
+    :headers="headers_proyectos"
+    :items="items"
+    item-value="name"
+    class="elevation-1"
+  ></v-data-table>
 </template>
 
 <script setup>
+const itemsPerPage_proyectos = 5
+const headers_proyectos = [
+    {
+        title: 'Fecha',
+        align: 'start',
+        sortable: false,
+        key: 'fecha',
+    },
+    {
+        title: 'Hora',
+        align: 'start',
+        sortable: false,
+        key: 'hora',
+    },
+    {
+        title: 'Nombre',
+        align: 'start',
+        sortable: false,
+        key: 'nombre',
+    }
+]
 const proyectos = [
     {
         fecha: '10/10/2021',
