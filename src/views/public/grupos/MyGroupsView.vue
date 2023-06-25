@@ -2,7 +2,7 @@
   <v-data-table
     v-model:items-per-page="itemsPerPage"
     :headers="headers"
-    :items="desserts"
+    :items="items"
     item-value="name"
     class="elevation-1"
   ></v-data-table>
@@ -14,7 +14,7 @@
         itemsPerPage: 5,
         headers: [
           {
-            title: 'Dessert (100g serving)',
+            title: 'Eventos Grupales',
             align: 'start',
             sortable: false,
             key: 'name',
