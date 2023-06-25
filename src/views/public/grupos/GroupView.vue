@@ -3,6 +3,14 @@
     <v-card-title class="d-flex align-center">
       <v-icon class="mr-2">mdi-account-group</v-icon>
       <h2 class="group-name">Trabajo de DBD</h2>
+      <v-spacer></v-spacer>
+      <div class="user-profile">
+        <v-icon>mdi-account-circle</v-icon>
+        <span class="username">Nombre de usuario</span>
+        <v-btn icon color="primary" @click="logout">
+          <v-icon>mdi-logout</v-icon>
+        </v-btn>
+      </div>
     </v-card-title>
 
   <v-card class="mx-4" elevation="0" flat>
@@ -84,6 +92,10 @@ export default {
     navigateTo(route) {
       // Implementa aquí la lógica para navegar a la vista correspondiente según la ruta proporcionada
       console.log("Navegar a la vista:", route);
+    },
+    logout() {
+      // Implementa aquí la lógica para cerrar sesión
+      console.log("Cerrar sesión");
     }
   }
 };
@@ -194,4 +206,18 @@ body {
     padding: 12px 24px;
   }
 }
+.user-profile {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.user-profile v-icon {
+  margin-right: 8px;
+}
+.user-profile .username {
+  font-size: 16px;
+  color: #616161;
+} 
+
 </style>
