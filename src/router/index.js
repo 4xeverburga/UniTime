@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/public/home/HomeView.vue'
 import GroupView from '../views/public/grupos/GroupView.vue'
+import MembersView from '../views/public/grupos/MembersView.vue'
 
 
 const routes = [
@@ -13,6 +14,11 @@ const routes = [
     path: '/grupos',
     name: 'grupos',
     component: GroupView
+  },
+  {
+    path: '/group/members',
+    name: 'members',
+    component: MembersView
   },
   {
     //lazy load of TareasView
