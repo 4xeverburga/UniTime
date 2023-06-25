@@ -4,7 +4,7 @@
     :headers="headers"
     :items="items"
     item-value="name"
-    class="elevation-1"
+    class="elevation-19"
   ></v-data-table>
 </template>
 <script>
@@ -19,8 +19,8 @@
             sortable: false,
             key: 'name',
           },
-          { title: 'Calories', align: 'end', key: 'calories' },
-          { title: 'Fat (g)', align: 'end', key: 'fat' },
+          { title: 'Grupo', align: 'end', key: 'calories' },
+          { title: 'F', align: 'end', key: 'fat' },
           { title: 'Carbs (g)', align: 'end', key: 'carbs' },
           { title: 'Protein (g)', align: 'end', key: 'protein' },
           { title: 'Iron (%)', align: 'end', key: 'iron' },

@@ -1,11 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/public/home/HomeView.vue'
 import GroupView from '../views/public/grupos/GroupView.vue'
-<<<<<<< HEAD
 import MyGruopsView from '../views/public/grupos/MyGroupsView.vue'
-=======
 import MembersView from '../views/public/grupos/MembersView.vue'
->>>>>>> bbc96aa4516677e6f38d0a1bd7a0895ba840bdec
 
 
 const routes = [
@@ -20,11 +17,11 @@ const routes = [
     component: GroupView
   },
   {
-<<<<<<< HEAD
-    path: '/mygroups',
+    path: '/misgrupos',
     name: 'mygroups',
     component: MyGruopsView
-=======
+  },
+  {
     path: '/group/members',
     name: 'members',
     component: MembersView
@@ -35,7 +32,6 @@ const routes = [
     name: 'tareas',
     component: () => import(/* webpackChunkName: "tareas" */ '../views/public/tareas/TareasView.vue')
 
->>>>>>> bbc96aa4516677e6f38d0a1bd7a0895ba840bdec
   }
 
 ]
