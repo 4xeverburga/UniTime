@@ -6,12 +6,18 @@ import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import Vue3EasyDataTable from 'vue3-easy-data-table';
+import 'vue3-easy-data-table/dist/style.css';
+
+
+
 
 loadFonts()
 library.add(faUserSecret)
 
 
-createApp(App).use(router).use(router)
+createApp(App).use(router)
   .use(vuetify)
-  .mount('#app')
   .component('font-awesome-icon', FontAwesomeIcon)
+  .component('EasyDataTable', Vue3EasyDataTable)
+  .mount('#app')

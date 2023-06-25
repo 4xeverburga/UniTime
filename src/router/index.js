@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/public/home/HomeView.vue'
 import GroupView from '../views/public/grupos/GroupView.vue'
+import MyGruopsView from '../views/public/grupos/MyGroupsView.vue'
 
 
 const routes = [
@@ -15,7 +16,9 @@ const routes = [
     component: GroupView
   },
   {
-
+    path: '/mygroups',
+    name: 'mygroups',
+    component: MyGruopsView
   }
 
   ]
