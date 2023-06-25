@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/public/home/HomeView.vue'
-import GroupView from '../views/public/grupos/GroupView.vue'
-import MembersView from '../views/public/grupos/MembersView.vue'
 
 
 const routes = [
@@ -11,20 +9,24 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/group',
-    name: 'group',
-    component: GroupView
+    path: '/grupos',
+    name: 'grupos',
+    component: () => import(/* webpackChunkName: "grupos" */ '../views/public/grupos/GroupView.vue')
   },
   {
     path: '/group/members',
     name: 'members',
-    component: MembersView
+    component: () => import(/* webpackChunkName: "members" */ '../views/public/grupos/MembersView.vue')
   },
   {
+    //lazy load of TareasView
+    path: '/tareas',
+    name: 'tareas',
+    component: () => import(/* webpackChunkName: "tareas" */ '../views/public/tareas/TareasView.vue')
 
   }
 
-  ]
+]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
