@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/public/home/HomeView.vue'
+import GroupView from '../views/public/grupos/GroupView.vue'
+
 
 const routes = [
   {
@@ -8,10 +10,15 @@ const routes = [
     component: HomeView
   },
   {
-    
+    path: '/group',
+    name: 'group',
+    component: GroupView
+  },
+  {
+
   }
 
-]
+  ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

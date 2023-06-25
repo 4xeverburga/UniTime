@@ -83,7 +83,7 @@ const drawer = ref(false)
 const buttons = ref(
 	[
 		{id:1, title: 'Inicio', icon: 'mdi-home', path: '/' },
-		{id:2, title: 'Grupos', icon: 'mdi-cog', path:'/projects' },
+		{id:2, title: 'Grupos', icon: 'mdi-cog', path:'/group' },
 		{id:3, title: 'Horarios', icon: 'mdi-cog', path:'/events' },
 		{id:4, title: 'Tareas', icon: 'mdi-cog', path:'/events' },
 		{id:5, title: 'Estadísticas', icon: 'mdi-cog', path:'/events' },
