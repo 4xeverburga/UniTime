@@ -175,8 +175,8 @@
 
 <v-container class="bottom_table">
 	<v-data-table
-	:headers="headers_top"
-	:items="proyectos"
+	:headers="headers_bottom"
+	:items="tareas"
 	:sort-by="[{ key: 'fecha', order: 'asc' }]"
 	class="elevation-1"
 	>
@@ -192,7 +192,7 @@
 			></v-divider>
 			<v-spacer></v-spacer>
 			<v-dialog
-			v-model="dialogTop"
+			v-model="dialogBottom"
 			max-width="500px"
 			>
 			<template v-slot:activator="{ props }">
@@ -207,7 +207,7 @@
 		</template>
 			<v-card>
 				<v-card-title>
-					<span class="text-h5">{{ formTitleTop }}</span>
+					<span class="text-h5">{{ formTitleBottom }}</span>
 				</v-card-title>
   
 				<v-card-text>
@@ -219,8 +219,8 @@
 							md="4"
 							>
 							<v-text-field
-						v-model="editedItemTop.nombre"
-						label="Nombre de proyecto"
+						v-model="editedItemBottom.nombre"
+						label="Nombre de tarea"
 					  ></v-text-field>
 					</v-col>
 					<v-col
@@ -229,9 +229,9 @@
 					  md="4"
 					  >
 					  <v-text-field
-					  v-model="editedItemTop.fecha"
+					  v-model="editedItemBottom.fecha"
 					  type="date"
-					  label="Fecha del proyecto"
+					  label="Fecha del tarea"
 					  ></v-text-field>
 					</v-col>
 					<v-col
@@ -241,9 +241,9 @@
 					  >
 					  <!-- time field -->
 					  <v-text-field
-					  v-model="editedItemTop.hora"
+					  v-model="editedItemBottom.hora"
 					  type="time"
-					  label="Hora del proyecto"
+					  label="Hora de tarea"
 					  ></v-text-field>
 					</v-col>
 				</v-row>
@@ -255,27 +255,27 @@
 				<v-btn
 				  color="blue-darken-1"
 				  variant="text"
-				  @click="closeTop"
+				  @click="closeBottom"
 				  >
 				  Cancel
 				</v-btn>
 				<v-btn
 				color="blue-darken-1"
 				  variant="text"
-				  @click="saveTop"
+				  @click="saveBottom"
 				  >
 				  Save
 				</v-btn>
 			</v-card-actions>
 		</v-card>
 		  </v-dialog>
-		  <v-dialog v-model="dialogDeleteTop" max-width="500px">
+		  <v-dialog v-model="dialogDeleteBottom" max-width="500px">
 			<v-card>
 				<v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
 			  <v-card-actions>
 				  <v-spacer></v-spacer>
-				  <v-btn color="blue-darken-1" variant="text" @click="closeDeleteTop">Cancel</v-btn>
-				  <v-btn color="blue-darken-1" variant="text" @click="deleteItemConfirmTop">OK</v-btn>
+				  <v-btn color="blue-darken-1" variant="text" @click="closeDeleteBottom">Cancel</v-btn>
+				  <v-btn color="blue-darken-1" variant="text" @click="deleteItemConfirmBottom">OK</v-btn>
 				<v-spacer></v-spacer>
 			  </v-card-actions>
 			</v-card>
@@ -287,13 +287,13 @@
 		<v-icon
 		size="small"
 		class="me-2"
-		  @click="editItemTop(item.raw)"
+		  @click="editItemBottom(item.raw)"
 		  >
 		  mdi-pencil
 		</v-icon>
 		<v-icon
 		size="small"
-		@click="deleteItemTop(item.raw)"
+		@click="deleteItemBottom(item.raw)"
 		>
 		mdi-delete
 		</v-icon>
@@ -301,7 +301,7 @@
 		<!-- select icon -->
 		<v-icon
 		size="small"
-		@click="deleteItemTop(item.raw)"
+		@click="deleteItemBottom(item.raw)"
 		>
 		mdi-checkbox-marked-circle
 		</v-icon>
@@ -349,11 +349,6 @@
 
 		headers_bottom: [
 			{
-				title:'Nombre',
-				key:'nombre',
-				sortable: false,
-			},
-			{
 				title:'Fecha',
 				key:'fecha',
 			},
@@ -368,10 +363,11 @@
 			{
 				title:'Responsable',
 				key:'responsable',
+				sortable: false
 			},
 			{
-				title:'Acciones',
-				key:'acciones',
+				title:'Actions',
+				key:'actions',
 				sortable: false,
 			}	
 		],
@@ -381,7 +377,8 @@
 		tareas:[],
 		tareas_all_fields:[],
 
-		editedIndex: -1,	
+		editedIndex: -1,
+		editedIndexBottom: -1,	
 		editedItemTop: {
 			fecha:'',
 			hora:'',
@@ -393,6 +390,19 @@
 			nombre:''
 		},
 
+		editedItemBottom: {
+			fecha:'',
+			hora:'',
+			responsable:'',
+			estado:'',
+		},
+		defaultItemBottom: {
+			fecha:'',
+			hora:'',
+			responsable:'',
+			estado:'',
+		},
+
 	  }),
   
 
@@ -400,6 +410,9 @@
 		formTitleTop () {
 		  return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
 		},
+		formTitleBottom(){
+			return this.editedIndexBottom === -1 ? 'New Item' : 'Edit Item'
+		}
 	  },
   
 	  watch: {	
@@ -408,6 +421,13 @@
 		},
 		dialogDeleteTop (val) {
 		  val || this.closeDeleteTop()
+		},
+
+		dialogBottom (val) {
+		  val || this.closeBottom()
+		},
+		dialogDeleteBottom (val) {
+		  val || this.closeDeleteBottom()
 		},
 	  },
   
@@ -434,6 +454,56 @@
 				hora: '10:00',
 				nombre: 'Proyecto 3'
 			}
+		],
+		this.tareas = [
+			{
+				fecha:'10-10-20',
+				hora:'10:00',
+				responsable:'Juan',
+				estado:'Pendiente',
+			},
+			{
+				fecha:'10-10-20',
+				hora:'10:00',
+				responsable:'Juan',
+				estado:'Pendiente',
+			},
+			{
+				fecha:'10-10-20',
+				hora:'10:00',
+				responsable:'Juan',
+				estado:'Pendiente',
+			},
+			{
+				fecha:'10-10-20',
+				hora:'10:00',
+				responsable:'Juan',
+				estado:'Pendiente',
+			},
+			{
+				fecha:'10-10-20',
+				hora:'10:00',
+				responsable:'Juan',
+				estado:'Pendiente',
+			},
+			{
+				fecha:'10-10-20',
+				hora:'10:00',
+				responsable:'Juan',
+				estado:'Pendiente',
+			},
+			{
+				fecha:'10-10-20',
+				hora:'10:00',
+				responsable:'Juan',
+				estado:'Pendiente',
+			},
+			{
+				fecha:'10-10-20',
+				hora:'10:00',
+				responsable:'Juan',
+				estado:'Pendiente',
+			},
 		]
 		},
   
@@ -443,18 +513,32 @@
 		  this.editedItemTop = Object.assign({}, item)
 		  this.dialogTop = true
 		},
+		editItemBottom (item){
+			this.editedIndexBottom = this.tareas.indexOf(itme)
+			this.editItemBottom = Object.assign({},item)
+			this.dialogBottom = true
+		},
   
 		deleteItemTop (item) {
 		  this.editedIndex = this.proyectos.indexOf(item)
 		  this.editedItemTop = Object.assign({}, item)
 		  this.dialogDeleteTop = true
 		},
-  
+		deleteItemBottom(item){
+		  this.editedIndexBottom = this.tareas.indexOf(item)
+		  this.editedItemBottom = Object.assign({}, item)
+		  this.dialogDeleteBottom = true  
+		},
+
 		deleteItemConfirmTop () {
 		  this.proyectos.splice(this.editedIndex, 1)
 		  this.closeDeleteTop()
 		},
-  
+		deleteItemConfirmBottom () {
+		  this.tareas.splice(this.editedIndexBottom, 1)
+		  this.closeDeleteBottom()
+		},
+
 		closeTop () {
 		  this.dialogTop = false
 		  this.$nextTick(() => {
@@ -462,7 +546,14 @@
 			this.editedIndex = -1
 		  })
 		},
-  
+		closeBottom () {
+		  this.dialogBottom = false
+		  this.$nextTick(() => {
+			this.editedItemBottom = Object.assign({}, this.defaultItemBottom)
+			this.editedIndexBottom = -1
+		  })
+		},
+
 		closeDeleteTop () {
 		  this.dialogDeleteTop = false
 		  this.$nextTick(() => {
@@ -470,7 +561,14 @@
 			this.editedIndex = -1
 		  })
 		},
-  
+		closeDeleteBottom () {
+		  this.dialogDeleteBottom = false
+		  this.$nextTick(() => {
+			this.editedItemBottom = Object.assign({}, this.defaultItemBottom)
+			this.editedIndexBottom = -1
+		  })
+		},
+
 		saveTop () {
 		  if (this.editedIndex > -1) {
 			Object.assign(this.proyectos[this.editedIndex], this.editedItemTop)
@@ -479,6 +577,15 @@
 		  }
 		  this.closeTop()
 		},
+		saveBottom () {
+		  if (this.editedIndexBottom > -1) {
+			Object.assign(this.tareas[this.editedIndexBottom], this.editedItemBottom)
+		  } else {
+			this.tareas.push(this.editedItemBottom)
+		  }
+		  this.closeTop()
+		},
+
 	  },
 	}
   </script>

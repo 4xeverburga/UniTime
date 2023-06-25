@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import Vue3EasyDataTable from 'vue3-easy-data-table';
 import 'vue3-easy-data-table/dist/style.css';
-import axios from 'axios'
 
 
 
