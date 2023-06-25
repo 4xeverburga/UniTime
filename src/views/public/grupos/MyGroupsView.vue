@@ -1,113 +1,122 @@
 <template>
-  <v-data-table
-    v-model:items-per-page="itemsPerPage"
-    :headers="headers"
-    :items="items"
-    item-value="name"
-    class="elevation-19"
-  ></v-data-table>
+  <div class="container">
+    <div class="left-column">
+      <!-- Contenido de la mitad izquierda -->
+      <h2>Grupos</h2>
+      <div class="table-container">
+        <v-data-table
+          v-model:items-per-page="itemsPerPage"
+          :headers="headers2"
+          :items="items2"
+          item-value="name2"
+          class="elevation-19"
+        ></v-data-table>
+      </div>
+      <!-- Agrega aquí el contenido que desees para la mitad izquierda -->
+    </div>
+    <div class="right-column">
+      <h2>Eventos Grupales</h2>
+      <div class="table-container">
+        <v-data-table
+          v-model:items-per-page="itemsPerPage"
+          :headers="headers"
+          :items="items"
+          item-value="name"
+          class="elevation-19"
+        ></v-data-table>
+      </div>
+    </div>
+  </div>
 </template>
+
 <script>
-  export default {
-    data () {
-      return {
-        itemsPerPage: 5,
-        headers: [
-          {
-            title: 'Eventos Grupales',
-            align: 'start',
-            sortable: false,
-            key: 'name',
-          },
-          { title: 'Grupo', align: 'end', key: 'calories' },
-          { title: 'F', align: 'end', key: 'fat' },
-          { title: 'Carbs (g)', align: 'end', key: 'carbs' },
-          { title: 'Protein (g)', align: 'end', key: 'protein' },
-          { title: 'Iron (%)', align: 'end', key: 'iron' },
-        ],
-        desserts: [
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1',
-          },
-          {
-            name: 'Jelly bean',
-            calories: 375,
-            fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-            iron: '0',
-          },
-          {
-            name: 'KitKat',
-            calories: 518,
-            fat: 26.0,
-            carbs: 65,
-            protein: 7,
-            iron: '6',
-          },
-          {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            iron: '7',
-          },
-          {
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-            iron: '16',
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1',
-          },
-          {
-            name: 'Lollipop',
-            calories: 392,
-            fat: 0.2,
-            carbs: 98,
-            protein: 0,
-            iron: '2',
-          },
-          {
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-            iron: '8',
-          },
-          {
-            name: 'Honeycomb',
-            calories: 408,
-            fat: 3.2,
-            carbs: 87,
-            protein: 6.5,
-            iron: '45',
-          },
-          {
-            name: 'Donut',
-            calories: 452,
-            fat: 25.0,
-            carbs: 51,
-            protein: 4.9,
-            iron: '22',
-          },
-        ],
-      }
-    },
-  }
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      itemsPerPage: 5,
+      headers: [
+        {
+          text: 'Eventos Grupales',
+          align: 'start',
+          sortable: false,
+          value: 'name',
+        },
+        { text: 'Evento', align: 'end', value: 'evento' },
+        { text: 'Fecha', align: 'end', value: 'fecha_inicio' },
+        { text: 'Hora', align: 'end', value: 'hora_inicio' },
+        { text: 'Grupos', align: 'end', value: 'grupo' },
+      ],
+      headers2: [
+        {
+          text: 'Grupos',
+          align: 'start',
+          sortable: false,
+          value: 'name2',
+        },
+        { text: 'Grupo', align: 'end', value: 'grupo' },
+        { text: 'Descripción', align: 'end', value: 'descripcion' },
+      ],
+      items: [],
+      items2: [],
+    };
+  },
+  created() {
+    axios.get('localhost').then(response => {
+      this.items = response.data.eventos;
+      this.items2 = response.data.grupos;
+      console.log(response.data);
+    });
+  },
+};
 </script>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-column, .right-column {
+  flex: 1;
+  padding-top: 30px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.left-column {
+  background-color: lightblue;
+}
+
+.right-column {
+  background-color: lightgreen;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos adicionales para ocupar el ancho completo */
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.left-column {
+  width: 50%;
+}
+
+.right-column {
+  width: 50%;
+}
+
+</style>

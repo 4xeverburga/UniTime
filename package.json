@@ -14,6 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "@mdi/font": "5.9.55",
+    "axios": "^1.4.0",
     "core-js": "^3.8.3",
     "roboto-fontface": "*",
     "sails-mongo": "^2.0.0",

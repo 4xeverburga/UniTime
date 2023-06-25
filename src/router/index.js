@@ -14,8 +14,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "grupos" */ '../views/public/grupos/GroupView.vue')
   },
   {
-    path: '/group/members',
-    name: 'members',
+    path: '/grupos/miembros',
+    name: 'miembros',
     component: () => import(/* webpackChunkName: "members" */ '../views/public/grupos/MembersView.vue')
   },
   {
@@ -24,6 +24,11 @@ const routes = [
     name: 'tareas',
     component: () => import(/* webpackChunkName: "tareas" */ '../views/public/tareas/TareasView.vue')
 
+  },
+  {
+    path: '/misgrupos',
+    name: 'misgrupos',
+    component: () => import(/* webpackChunkName: "misgrupos" */ '../views/public/grupos/MyGroupsView.vue')
   }
 
 ]
