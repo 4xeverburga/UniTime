@@ -1,79 +1,81 @@
 <template>
 
-
+	
 	<v-card-title class="d-flex align-center">
-      <v-icon class="mr-2">mdi-account-group</v-icon>
-      <h2 class="group-name">Trabajo de DBD</h2>
-    </v-card-title>
-
-    <v-card class="mx-4" elevation="0" flat>
-      <v-card-title>
-        <h5 class="group-role">Rol en el grupo: ADMINISTRADOR</h5>
-      </v-card-title>
-    </v-card>
-
-
-    <v-card-title>
-        <h4 class="group-description"><b>Descripción del grupo:</b></h4>
-    </v-card-title>
-
-    <v-container fluid>
-        <v-row justify="start">
-        <v-col cols="12" sm="6">
-            <v-card class="group-description-box">
-            <p class="group-description">
-                Grupo formado por estudiantes que están llevando el curso de Diseño de Base de Datos, para la elaboración de un prototipo en base a la gestión de horarios.
-            </p>
-            </v-card>
-        </v-col>
-        </v-row>
-    </v-container>
+		<v-icon class="mr-2">mdi-account-group</v-icon>
+		<h2 class="group-name">Trabajo de DBD</h2>
+	</v-card-title>
+	
+		<v-card class="mx-4" elevation="0" flat>
+			<v-card-title>
+				<h5 class="group-role">Rol en el grupo: ADMINISTRADOR</h5>
+			</v-card-title>
+		</v-card>
+		
+		
+		<v-card-title>
+			<h4 class="group-description"><b>Descripción del grupo:</b></h4>
+		</v-card-title>
+		
+	<v-container fluid>
+		<v-row justify="start">
+			<v-col cols="12" sm="6">
+				<v-card class="group-description-box">
+					<p class="group-description">
+						Grupo formado por estudiantes que están llevando el curso de Diseño de Base de Datos, para la elaboración de un prototipo en base a la gestión de horarios.
+					</p>
+				</v-card>
+			</v-col>
+		</v-row>
+	</v-container>
+	<v-container class = "top_table">
 	<v-data-table
-	  :headers="headers"
-	  :items="proyectos"
-	  :sort-by="[{ key: 'fecha', order: 'asc' }]"
-	  class="elevation-1"
+	:headers="headers_top"
+	:items="proyectos"
+	:sort-by="[{ key: 'fecha', order: 'asc' }]"
+	class="elevation-1"
 	>
+
 	  <template v-slot:top>
 		<v-toolbar
-		  flat
+		flat
 		>
 		  <v-toolbar-title>Proyectos pendientes</v-toolbar-title>
 		  <v-divider
 			class="mx-4"
 			inset
 			vertical
-		  ></v-divider>
-		  <v-spacer></v-spacer>
-		  <v-dialog
-			v-model="dialog"
+			></v-divider>
+			<v-spacer></v-spacer>
+			<v-dialog
+			v-model="dialogTop"
 			max-width="500px"
-		  >
+			>
 			<template v-slot:activator="{ props }">
-			  <v-btn
+				<v-btn
 				color="primary"
 				dark
 				class="mb-2"
 				v-bind="props"
-			  >
+				>
 				New Item
-			  </v-btn>
-			</template>
+			</v-btn>
+		</template>
 			<v-card>
-			  <v-card-title>
-				<span class="text-h5">{{ formTitle }}</span>
-			  </v-card-title>
+				<v-card-title>
+					<span class="text-h5">{{ formTitleTop }}</span>
+				</v-card-title>
   
-			  <v-card-text>
-				<v-container>
-				  <v-row>
-					<v-col
-					  cols="12"
-					  sm="6"
-					  md="4"
-					>
-					  <v-text-field
-						v-model="editedItem.nombre"
+				<v-card-text>
+					<v-container>
+						<v-row>
+							<v-col
+							cols="12"
+							sm="6"
+							md="4"
+							>
+							<v-text-field
+						v-model="editedItemTop.nombre"
 						label="Nombre de proyecto"
 					  ></v-text-field>
 					</v-col>
@@ -81,27 +83,27 @@
 					  cols="12"
 					  sm="6"
 					  md="4"
-					>
+					  >
 					  <v-text-field
-						v-model="editedItem.fecha"
-						type="date"
-						label="Fecha del proyecto"
+					  v-model="editedItemTop.fecha"
+					  type="date"
+					  label="Fecha del proyecto"
 					  ></v-text-field>
 					</v-col>
 					<v-col
 					  cols="12"
 					  sm="6"
 					  md="4"
-					>
-					<!-- time field -->
-					<v-text-field
-						v-model="editedItem.hora"
-						type="time"
-						label="Hora del proyecto"
-					></v-text-field>
+					  >
+					  <!-- time field -->
+					  <v-text-field
+					  v-model="editedItemTop.hora"
+					  type="time"
+					  label="Hora del proyecto"
+					  ></v-text-field>
 					</v-col>
-				  </v-row>
-				</v-container>
+				</v-row>
+			</v-container>
 			  </v-card-text>
   
 			  <v-card-actions>
@@ -109,67 +111,227 @@
 				<v-btn
 				  color="blue-darken-1"
 				  variant="text"
-				  @click="close"
-				>
+				  @click="closeTop"
+				  >
 				  Cancel
 				</v-btn>
 				<v-btn
-				  color="blue-darken-1"
+				color="blue-darken-1"
 				  variant="text"
-				  @click="save"
-				>
+				  @click="saveTop"
+				  >
 				  Save
 				</v-btn>
-			  </v-card-actions>
-			</v-card>
+			</v-card-actions>
+		</v-card>
 		  </v-dialog>
-		  <v-dialog v-model="dialogDelete" max-width="500px">
+		  <v-dialog v-model="dialogDeleteTop" max-width="500px">
 			<v-card>
-			  <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+				<v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
 			  <v-card-actions>
-				<v-spacer></v-spacer>
-				<v-btn color="blue-darken-1" variant="text" @click="closeDelete">Cancel</v-btn>
-				<v-btn color="blue-darken-1" variant="text" @click="deleteItemConfirm">OK</v-btn>
+				  <v-spacer></v-spacer>
+				  <v-btn color="blue-darken-1" variant="text" @click="closeDeleteTop">Cancel</v-btn>
+				  <v-btn color="blue-darken-1" variant="text" @click="deleteItemConfirmTop">OK</v-btn>
 				<v-spacer></v-spacer>
 			  </v-card-actions>
 			</v-card>
-		  </v-dialog>
+		</v-dialog>
 		</v-toolbar>
 	  </template>
-
-	  <template v-slot:item.actions="{ item }">
+	  
+	<template v-slot:item.actions="{ item }">
 		<v-icon
-		  size="small"
-		  class="me-2"
-		  @click="editItem(item.raw)"
-		>
+		size="small"
+		class="me-2"
+		  @click="editItemTop(item.raw)"
+		  >
 		  mdi-pencil
 		</v-icon>
 		<v-icon
-		  size="small"
-		  @click="deleteItem(item.raw)"
+		size="small"
+		@click="deleteItemTop(item.raw)"
 		>
-		  mdi-delete
+		mdi-delete
 		</v-icon>
-	  </template>
-	  <template v-slot:no-data>
-		<v-btn
-		  color="primary"
-		  @click="initialize"
+		
+		<!-- select icon -->
+		<v-icon
+		size="small"
+		@click="deleteItemTop(item.raw)"
 		>
-		  Reset
-		</v-btn>
-	  </template>
-	</v-data-table>
-  </template>
+		mdi-checkbox-marked-circle
+		</v-icon>
+	</template>
+	<template v-slot:no-data>
+		<v-btn
+		color="primary"
+		@click="initialize"
+		>
+		Reset
+	</v-btn>
+	</template>
+</v-data-table>
+</v-container>
 
-  <script>
+<v-container class="bottom_table">
+	<v-data-table
+	:headers="headers_top"
+	:items="proyectos"
+	:sort-by="[{ key: 'fecha', order: 'asc' }]"
+	class="elevation-1"
+	>
+	  <template v-slot:top>
+		<v-toolbar
+		flat
+		>
+		  <v-toolbar-title>Tareas de proyecto</v-toolbar-title>
+		  <v-divider
+			class="mx-4"
+			inset
+			vertical
+			></v-divider>
+			<v-spacer></v-spacer>
+			<v-dialog
+			v-model="dialogTop"
+			max-width="500px"
+			>
+			<template v-slot:activator="{ props }">
+				<v-btn
+				color="primary"
+				dark
+				class="mb-2"
+				v-bind="props"
+				>
+				New Item
+			</v-btn>
+		</template>
+			<v-card>
+				<v-card-title>
+					<span class="text-h5">{{ formTitleTop }}</span>
+				</v-card-title>
+  
+				<v-card-text>
+					<v-container>
+						<v-row>
+							<v-col
+							cols="12"
+							sm="6"
+							md="4"
+							>
+							<v-text-field
+						v-model="editedItemTop.nombre"
+						label="Nombre de proyecto"
+					  ></v-text-field>
+					</v-col>
+					<v-col
+					  cols="12"
+					  sm="6"
+					  md="4"
+					  >
+					  <v-text-field
+					  v-model="editedItemTop.fecha"
+					  type="date"
+					  label="Fecha del proyecto"
+					  ></v-text-field>
+					</v-col>
+					<v-col
+					  cols="12"
+					  sm="6"
+					  md="4"
+					  >
+					  <!-- time field -->
+					  <v-text-field
+					  v-model="editedItemTop.hora"
+					  type="time"
+					  label="Hora del proyecto"
+					  ></v-text-field>
+					</v-col>
+				</v-row>
+			</v-container>
+			  </v-card-text>
+  
+			  <v-card-actions>
+				<v-spacer></v-spacer>
+				<v-btn
+				  color="blue-darken-1"
+				  variant="text"
+				  @click="closeTop"
+				  >
+				  Cancel
+				</v-btn>
+				<v-btn
+				color="blue-darken-1"
+				  variant="text"
+				  @click="saveTop"
+				  >
+				  Save
+				</v-btn>
+			</v-card-actions>
+		</v-card>
+		  </v-dialog>
+		  <v-dialog v-model="dialogDeleteTop" max-width="500px">
+			<v-card>
+				<v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
+			  <v-card-actions>
+				  <v-spacer></v-spacer>
+				  <v-btn color="blue-darken-1" variant="text" @click="closeDeleteTop">Cancel</v-btn>
+				  <v-btn color="blue-darken-1" variant="text" @click="deleteItemConfirmTop">OK</v-btn>
+				<v-spacer></v-spacer>
+			  </v-card-actions>
+			</v-card>
+		</v-dialog>
+		</v-toolbar>
+	  </template>
+	  
+	<template v-slot:item.actions="{ item }">
+		<v-icon
+		size="small"
+		class="me-2"
+		  @click="editItemTop(item.raw)"
+		  >
+		  mdi-pencil
+		</v-icon>
+		<v-icon
+		size="small"
+		@click="deleteItemTop(item.raw)"
+		>
+		mdi-delete
+		</v-icon>
+		
+		<!-- select icon -->
+		<v-icon
+		size="small"
+		@click="deleteItemTop(item.raw)"
+		>
+		mdi-checkbox-marked-circle
+		</v-icon>
+	</template>
+	<template v-slot:no-data>
+		<v-btn
+		color="primary"
+		@click="initialize"
+		>
+		Reset
+	</v-btn>
+	</template>
+</v-data-table>
+</v-container>
+
+</template>
+
+<script>
 	export default {
-	  data: () => ({
-		dialog: false,
-		dialogDelete: false,
-		headers: [
-		{
+		data: () => ({
+
+			dialogTop: false,
+			dialogDeleteTop: false,
+
+			dialogBottom: false,
+			dialogDeleteBottom: false,
+
+
+		headers_top: [
+				{
 		title: 'Fecha',
 		key: 'fecha',
 		},
@@ -185,33 +347,67 @@
 		{ title: 'Actions', key: 'actions', sortable: false },
 		],
 
+		headers_bottom: [
+			{
+				title:'Nombre',
+				key:'nombre',
+				sortable: false,
+			},
+			{
+				title:'Fecha',
+				key:'fecha',
+			},
+			{
+				title:'Hora',
+				key:'hora',
+			},
+			{
+				title:'Estado',
+				key:'estado',
+			},
+			{
+				title:'Responsable',
+				key:'responsable',
+			},
+			{
+				title:'Acciones',
+				key:'acciones',
+				sortable: false,
+			}	
+		],
 
 		proyectos: [],
-		editedIndex: -1,
-		editedItem: {
+		proctos_all_fields: [],
+		tareas:[],
+		tareas_all_fields:[],
+
+		editedIndex: -1,	
+		editedItemTop: {
 			fecha:'',
 			hora:'',
 			nombre:''
 		},
-		defaultItem: {
+		defaultItemTop: {
 			fecha:'',
 			hora:'',
 			nombre:''
 		},
+
 	  }),
   
+
 	  computed: {
-		formTitle () {
+		formTitleTop () {
 		  return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
 		},
 	  },
   
-	  watch: {
-		dialog (val) {
-		  val || this.close()
+	  watch: {	
+		dialogTop (val) {
+		  val || this.closeTop()
 		},
-		dialogDelete (val) {
-		  val || this.closeDelete()
+		dialogDeleteTop (val) {
+		  val || this.closeDeleteTop()
 		},
 	  },
   
@@ -241,46 +437,47 @@
 		]
 		},
   
-		editItem (item) {
+		editItemTop (item) {
+			console.log("editItemTop");
 		  this.editedIndex = this.proyectos.indexOf(item)
-		  this.editedItem = Object.assign({}, item)
-		  this.dialog = true
+		  this.editedItemTop = Object.assign({}, item)
+		  this.dialogTop = true
 		},
   
-		deleteItem (item) {
+		deleteItemTop (item) {
 		  this.editedIndex = this.proyectos.indexOf(item)
-		  this.editedItem = Object.assign({}, item)
-		  this.dialogDelete = true
+		  this.editedItemTop = Object.assign({}, item)
+		  this.dialogDeleteTop = true
 		},
   
-		deleteItemConfirm () {
+		deleteItemConfirmTop () {
 		  this.proyectos.splice(this.editedIndex, 1)
-		  this.closeDelete()
+		  this.closeDeleteTop()
 		},
   
-		close () {
-		  this.dialog = false
+		closeTop () {
+		  this.dialogTop = false
 		  this.$nextTick(() => {
-			this.editedItem = Object.assign({}, this.defaultItem)
+			this.editedItemTop = Object.assign({}, this.defaultItemTop)
 			this.editedIndex = -1
 		  })
 		},
   
-		closeDelete () {
-		  this.dialogDelete = false
+		closeDeleteTop () {
+		  this.dialogDeleteTop = false
 		  this.$nextTick(() => {
-			this.editedItem = Object.assign({}, this.defaultItem)
+			this.editedItemTop = Object.assign({}, this.defaultItemTop)
 			this.editedIndex = -1
 		  })
 		},
   
-		save () {
+		saveTop () {
 		  if (this.editedIndex > -1) {
-			Object.assign(this.proyectos[this.editedIndex], this.editedItem)
+			Object.assign(this.proyectos[this.editedIndex], this.editedItemTop)
 		  } else {
-			this.proyectos.push(this.editedItem)
+			this.proyectos.push(this.editedItemTop)
 		  }
-		  this.close()
+		  this.closeTop()
 		},
 	  },
 	}
