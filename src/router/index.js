@@ -15,8 +15,8 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/group',
-    name: 'group',
+    path: '/grupos',
+    name: 'grupos',
     component: GroupView
   },
   {
@@ -30,11 +30,15 @@ const routes = [
     component: MembersView
   },
   {
+    //lazy load of TareasView
+    path: '/tareas',
+    name: 'tareas',
+    component: () => import(/* webpackChunkName: "tareas" */ '../views/public/tareas/TareasView.vue')
 
 >>>>>>> bbc96aa4516677e6f38d0a1bd7a0895ba840bdec
   }
 
-  ]
+]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
