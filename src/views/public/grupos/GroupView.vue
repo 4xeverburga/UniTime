@@ -107,8 +107,10 @@ body {
 }
 
 .group-description {
+  font-size: 20px;
   margin-bottom: 16px;
 }
+
 
 .group-description-box {
   background-color: #e3f2fd;
