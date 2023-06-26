@@ -1,28 +1,27 @@
 <template>
   <div class="container">
     <div class="left-column">
-      <!-- Contenido de la mitad izquierda -->
-      <h2>Grupos</h2>
+      <h2>Mis Grupos</h2>
       <div class="table-container">
         <v-data-table
           v-model:items-per-page="itemsPerPage"
           :headers="headers2"
           :items="items2"
-          item-value="name2"
-          class="elevation-19"
+          item-value="cod_grupo"
+          class="elevation-1"
         ></v-data-table>
       </div>
-      <!-- Agrega aquí el contenido que desees para la mitad izquierda -->
+      <v-btn color="primary" @click="abrirDialog" class="button_agregar">Agregar Grupo</v-btn>
+      <agregar-grupo-dialog ref="agregarGrupoDialog"></agregar-grupo-dialog>
     </div>
     <div class="right-column">
-      <h2>Eventos Grupales</h2>
+      <h2>Mis Eventos</h2>
       <div class="table-container">
         <v-data-table
           v-model:items-per-page="itemsPerPage"
           :headers="headers"
-          :items="items"
-          item-value="name"
-          class="elevation-19"
+          :items="formattedItems"
+          class="elevation-1"
         ></v-data-table>
       </div>
     </div>
@@ -31,43 +30,62 @@
 
 <script>
 import axios from 'axios';
+import AgregarGrupoDialog from '../../../components/grupos/AgregarGrupoDialog.vue';
 
 export default {
+  components: {
+    AgregarGrupoDialog,
+  },
   data() {
     return {
       itemsPerPage: 5,
       headers: [
-        {
-          text: 'Eventos Grupales',
-          align: 'start',
-          sortable: false,
-          value: 'name',
-        },
-        { text: 'Evento', align: 'end', value: 'evento' },
-        { text: 'Fecha', align: 'end', value: 'fecha_inicio' },
-        { text: 'Hora', align: 'end', value: 'hora_inicio' },
-        { text: 'Grupos', align: 'end', value: 'grupo' },
+        { title: 'Evento', align: 'end', key: 'evento' },
+        { title: 'Fecha', align: 'end', key: 'fecha' },
+        { title: 'Hora', align: 'end', key: 'hora' },
+        { title: 'Grupo', align: 'end', key: 'grupo'}
       ],
       headers2: [
-        {
-          text: 'Grupos',
-          align: 'start',
-          sortable: false,
-          value: 'name2',
-        },
-        { text: 'Grupo', align: 'end', value: 'grupo' },
-        { text: 'Descripción', align: 'end', value: 'descripcion' },
+        { title: 'Grupo', align: 'end', key: 'grupo' },
+        { title: 'Descripción', align: 'end', key: 'descripcion' },
       ],
       items: [],
       items2: [],
     };
   },
   created() {
-    axios.get('localhost').then(response => {
-      this.items = response.data.eventos;
-      this.items2 = response.data.grupos;
-      console.log(response.data);
+    axios.get('http://localhost:8080/getgrupos').then(response => {
+      this.items2 = response.data;
+      console.log(this.items2);
+    }).catch(error => {
+      console.error(error);
     });
+
+    axios.get('http://localhost:8080/geteventosgrupos').then(response => {
+      this.items = response.data;
+      console.log(this.items.hora);
+    }).catch(error => {
+      console.error(error);
+    });
+  },
+  computed: {
+    formattedItems() {
+      return this.items.map(item => {
+        const fecha = new Date(item.fecha).toLocaleDateString('es-ES');
+
+
+        return {
+          ...item,
+          fecha,
+          
+        };
+      });
+    }
+  },
+  methods: {
+    abrirDialog() {
+      this.$refs.agregarGrupoDialog.dialogVisible = true;
+    },
   },
 };
 </script>
@@ -83,9 +101,10 @@ body {
   height: 100vh;
 }
 
-.left-column, .right-column {
+.left-column,
+.right-column {
   flex: 1;
-  padding-top: 30px;
+  padding-top: 10%;
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -117,6 +136,11 @@ body {
 
 .right-column {
   width: 50%;
+}
+
+.button_agregar {
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 </style>
