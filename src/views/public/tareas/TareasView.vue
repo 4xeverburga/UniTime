@@ -341,7 +341,12 @@
 
 </template>
 
+
+
 <script>
+//axios
+// import axios from 'axios'
+
 	export default {
 		data: () => ({
 
@@ -642,6 +647,8 @@
 		console.log('Selected Index:', selectedIndex);
 		
 		}
+
+		// get requests
 
 	  },
 	}
