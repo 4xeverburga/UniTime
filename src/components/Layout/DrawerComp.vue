@@ -65,7 +65,7 @@ const buttons = ref(
 	[
 		{id:1, title: 'Inicio', icon: 'mdi-home', path: '/' },
 		{id:2, title: 'Grupos', icon: 'mdi-cog', path:'/misgrupos' },
-		{id:3, title: 'Horarios', icon: 'mdi-cog', path:'/events' },
+		{id:3, title: 'Horarios', icon: 'mdi-cog', path:'/horarios' },
 		{id:4, title: 'Tareas', icon: 'mdi-cog', path:'/tareas' },
 		{id:5, title: 'Estadísticas', icon: 'mdi-cog', path:'/events' },
 	]

@@ -62,7 +62,7 @@
 		<v-toolbar
 		flat
 		>
-		  <v-toolbar-title>Proyectos pendientes</v-toolbar-title>
+		  <v-toolbar-title>Etapas de proyecto</v-toolbar-title>
 		  <v-divider
 			class="mx-4"
 			inset
@@ -408,22 +408,8 @@ import axios from 'axios'
 			'proyecto3',
 		],
 		proyectos_all: [
-			{
-				id: 1,
-				nombre: 'Proyecto 1',
-				fecha: '10/10/2021',
-			},
-			{
-				id: 2,
-				nombre: 'Proyecto 2',
-				fecha:	'10/10/2021',
-			},
-			{
-				id: 3,
-				nombre: 'Proyecto 3',
-				fecha: '10/10/2021',
-			},
 		],
+
 		etapas: [],
 		proctos_all_fields: [],
 		tareas:[],
@@ -648,7 +634,7 @@ import axios from 'axios'
 			(item) => item === this.proyecto_seleccionado
 		);
 		console.log('Selected Index:', selectedIndex);
-		
+		return selectedIndex;
 		},
 
 		// get requests
@@ -657,13 +643,31 @@ import axios from 'axios'
 			.then(response => {
 				// this.proyectos_all = response.data
 				console.log(response.data)
+				// assign result to proyectos_all
+				this.proyectos_all = response.data
+				// assing only nombre field to proyectos
+				this.proyectos = this.proyectos_all.map((item) => item.nombre)
 			})
 			.catch(error => {
 				console.log(error)
 			})
 		},
-	
-	
+		
+		getEtapas(){
+			// current project id
+			const selectedIndex = this.handleSelection();
+			const idProyecto = this.proyectos_all[selectedIndex].id;
+			axios.get(this.pathToServer + '/etapas/'+idProyecto)
+			.then(response => {
+				// this.proyectos_all = response.data
+				console.log(response.data)
+				// assign result to proyectos_all
+				this.etapas = response.data
+			})
+			.catch(error => {
+				console.log(error)
+			})
+		},
 	
 	},
 }
