@@ -6,17 +6,17 @@
 		<h2 class="group-name">Trabajo de DBD</h2>
 	</v-card-title>
 	
-		<v-card class="mx-4" elevation="0" flat>
-			<v-card-title>
-				<h5 class="group-role">Rol en el grupo: ADMINISTRADOR</h5>
-			</v-card-title>
-		</v-card>
-		
-		
+	<v-card class="mx-4" elevation="0" flat>
 		<v-card-title>
-			<h4 class="group-description"><b>Descripción del grupo:</b></h4>
+			<h5 class="group-role">Rol en el grupo: ADMINISTRADOR</h5>
 		</v-card-title>
-		
+	</v-card>
+	
+	
+	<v-card-title>
+		<h4 class="group-description"><b>Descripción del grupo:</b></h4>
+	</v-card-title>
+	
 	<v-container fluid>
 		<v-row justify="start">
 			<v-col cols="12" sm="6">
@@ -28,10 +28,32 @@
 			</v-col>
 		</v-row>
 	</v-container>
+
+	<!-- make a selector for proyectos -->
+	<v-container>
+		<v-row>
+			<v-col cols="12" sm="6">
+				<v-select
+				v-model="proyecto_seleccionado"
+				:items="proyectos"
+				item-text="name"
+				item-value="id"
+				label="Proyectos"
+				></v-select>
+			</v-col>
+		</v-row>
+		<v-btn
+		color="primary"
+		@click="handleSelection"
+		>Actualizar proyecto</v-btn>
+	</v-container>
+
+	<!-- button to update proyecto -->
+
 	<v-container class = "top_table">
 	<v-data-table
 	:headers="headers_top"
-	:items="proyectos"
+	:items="etapas"
 	:sort-by="[{ key: 'fecha', order: 'asc' }]"
 	class="elevation-1"
 	>
@@ -76,7 +98,7 @@
 							>
 							<v-text-field
 						v-model="editedItemTop.nombre"
-						label="Nombre de proyecto"
+						label="Nombre de etapa"
 					  ></v-text-field>
 					</v-col>
 					<v-col
@@ -87,7 +109,7 @@
 					  <v-text-field
 					  v-model="editedItemTop.fecha"
 					  type="date"
-					  label="Fecha del proyecto"
+					  label="Fecha del etapa"
 					  ></v-text-field>
 					</v-col>
 					<v-col
@@ -99,7 +121,7 @@
 					  <v-text-field
 					  v-model="editedItemTop.hora"
 					  type="time"
-					  label="Hora del proyecto"
+					  label="Hora del etapa"
 					  ></v-text-field>
 					</v-col>
 				</v-row>
@@ -184,7 +206,7 @@
 		<v-toolbar
 		flat
 		>
-		  <v-toolbar-title>Tareas de proyecto</v-toolbar-title>
+		  <v-toolbar-title>Tareas de etapa</v-toolbar-title>
 		  <v-divider
 			class="mx-4"
 			inset
@@ -371,8 +393,31 @@
 				sortable: false,
 			}	
 		],
-
-		proyectos: [],
+		
+		proyecto_seleccionado: '',
+		proyectos: [
+			'proyecto1',
+			'proyecto2',
+			'proyecto3',
+		],
+		proyectos_all: [
+			{
+				id: 1,
+				nombre: 'Proyecto 1',
+				fecha: '10/10/2021',
+			},
+			{
+				id: 2,
+				nombre: 'Proyecto 2',
+				fecha:	'10/10/2021',
+			},
+			{
+				id: 3,
+				nombre: 'Proyecto 3',
+				fecha: '10/10/2021',
+			},
+		],
+		etapas: [],
 		proctos_all_fields: [],
 		tareas:[],
 		tareas_all_fields:[],
@@ -438,21 +483,21 @@
 	  methods: {
 
 		initialize () {
-		this.proyectos = [
+		this.etapas = [
 			{
 			fecha: '10/10/2021',
 			hora: '10:00',
-			nombre: 'Proyecto 1'
+			nombre: 'etapa1'
 			},
 			{
 				fecha: '10/10/2021',
 				hora: '10:00',
-				nombre: 'Proyecto 2'
+				nombre: 'etapa2'
 			},
 			{
 				fecha: '10/10/2021',
 				hora: '10:00',
-				nombre: 'Proyecto 3'
+				nombre: 'etapa3'
 			}
 		],
 		this.tareas = [
@@ -509,7 +554,7 @@
   
 		editItemTop (item) {
 			console.log("editItemTop");
-		  this.editedIndex = this.proyectos.indexOf(item)
+		  this.editedIndex = this.etapas.indexOf(item)
 		  this.editedItemTop = Object.assign({}, item)
 		  this.dialogTop = true
 		},
@@ -520,7 +565,7 @@
 		},
   
 		deleteItemTop (item) {
-		  this.editedIndex = this.proyectos.indexOf(item)
+		  this.editedIndex = this.etapas.indexOf(item)
 		  this.editedItemTop = Object.assign({}, item)
 		  this.dialogDeleteTop = true
 		},
@@ -531,7 +576,7 @@
 		},
 
 		deleteItemConfirmTop () {
-		  this.proyectos.splice(this.editedIndex, 1)
+		  this.etapas.splice(this.editedIndex, 1)
 		  this.closeDeleteTop()
 		},
 		deleteItemConfirmBottom () {
@@ -571,9 +616,9 @@
 
 		saveTop () {
 		  if (this.editedIndex > -1) {
-			Object.assign(this.proyectos[this.editedIndex], this.editedItemTop)
+			Object.assign(this.etapas[this.editedIndex], this.editedItemTop)
 		  } else {
-			this.proyectos.push(this.editedItemTop)
+			this.etapas.push(this.editedItemTop)
 		  }
 		  this.closeTop()
 		},
@@ -586,6 +631,19 @@
 		  this.closeTop()
 		},
 
+
+		// selector code 
+		
+		handleSelection() {
+		const selectedIndex = this.proyectos.findIndex(
+			//compare strings
+			(item) => item === this.proyecto_seleccionado
+		);
+		console.log('Selected Index:', selectedIndex);
+		
+		}
+
 	  },
 	}
   </script>
+
