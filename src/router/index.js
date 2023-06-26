@@ -9,7 +9,7 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/grupos',
+    path: '/grupos/:id',
     name: 'grupos',
     component: () => import(/* webpackChunkName: "grupos" */ '../views/public/grupos/GroupView.vue')
   },
