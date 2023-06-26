@@ -345,10 +345,12 @@
 
 <script>
 //axios
-// import axios from 'axios'
+import axios from 'axios'
 
 	export default {
 		data: () => ({
+			
+			pathToServer: 'http://localhost:8080',
 
 			dialogTop: false,
 			dialogDeleteTop: false,
@@ -482,7 +484,8 @@
 	  },
   
 	  created () {
-		this.initialize()
+		this.initialize();
+		this.getProyectos();
 	  },
   
 	  methods: {
@@ -646,11 +649,23 @@
 		);
 		console.log('Selected Index:', selectedIndex);
 		
-		}
+		},
 
 		// get requests
-
-	  },
-	}
+		getProyectos(){
+			axios.get(this.pathToServer + '/tareasApi/proyectos/US123456')
+			.then(response => {
+				// this.proyectos_all = response.data
+				console.log(response.data)
+			})
+			.catch(error => {
+				console.log(error)
+			})
+		},
+	
+	
+	
+	},
+}
   </script>
 
