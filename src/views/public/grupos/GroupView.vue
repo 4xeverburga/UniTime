@@ -2,7 +2,7 @@
   <v-card class="ma-16" elevation="0">
     <v-card-title class="d-flex align-center">
       <v-icon class="mr-2">mdi-account-group</v-icon>
-      <h2 class="group-name">Trabajo de DBD</h2>
+      <h2 class="group-name">{{ grupos.grupo }}</h2>
       <v-spacer></v-spacer>
       <div class="user-profile">
         <v-icon>mdi-account-circle</v-icon>
@@ -13,71 +13,73 @@
       </div>
     </v-card-title>
 
-  <v-card class="mx-4" elevation="0" flat>
-    <v-card-title>
-      <h5 class="group-role">Rol en el grupo: ADMINISTRADOR</h5>
-    </v-card-title>
+    <v-card class="mx-4" elevation="0" flat>
+      <v-card-title>
+        <h5 class="group-role">Rol en el grupo: {{grupos.rol}}</h5>
+      </v-card-title>
 
-    <v-card-title>
-      <h4 class="group-description"><b>Descripción del grupo:</b></h4>
-    </v-card-title>
+      <v-card-title>
+        <h4 class="group-description"><b>Descripción del grupo:</b></h4>
+      </v-card-title>
 
-    <v-card-text>
-      <v-container fluid>
-        <v-row justify="start">
-          <v-col cols="12" sm="6">
-            <v-card class="group-description-box">
-              <p class="group-description">
-                Grupo formado por estudiantes que están llevando el curso de Diseño de Base de Datos, para la elaboración de un prototipo en base a la gestión de horarios.
-              </p>
-            </v-card>
-          </v-col>
+      <v-card-text>
+        <v-container fluid>
+          <v-row justify="start">
+            <v-col cols="12" sm="6">
+              <v-card class="group-description-box">
+                <p class="group-description">
+                  {{ grupos.descripcion }}
+                </p>
+              </v-card>
+            </v-col>
 
-          <v-col cols="12" sm="6">
-            <v-card class="options-menu">
-              <v-list dense>
-                <v-list-item class="option-item" v-for="(item, index) in optionsMenu" :key="index" @click="navigateTo(item.route)">
-                  <v-list-item-icon>
-                    <v-icon :color="item.color">{{ item.icon }}</v-icon>
-                  </v-list-item-icon>
-                  <v-list-item-content>
-                    <v-list-item-title>{{ item.label }}</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card-text>
+            <v-col cols="12" sm="6">
+              <v-card class="options-menu">
+                <v-list dense>
+                  <v-list-item class="option-item" v-for="(item, index) in optionsMenu" :key="index" @click="navigateTo(item.route)">
+                    <v-list-item-icon>
+                      <v-icon :color="item.color">{{ item.icon }}</v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+                      <v-list-item-title>{{ item.label }}</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card-text>
+    </v-card>
+
+    <v-card-actions class="options-actions">
+      <v-row align="center" justify="center">
+        <v-col cols="auto">
+          <v-btn color="primary" class="action-button" @click="navigateTo('members')">
+            <v-icon left>mdi-account-group</v-icon>
+            Miembros de grupo
+          </v-btn>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn color="primary" class="action-button" @click="navigateTo('events')">
+            <v-icon left>mdi-calendar</v-icon>
+            Eventos de grupo
+          </v-btn>
+        </v-col>
+        <v-col cols="auto">
+          <v-btn color="primary" class="action-button" @click="navigateTo('tasks')">
+            <v-icon left>mdi-format-list-bulleted</v-icon>
+            Tareas del grupo
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-card-actions>
   </v-card>
-
-  <v-card-actions class="options-actions">
-    <v-row align="center" justify="center">
-      <v-col cols="auto">
-        <v-btn color="primary" class="action-button" @click="navigateTo('members')">
-          <v-icon left>mdi-account-group</v-icon>
-          Miembros de grupo
-        </v-btn>
-      </v-col>
-      <v-col cols="auto">
-        <v-btn color="primary" class="action-button" @click="navigateTo('events')">
-          <v-icon left>mdi-calendar</v-icon>
-          Eventos de grupo
-        </v-btn>
-      </v-col>
-      <v-col cols="auto">
-        <v-btn color="primary" class="action-button" @click="navigateTo('tasks')">
-          <v-icon left>mdi-format-list-bulleted</v-icon>
-          Tareas del grupo
-        </v-btn>
-      </v-col>
-    </v-row>
-  </v-card-actions>
-</v-card>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -85,21 +87,40 @@ export default {
         { label: "Editar nombre de grupo", icon: "mdi-pencil", color: "primary", route: "edit-name" },
         { label: "Editar descripción", icon: "mdi-pencil", color: "primary", route: "edit-description" },
         { label: "Eliminar grupo", icon: "mdi-delete", color: "red darken-2", route: "delete-group" }
-      ]
+      ],
+      grupos: {
+        grupo: "",
+        descripcion: ""
+      }
     };
   },
   methods: {
     navigateTo(route) {
-      // Implementa aquí la lógica para navegar a la vista correspondiente según la ruta proporcionada
       console.log("Navegar a la vista:", route);
     },
     logout() {
-      // Implementa aquí la lógica para cerrar sesión
       console.log("Cerrar sesión");
     }
-  }
+  },
+  mounted() {
+  axios
+    .get(`http://localhost:8080/gruposapi/getgrupos/${this.$route.params.id}`)
+    .then((response) => {
+      const data = response.data;
+      if (data.length > 0) {
+        this.grupos.grupo = data[0].grupo;
+        this.grupos.descripcion = data[0].descripcion;
+        this.grupos.rol = data[0].rol;
+        console.log(this.$route.params.id);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
 };
 </script>
+
 
 <style>
 body {
