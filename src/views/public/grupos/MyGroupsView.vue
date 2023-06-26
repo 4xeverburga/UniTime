@@ -9,7 +9,16 @@
           :items="items2"
           item-value="cod_grupo"
           class="elevation-1"
-        ></v-data-table>
+        >
+          <template #item="{ item }">
+            <router-link :to="'/grupo/' + item.cod_grupo">
+              <tr>
+                <td>{{ item.grupo }}</td>
+                <td>{{ item.descripcion }}</td>
+              </tr>
+            </router-link>
+          </template>
+        </v-data-table>
       </div>
       <v-btn color="primary" @click="abrirDialog" class="button_agregar">Agregar Grupo</v-btn>
       <agregar-grupo-dialog ref="agregarGrupoDialog"></agregar-grupo-dialog>
@@ -22,7 +31,18 @@
           :headers="headers"
           :items="formattedItems"
           class="elevation-1"
-        ></v-data-table>
+        >
+          <template #item="{ item }">
+            <router-link :to="'/evento/' + item.eventoId">
+              <tr>
+                <td>{{ item.evento }}</td>
+                <td>{{ item.fecha }}</td>
+                <td>{{ item.hora }}</td>
+                <td>{{ item.grupo }}</td>
+              </tr>
+            </router-link>
+          </template>
+        </v-data-table>
       </div>
     </div>
   </div>
@@ -72,12 +92,9 @@ export default {
     formattedItems() {
       return this.items.map(item => {
         const fecha = new Date(item.fecha).toLocaleDateString('es-ES');
-
-
         return {
           ...item,
           fecha,
-          
         };
       });
     }
@@ -142,5 +159,4 @@ body {
   margin-left: 20px;
   margin-top: 20px;
 }
-
 </style>
