@@ -18,13 +18,30 @@
         <h5 class="group-role">Rol en el grupo: ADMINISTRADOR</h5>
       </v-card-title>
 
+<v-col cols="12" sm="6">
+            <v-card class="options-menu">
+              <v-list dense>
+                <v-list-item class="option-item" v-for="(item, index) in optionsMenu" :key="index" @click="navigateTo(item.route)">
+                  <v-list-item-icon>
+                    <v-icon :color="item.color">{{ item.icon }}</v-icon>
+                  </v-list-item-icon>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ item.label }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+            </v-card>
+          </v-col>
+          
+      <v-icon class="team-icon">mdi-account-multiple</v-icon>
       <v-data-table
-      :items-per-page="itemsPerPage"
-      :headers="headers"
-      :items="members"
-      item-value="name"
-      class="elevation-1 members table">
-      </v-data-table>
+        :items-per-page="itemsPerPage"
+        :headers="headers"
+        :items="members"
+        item-value="name"
+        class="elevation-1 members-table"
+      ></v-data-table>
+
     </v-card>
   </v-card>
 </template>
@@ -71,6 +88,12 @@ export default {
             calificación: 4.00,
           },
         ],
+
+        optionsMenu: [
+          { label: "Enviar invitación al grupo", icon: "mdi-email", color: "primary", route: "invite-group" },
+          { label: "Editar roles de miembros", icon: "mdi-account-settings", color: "primary", route: "edit-roles" },
+          { label: "Crear subgrupos", icon: "mdi-folder-plus", color: "primary", route: "create-subgroup" }
+        ]
       }
   },
   methods: {
@@ -115,4 +138,13 @@ export default {
 .members-table {
   width: 100%;
 }
+
+.options-menu {
+  margin-bottom: 16px;
+  display: inline-block;
+  background-color: #e8eaf6;
+  padding: 8px;
+  border-radius: 4px;
+}
+
 </style>
