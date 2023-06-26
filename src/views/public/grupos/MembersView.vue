@@ -18,21 +18,13 @@
         <h5 class="group-role">Rol en el grupo: ADMINISTRADOR</h5>
       </v-card-title>
 
-<v-col cols="12" sm="6">
-            <v-card class="options-menu">
-              <v-list dense>
-                <v-list-item class="option-item" v-for="(item, index) in optionsMenu" :key="index" @click="navigateTo(item.route)">
-                  <v-list-item-icon>
-                    <v-icon :color="item.color">{{ item.icon }}</v-icon>
-                  </v-list-item-icon>
-                  <v-list-item-content>
-                    <v-list-item-title>{{ item.label }}</v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-              </v-list>
-            </v-card>
-          </v-col>
-          
+
+        <v-btn color="primary" @click="abrirDialog" class="button_editar_roles">Editar roles</v-btn>
+        <editar-roles-dialog ref="EditarRolesDialog"></editar-roles-dialog>
+   
+        <v-spacer></v-spacer>
+        <v-spacer></v-spacer>
+
       <v-icon class="team-icon">mdi-account-multiple</v-icon>
       <v-data-table
         :items-per-page="itemsPerPage"
@@ -47,7 +39,14 @@
 </template>
 
 <script>
+
+import axios from 'axios';
+import EditarRolesDialog from '../../../components/grupos/EditarRolesDialog.vue';
+
 export default {
+  components: {
+    EditarRolesDialog,
+  },
   data() {
     return {
         itemsPerPage: 5,
@@ -88,15 +87,17 @@ export default {
             calificación: 4.00,
           },
         ],
-
+        
         optionsMenu: [
-          { label: "Enviar invitación al grupo", icon: "mdi-email", color: "primary", route: "invite-group" },
-          { label: "Editar roles de miembros", icon: "mdi-account-settings", color: "primary", route: "edit-roles" },
-          { label: "Crear subgrupos", icon: "mdi-folder-plus", color: "primary", route: "create-subgroup" }
+          { label: "Editar roles de miembros", icon: "mdi-account-settings", color: "primary", route: "edit-roles" } 
         ]
       }
   },
   methods: {
+    abrirDialog() {
+      this.$refs.EditarRolesDialog.dialogVisible = true;
+    },
+    
     navigateTo(route) {
       // Implementa aquí la lógica para navegar a la vista correspondiente según la ruta proporcionada
       console.log("Navegar a la vista:", route);
