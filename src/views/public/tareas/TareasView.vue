@@ -361,12 +361,12 @@ import axios from 'axios'
 
 		headers_top: [
 				{
-		title: 'Fecha',
-		key: 'fecha',
+		title: 'Fecha Inicio',
+		key: 'fecha_inicio',
 		},
 		{
-		title: 'Hora',
-		key: 'hora',
+		title: 'Fecha fin',
+		key: 'fecha_fin',
 		},
 		{
 		title: 'Nombre',
@@ -411,7 +411,7 @@ import axios from 'axios'
 		],
 
 		etapas: [],
-		proctos_all_fields: [],
+		etapas_all_fields: [],
 		tareas:[],
 		tareas_all_fields:[],
 
@@ -478,21 +478,6 @@ import axios from 'axios'
 
 		initialize () {
 		this.etapas = [
-			{
-			fecha: '10/10/2021',
-			hora: '10:00',
-			nombre: 'etapa1'
-			},
-			{
-				fecha: '10/10/2021',
-				hora: '10:00',
-				nombre: 'etapa2'
-			},
-			{
-				fecha: '10/10/2021',
-				hora: '10:00',
-				nombre: 'etapa3'
-			}
 		],
 		this.tareas = [
 			{
@@ -627,16 +612,16 @@ import axios from 'axios'
 
 
 		// selector code 
-		
-		handleSelection() {
-		const selectedIndex = this.proyectos.findIndex(
+		getIndexSelected(){
+			const selectedIndex = this.proyectos.findIndex(
 			//compare strings
 			(item) => item === this.proyecto_seleccionado
-		);
-		console.log('Selected Index:', selectedIndex);
-		return selectedIndex;
+			);
+			console.log('Selected Index:', selectedIndex);
+			return selectedIndex;
 		},
 
+		
 		// get requests
 		getProyectos(){
 			axios.get(this.pathToServer + '/tareasApi/proyectos/US123456')
@@ -645,6 +630,7 @@ import axios from 'axios'
 				console.log(response.data)
 				// assign result to proyectos_all
 				this.proyectos_all = response.data
+				console.log("proyectos all init: ", this.proyectos_all[0])
 				// assing only nombre field to proyectos
 				this.proyectos = this.proyectos_all.map((item) => item.nombre)
 			})
@@ -655,21 +641,33 @@ import axios from 'axios'
 		
 		getEtapas(){
 			// current project id
-			const selectedIndex = this.handleSelection();
-			const idProyecto = this.proyectos_all[selectedIndex].id;
-			axios.get(this.pathToServer + '/etapas/'+idProyecto)
+			const selectedIndex = this.getIndexSelected();
+			console.log("proyectos_all: ", this.proyectos_all)
+			const idProyecto = this.proyectos_all[selectedIndex].id_proyecto;
+			console.log("get request sent to ");
+			console.log(this.pathToServer + '/etapas/'+idProyecto)
+			axios.get(this.pathToServer + '/tareasApi/etapas/'+idProyecto)
 			.then(response => {
 				// this.proyectos_all = response.data
-				console.log(response.data)
-				// assign result to proyectos_all
-				this.etapas = response.data
-			})
-			.catch(error => {
+				console.log('response of getEtapas',response.data)
+				// assign result to proyectos_all 
+				this.etapas = response.data;
+				
+			}).catch(error => {
 				console.log(error)
 			})
 		},
-	
+		
+		getTareas(){
+
+		},
+
+		// update button
+		handleSelection() {
+			this.getEtapas();
+			this.getTareas();
+		},
 	},
 }
-  </script>
+</script>
 
