@@ -71,3 +71,22 @@ watch(getEvents, () =>{
 <template>
     <FullCalendar v-bind:options="options" />
 </template>
+
+<script>
+import axios from 'axios'
+    export default {
+        data() {
+            return{
+                posts: []
+            }
+        },
+
+        mounted() {
+            axios.get('http://localhost:8080/horariosApi/HO234567')
+            .then(function(response){
+                console.log(response)
+            })
+        }
+    }
+
+</script>
