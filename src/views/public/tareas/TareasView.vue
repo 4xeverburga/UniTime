@@ -49,19 +49,18 @@
 	</v-container>
 
 	<!-- button to update proyecto -->
-
 	<v-container class = "top_table">
-	<v-data-table
-	:headers="headers_top"
-	:items="etapas"
-	:sort-by="[{ key: 'fecha', order: 'asc' }]"
-	class="elevation-1"
-	>
-
-	  <template v-slot:top>
-		<v-toolbar
-		flat
+		<v-data-table
+		:headers="headers_top"
+		:items="etapas"
+		:sort-by="[{ key: 'fecha', order: 'asc' }]"
+		class="elevation-1"
 		>
+
+		<template v-slot:top>
+			<v-toolbar
+			flat
+			>
 		  <v-toolbar-title>Etapas de proyecto</v-toolbar-title>
 		  <v-divider
 			class="mx-4"
@@ -624,6 +623,7 @@ import axios from 'axios'
 		
 		// get requests
 		getProyectos(){
+			
 			axios.get(this.pathToServer + '/tareasApi/proyectos/US123456')
 			.then(response => {
 				// this.proyectos_all = response.data

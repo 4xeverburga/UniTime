@@ -19,5 +19,6 @@ createApp(App).use(router)
   .use(vuetify)
   .component('font-awesome-icon', FontAwesomeIcon)
   .component('EasyDataTable', Vue3EasyDataTable)
+  .config({globalProperties: {$cod_usuario: 'US123456'}})
   .mount('#app')
 
