@@ -58,7 +58,7 @@
 <script setup>
 
 import {ref} from 'vue'
-import ccat_logo from "@/assets/logo.png"
+
 // // state of the drawer/buttons
 const drawer = ref(false)
 const buttons = ref(

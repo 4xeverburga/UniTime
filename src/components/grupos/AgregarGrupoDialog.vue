@@ -34,19 +34,29 @@ export default {
   },
   methods: {
     agregarGrupo() {
+      // Convertir el campo maxMiembros a un entero
+      const maxMiembrosInt = parseInt(this.maxMiembros);
+
+      // Verificar si maxMiembrosInt es un número válido
+      if (isNaN(maxMiembrosInt)) {
+        console.error('El número de miembros no es válido');
+        return;
+      }
+
       // Crear un objeto con los datos del grupo
       const grupo = {
         nombre: this.nombreGrupo,
         descripcion: this.descripcionGrupo,
-        numeroMiembros: this.maxMiembros
+        nro_mienbros: maxMiembrosInt
       };
 
       // Realizar la solicitud POST al backend
-      axios.post('url_del_backend', grupo)
+      axios.post('http://localhost:8080/gruposapi/addgrupo', grupo)
         .then(response => {
           // Manejar la respuesta del backend si es necesario
           console.log(response.data);
-          
+          console.log(grupo);
+
           // Cerrar el diálogo después de agregar el grupo
           this.cerrarDialog();
         })
