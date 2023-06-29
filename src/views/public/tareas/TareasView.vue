@@ -178,7 +178,7 @@
 		<!-- select icon -->
 		<v-icon
 		size="small"
-		@click="deleteItemTop(item.raw)"
+		@click="selectItemBottom(item.raw)"
 		>
 		mdi-checkbox-marked-circle
 		</v-icon>
@@ -322,7 +322,7 @@
 		<!-- select icon -->
 		<v-icon
 		size="small"
-		@click="deleteItemBottom(item.raw)"
+		@click="selectItemBottom(item.raw)"
 		>
 		mdi-checkbox-marked-circle
 		</v-icon>
@@ -412,7 +412,8 @@ import axios from 'axios'
 		],
 		proyectos_all: [
 		],
-
+		
+		etapa_Seleccionada: '',
 		etapas: [],
 		etapas_all_fields: [],
 		tareas:[],
@@ -485,18 +486,7 @@ import axios from 'axios'
 		this.etapas = [
 		],
 		this.tareas = [
-			{
-				fecha:'10-10-20',
-				nombre:'tarea1',
-				responsable:'pedro',
-				estado:'ausente',
-			},
-			{
-				fecha:'10-10-20',
-				nombre:'tarea2',
-				responsable:'Juan',
-				estado:'Pendiente',
-			}
+			
 		]
 		},
   
@@ -511,7 +501,13 @@ import axios from 'axios'
 			this.editItemBottom = Object.assign({},item)
 			this.dialogBottom = true
 		},
-  
+		selectItemBottom(item) {
+		  this.editedIndex = this.etapas.indexOf(item)
+		  console.log("selectItemBottom: index= " + this.editedIndex);
+		  console.log("etapas hay o que?",this.etapas[this.editedIndex]);
+		  this.getTareas();
+		},
+
 		deleteItemTop (item) {
 		  this.editedIndex = this.etapas.indexOf(item)
 		  this.editedItemTop = Object.assign({}, item)
@@ -589,6 +585,12 @@ import axios from 'axios'
 			console.log('Selected Index:', selectedIndex);
 			return selectedIndex;
 		},
+		getIndexSelectedStage(){
+			const selectedIndex = this.editedIndex;
+			console.log('etapas:', this.etapas);
+			console.log('Selected Index stage:', selectedIndex);
+			return selectedIndex ;
+		},
 
 		
 		// get requests
@@ -630,10 +632,10 @@ import axios from 'axios'
 		//JONATHANNNNNN
 		//todas las tareas de la etapa ET123456
 		getTareas(){
-			const selectedIndex = this.getIndexSelected();
-			const idEtapa = this.etapas_all_fields[selectedIndex];
-			console.log("get request sent to ", this.pathToServer + '/tareas/' + 'ET123456');
-			axios.get(this.pathToServer + '/tareasApi/tareas/' + 'ET123456')
+			const selectedIndex = this.editedIndex;
+			const idEtapa = this.etapas[selectedIndex].id_etapa;
+			console.log("get request sent to xd ", this.pathToServer + '/tareas/' + idEtapa);
+			axios.get(this.pathToServer + '/tareasApi/tareas/' + idEtapa)
 			.then(response => {
 				// this.proyectos_all = response.data
 				console.log('response of getTareas',response.data)
