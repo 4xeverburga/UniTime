@@ -76,11 +76,9 @@ export default {
       return this.items.map(item => {
         const fecha = new Date(item.fecha).toLocaleDateString('es-ES');
 
-
         return {
           ...item,
           fecha,
-          
         };
       });
     }
@@ -99,6 +97,7 @@ export default {
   },
 };
 </script>
+
 <style>
 body {
   margin: 0;
