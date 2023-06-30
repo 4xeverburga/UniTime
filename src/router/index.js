@@ -34,6 +34,11 @@ const routes = [
     path: '/Horarios',
     name: 'horarios',
     component:() => import ('../views/public/horarios/HorariosView.vue')
+  },
+  {
+    path:'/MisHorarios',
+    name:'Mis Horarios',
+    component:() =>import('../views/public/horarios/GeneralHorariosview.vue')
   }
 
 ]
