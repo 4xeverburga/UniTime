@@ -38,7 +38,7 @@ const routes = [
   {
     path:'/MisHorarios',
     name:'Mis Horarios',
-    component:() =>('../views/public/horarios/GeneralHorariosview.vue')
+    component:() =>import('../views/public/horarios/GeneralHorariosview.vue')
   }
 
 ]
