@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="left-column">
-      <h2>Horarios de Grupos</h2>
+      <h2>Horarios Personales</h2>
       <div class="table-container">
         <v-data-table
           v-model:items-per-page="itemsPerPage"
@@ -12,11 +12,11 @@
         >
       </v-data-table>
       </div>
-      <v-btn color="primary" @click="abrirDialog" class="button_agregar">Agregar Grupo</v-btn>
-      <agregar-grupo-dialog ref="agregarGrupoDialog"></agregar-grupo-dialog>
+      <v-btn color="#3F51B5" @click="abrirDialog" class="button_agregar">Agregar horario personal</v-btn>
+      <agregar-horario-personal ref="AgregarHorarioPersonal"></agregar-horario-personal>
     </div>
     <div class="right-column">
-      <h2>Horarios personales</h2>
+      <h2>Horarios Grupales</h2>
       <div class="table-container">
         <v-data-table
           :href-fn="'/eventos'"
@@ -33,11 +33,11 @@
 
 <script>
 import axios from 'axios';
-import AgregarGrupoDialog from '../../../components/grupos/AgregarGrupoDialog.vue';
+import AgregarHorarioPersonal from '../../../components/grupos/AgregarHorarioPersonal.vue';
 
 export default {
   components: {
-    AgregarGrupoDialog,
+    AgregarHorarioPersonal,
   },
   data() {
     return {
@@ -85,7 +85,7 @@ export default {
   },
   methods: {
     abrirDialog() {
-      this.$refs.agregarGrupoDialog.dialogVisible = true;
+      this.$refs.AgregarHorarioPersonal.dialogVisible = true;
     },
     rowClick(item,row) {
       // Obtener la información necesaria del item
@@ -122,7 +122,7 @@ body {
 }
 
 .right-column {
-  background-color: lightgreen;
+  background-color: rgb(165, 126, 238);
 }
 
 .table-container {
