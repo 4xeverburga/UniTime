@@ -5,7 +5,7 @@
 
 		<!-- button hamburguer -->
 		<v-app-bar-nav-icon class="hamburger" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-		<v-app-bar-title class="ccat-name">unitime</v-app-bar-title>
+		<v-app-bar-title class="unitime-name">unitime</v-app-bar-title>
 
 
 		<!-- spacer -->

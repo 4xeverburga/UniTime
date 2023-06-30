@@ -13,24 +13,19 @@
 			class="mb-10"
 		>
 			<img id="icon"/>
-			<h2>CONOCENOS</h2>
+			<h2>¿Qué es UniTime?</h2>
 		</v-card-title>
 
 		<v-card-text
 			class="ml-7"
 		>
-		Kekeros es una organización de estudiantes nacida del código 21-1 y con alcance a los estudiantes de ingeniería de sistemas del mismo...
+		Nuestra startup se enfoca en mejorar la gestión de grupos de estudiantes a través de un aplicativo web. Ofrecemos herramientas 
+		para la gestión de horarios, evaluación de desempeño, generación de reuniones virtuales y/o presenciales, gestión de proyectos, 
+		foros y comunicación interna.
 		</v-card-text>
 	</v-card>
 
-	<v-img
-		id="conocenos-logo"
-		lazy-src="https://scontent.flim28-1.fna.fbcdn.net/v/t1.6435-9/83150382_2534126020138580_692631879750629304_n.png?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=h3qYMLqnEkMAX_hzRVF&_nc_ht=scontent.flim28-1.fna&oh=00_AfBQIvDvRToZm2v92MVkzt66i77s83DwW4IfhXAbxpgx5Q&oe=643CE7C2"
-		height="240"
-		width="240"
-		src="https://scontent.flim28-1.fna.fbcdn.net/v/t1.6435-9/83150382_2534126020138580_692631879750629304_n.png?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=h3qYMLqnEkMAX_hzRVF&_nc_ht=scontent.flim28-1.fna&oh=00_AfBQIvDvRToZm2v92MVkzt66i77s83DwW4IfhXAbxpgx5Q&oe=643CE7C2"
-		contain
-	/>
+
 
 </v-card>
 
@@ -49,8 +44,9 @@
 			</v-card-title>
 
 			<v-card-text>
-
-				
+				Buscar ampliar nuestro público objetivo no solo a estudiantes universitarios, sino poder ir más allá de eso logrando 
+				trabajar con diversas organizaciones en el futuro, y poder mantener una excelente experiencia respecto a la gestión de 
+				horarios de forma colaborativa.
 			</v-card-text>
 
 		</v-card>
@@ -76,8 +72,8 @@
 			</v-card-title>
 
 			<v-card-text>
-
-				
+				Proveer a los estudiantes universitarios de herramientas de creación de horarios grupales, gestión de proyectos y de 
+				comunicación entre miembros para ayudar en sus proyectos y mejorar su  rendimiento académico. 
 			</v-card-text>
 
 		</v-card>
