@@ -41,6 +41,7 @@
       <editar-descripcion-grupo-dialog ref="editarDescripcionGrupoDialog"></editar-descripcion-grupo-dialog>
       <div></div>
       <v-btn color="red" @click="abrirDialog3" class="button_eliminar">Eliminar Grupo</v-btn>
+      <eliminar-grupo-dialog ref="eliminarGrupoDialog"></eliminar-grupo-dialog>
     
             </v-col>
           </v-row>
@@ -77,11 +78,13 @@
 import axios from "axios";
 import EditarNombreGrupoDialog from '../../../components/grupos/EditarNombreGrupoDialog.vue';
 import EditarDescripcionGrupoDialog from '../../../components/grupos/EditarDescripcionGrupoDialog.vue';
+import EliminarGrupoDialog from '../../../components/grupos/EliminarGrupoDialog.vue';
 
 export default {
   components: {
     EditarNombreGrupoDialog,
     EditarDescripcionGrupoDialog,
+    EliminarGrupoDialog
   },
   data() {
     return {
@@ -98,6 +101,9 @@ export default {
     },
     abrirDialog2() {
       this.$refs.editarDescripcionGrupoDialog.dialogVisible2 = true;
+    },
+    abrirDialog3() {
+      this.$refs.eliminarGrupoDialog.dialogVisible3 = true;
     },
     logout() {
       console.log("Cerrar sesión");
