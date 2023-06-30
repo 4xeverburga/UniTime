@@ -84,7 +84,7 @@ const items = ref([
 }
 
 /* align text of the name to the left  */
-.ccat-name{
+.unitime-name{
 	text-align: left;
 	/* make it bold */
 	font-weight: bold;
