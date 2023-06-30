@@ -9,8 +9,6 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import Vue3EasyDataTable from 'vue3-easy-data-table';
 import 'vue3-easy-data-table/dist/style.css';
 
-
-
 loadFonts()
 library.add(faUserSecret)
 
