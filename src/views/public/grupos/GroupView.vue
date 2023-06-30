@@ -34,18 +34,14 @@
             </v-col>
 
             <v-col cols="12" sm="6">
-              <v-card class="options-menu">
-                <v-list dense>
-                  <v-list-item class="option-item" v-for="(item, index) in optionsMenu" :key="index" @click="navigateTo(item.route)">
-                    <v-list-item-icon>
-                      <v-icon :color="item.color">{{ item.icon }}</v-icon>
-                    </v-list-item-icon>
-                    <v-list-item-content>
-                      <v-list-item-title>{{ item.label }}</v-list-item-title>
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list>
-              </v-card>
+              <v-btn color="primary" @click="abrirDialog" class="button_editar">Editar Nombre del Grupo</v-btn>
+      <editar-nombre-grupo-dialog ref="editarNombreGrupoDialog"></editar-nombre-grupo-dialog>
+      <div></div>
+      <v-btn color="primary" @click="abrirDialog2" class="button_editar_descripcion">Editar Descripción del Grupo</v-btn>
+      <editar-descripcion-grupo-dialog ref="editarDescripcionGrupoDialog"></editar-descripcion-grupo-dialog>
+      <div></div>
+      <v-btn color="red" @click="abrirDialog3" class="button_eliminar">Eliminar Grupo</v-btn>
+    
             </v-col>
           </v-row>
         </v-container>
@@ -79,15 +75,17 @@
 
 <script>
 import axios from "axios";
+import EditarNombreGrupoDialog from '../../../components/grupos/EditarNombreGrupoDialog.vue';
+import EditarDescripcionGrupoDialog from '../../../components/grupos/EditarDescripcionGrupoDialog.vue';
 
 export default {
+  components: {
+    EditarNombreGrupoDialog,
+    EditarDescripcionGrupoDialog,
+  },
   data() {
     return {
-      optionsMenu: [
-        { label: "Editar nombre de grupo", icon: "mdi-pencil", color: "primary", route: "edit-name" },
-        { label: "Editar descripción", icon: "mdi-pencil", color: "primary", route: "edit-description" },
-        { label: "Eliminar grupo", icon: "mdi-delete", color: "red darken-2", route: "delete-group" }
-      ],
+  
       grupos: {
         grupo: "",
         descripcion: ""
@@ -95,8 +93,11 @@ export default {
     };
   },
   methods: {
-    navigateTo(route) {
-      console.log("Navegar a la vista:", route);
+    abrirDialog() {
+      this.$refs.editarNombreGrupoDialog.dialogVisible = true;
+    },
+    abrirDialog2() {
+      this.$refs.editarDescripcionGrupoDialog.dialogVisible2 = true;
     },
     logout() {
       console.log("Cerrar sesión");
@@ -152,17 +153,6 @@ body {
   padding: 16px;
 }
 
-.options-menu {
-  margin-bottom: 16px;
-  display: inline-block;
-  background-color: #e8eaf6;
-  padding: 8px;
-  border-radius: 4px;
-}
-
-.option-item {
-  cursor: pointer;
-}
 
 .action-button {
   color: white;
@@ -198,10 +188,7 @@ body {
   .group-description-box {
     padding: 8px;
   }
-  
-  .options-menu {
-    padding: 4px;
-  }
+ 
   
   .action-button {
     font-size: 14px;
