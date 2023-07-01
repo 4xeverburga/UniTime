@@ -6,9 +6,8 @@
       </v-card-title>
       <v-card-text>
         <v-form ref="form" @submit.prevent="agregarHorario">
-          <v-text-field v-model="nombreGrupo" label="Nombre del Grupo"></v-text-field>
-          <v-text-field v-model="descripcionGrupo" label="Descripción del Grupo"></v-text-field>
-          <v-text-field v-model="maxMiembros" label="Número Máximo de Miembros"></v-text-field>
+          <v-text-field v-model="descripcion" label="Nombre del Horario"></v-text-field>
+          <v-text-field v-model="privacidad" label="Privacidad 0 publico 1 privado"></v-text-field>
         </v-form>
       </v-card-text>
       <v-card-actions>
@@ -27,35 +26,33 @@ export default {
   data() {
     return {
       dialogVisible: false,
-      nombreGrupo: '',
-      descripcionGrupo: '',
-      maxMiembros: '',
+      descripcion: '',
+      privacidad: '',
     };
   },
   methods: {
     agregarHorario() {
-      // Convertir el campo maxMiembros a un entero
-      const maxMiembrosInt = parseInt(this.maxMiembros);
+      // Convertir el campo privacidad a un entero
+      const privacidadInt = parseInt(this.privacidad);
 
-      // Verificar si maxMiembrosInt es un número válido
-      if (isNaN(maxMiembrosInt)) {
-        console.error('El número de miembros no es válido');
+      // Verificar si privacidad es un número válido
+      if (isNaN(privacidadInt)) {
+        console.error('El número no es válido');
         return;
       }
 
       // Crear un objeto con los datos del grupo
-      const grupo = {
-        nombre: this.nombreGrupo,
-        descripcion: this.descripcionGrupo,
-        nro_mienbros: maxMiembrosInt
+      const horario = {
+        descripcion: this.descripcion,
+        flg_privacidad: privacidadInt
       };
 
       // Realizar la solicitud POST al backend
-      axios.post('http://localhost:8080/gruposapi/addgrupo', grupo)
+      axios.post('http://localhost:8080/horariosApi/agregarHorario', horario)
         .then(response => {
           // Manejar la respuesta del backend si es necesario
           console.log(response.data);
-          console.log(grupo);
+          console.log(horario);
 
           // Cerrar el diálogo después de agregar el grupo
           this.cerrarDialog();
@@ -67,9 +64,8 @@ export default {
     },
     cerrarDialog() {
       this.dialogVisible = false;
-      this.nombreGrupo = '';
-      this.descripcionGrupo = '';
-      this.maxMiembros = '';
+      this.descripcion = '';
+      this.privacidad = '';
     },
   },
 };
