@@ -19,11 +19,11 @@
       <h2>Horarios Grupales</h2>
       <div class="table-container">
         <v-data-table
-          :href-fn="'/eventos'"
           v-model:items-per-page="itemsPerPage"
           :headers="headers"
           :items="formattedItems"
           class="elevation-1"
+          @click:row="rowClick"
         >
         </v-data-table>
       </div>
@@ -33,7 +33,7 @@
 
 <script>
 import axios from 'axios';
-import AgregarHorarioPersonal from '../../../components/grupos/AgregarHorarioPersonal.vue';
+import AgregarHorarioPersonal from '../../../components/horarios/AgregarHorarioPersonal.vue';
 
 export default {
   components: {
@@ -43,28 +43,27 @@ export default {
     return {
       itemsPerPage: 5,
       headers: [
-        { title: 'Evento', align: 'start', key: 'evento' },
-        { title: 'Fecha', align: 'end', key: 'fecha' },
-        { title: 'Hora', align: 'end', key: 'hora' },
-        { title: 'Grupo', align: 'end', key: 'grupo'}
+        { title: 'Grupo', align: 'start', key: 'nombre' },
+        { title: 'Descripcion Horario', align: 'start', key: 'descripcion' },
+        { title: 'Eventos', align: 'end', key: 'conta' }
       ],
       headers2: [
-        { title: 'Grupo', align: 'start', key: 'grupo' },
-        { title: 'Descripción', align: 'start', key: 'descripcion' },
+        { title: 'Horario', align: 'start', key: 'descripcion' },
+        { title: 'Eventos', align: 'end', key: 'conta' },
       ],
       items: [],
       items2: [],
     };
   },
   created() {
-    axios.get('http://localhost:8080/gruposapi/getgrupos').then(response => {
+    axios.get('http://localhost:8080/horariosApi/').then(response => {
       this.items2 = response.data;
       console.log(this.items2);
     }).catch(error => {
       console.error(error);
     });
 
-    axios.get('http://localhost:8080/gruposapi/geteventosgrupos').then(response => {
+    axios.get('http://localhost:8080/horariosApi/personalHorarios').then(response => {
       this.items = response.data;
       console.log(this.items.hora);
     }).catch(error => {
@@ -89,10 +88,10 @@ export default {
     },
     rowClick(item,row) {
       // Obtener la información necesaria del item
-      const itemName = row.item.raw.cod_grupo
+      const itemName = row.item.raw.cod_horario
 
       // Redirigir a la página deseada utilizando el enlace personalizado
-      window.location.href = '/grupos/' + itemName;
+      window.location.href = '/horario/' + itemName;
     },
   },
 };
