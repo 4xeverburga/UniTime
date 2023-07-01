@@ -486,7 +486,6 @@ import axios from 'axios'
 		this.etapas = [
 		],
 		this.tareas = [
-			
 		]
 		},
   
@@ -630,7 +629,7 @@ import axios from 'axios'
 			})
 		},
 		//JONATHANNNNNN
-		//todas las tareas de la etapa ET123456
+		//todas las tareas de la etapa 
 		getTareas(){
 			const selectedIndex = this.editedIndex;
 			const idEtapa = this.etapas[selectedIndex].id_etapa;
@@ -641,7 +640,6 @@ import axios from 'axios'
 				console.log('response of getTareas',response.data)
 				// assign result to proyectos_all
 				this.tareas = response.data
-				
 			})
 			.catch(error => {
 				console.log(error)
