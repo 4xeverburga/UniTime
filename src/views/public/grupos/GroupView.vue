@@ -25,23 +25,23 @@
       <v-card-text>
         <v-container fluid>
           <v-row justify="start">
-            <v-col cols="12" sm="6">
+            <v-col cols="12" sm="10" >
               <v-card class="group-description-box">
-                <p class="group-description">
+                <p class="group-description" style="min-height: 200px; min-width: 70%;">
                   {{ grupos.descripcion }}
                 </p>
               </v-card>
             </v-col>
 
-            <v-col cols="12" sm="6">
-              <v-btn color="primary" @click="abrirDialog" class="button_editar">Editar Nombre del Grupo</v-btn>
-      <editar-nombre-grupo-dialog ref="editarNombreGrupoDialog"></editar-nombre-grupo-dialog>
+            <v-col cols="12" sm="2">
+              <v-btn color="primary" @click="abrirDialog" class="button_editar">Editar Nombre</v-btn>
+      <editar-nombre-grupo-dialog ref="editarNombreGrupoDialog" @grupoEditado="actualizarGrupo"></editar-nombre-grupo-dialog>
       <div></div>
-      <v-btn color="primary" @click="abrirDialog2" class="button_editar_descripcion">Editar Descripción del Grupo</v-btn>
-      <editar-descripcion-grupo-dialog ref="editarDescripcionGrupoDialog"></editar-descripcion-grupo-dialog>
+      <v-btn color="primary" @click="abrirDialog2" class="button_editar">Editar Descripción</v-btn>
+      <editar-descripcion-grupo-dialog ref="editarDescripcionGrupoDialog" @grupoEditado="actualizarGrupo"></editar-descripcion-grupo-dialog>
       <div></div>
-      <v-btn color="red" @click="abrirDialog3" class="button_eliminar">Eliminar Grupo</v-btn>
-      <eliminar-grupo-dialog ref="eliminarGrupoDialog"></eliminar-grupo-dialog>
+      <v-btn color="red" @click="abrirDialog3" class="button_editar">Eliminar Grupo</v-btn>
+      <eliminar-grupo-dialog ref="eliminarGrupoDialog" ></eliminar-grupo-dialog>
     
             </v-col>
           </v-row>
@@ -88,19 +88,46 @@ export default {
   },
   data() {
     return {
-  
       grupos: {
         grupo: "",
-        descripcion: ""
+        descripcion: "",
+        rol: ""
       }
     };
   },
+  created() {
+    this.actualizarGrupo();
+  },
   methods: {
+    actualizarGrupo() {
+      axios
+        .get(`http://localhost:8080/gruposapi/getgrupos/${this.$route.params.id}`)
+        .then((response) => {
+          const data = response.data;
+          if (data.length > 0) {
+            this.grupos.grupo = data[0].grupo;
+            this.grupos.descripcion = data[0].descripcion;
+            this.grupos.rol = data[0].rol;
+            console.log(this.$route.params.id);
+          }
+        })
+    .catch((error) => {
+      console.error(error);
+    });
+  },
     abrirDialog() {
+      const nombreGrupoActual = this.grupos.grupo;
+
+      // Establecer el nombre actual como valor predeterminado en el campo de texto
+      this.$refs.editarNombreGrupoDialog.nombreGrupo = nombreGrupoActual;
+
+
       this.$refs.editarNombreGrupoDialog.dialogVisible = true;
     },
     abrirDialog2() {
-      this.$refs.editarDescripcionGrupoDialog.dialogVisible2 = true;
+      const descripcionActual = this.grupos.descripcion;
+      this.$refs.editarDescripcionGrupoDialog.descripcionGrupo = descripcionActual;
+      this.$refs.editarDescripcionGrupoDialog.dialogVisible2= true;
     },
     abrirDialog3() {
       this.$refs.eliminarGrupoDialog.dialogVisible3 = true;
@@ -109,129 +136,46 @@ export default {
       console.log("Cerrar sesión");
     }
   },
-  mounted() {
-  axios
-    .get(`http://localhost:8080/gruposapi/getgrupos/${this.$route.params.id}`)
-    .then((response) => {
-      const data = response.data;
-      if (data.length > 0) {
-        this.grupos.grupo = data[0].grupo;
-        this.grupos.descripcion = data[0].descripcion;
-        this.grupos.rol = data[0].rol;
-        console.log(this.$route.params.id);
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
+
 };
 </script>
-
-
-<style>
-body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-}
-
+<style scoped>
 .group-name {
   font-size: 24px;
-  color: white;
-  background: linear-gradient(to right, #2196f3, #1769aa);
-  padding: 10px;
-  margin-bottom: 16px;
+  margin-left: 8px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  margin-left: 4px;
 }
 
 .group-role {
-  margin-bottom: 16px;
-  font-size: 18px;
-  color: #616161;
+  font-size: 16px;
+  margin-bottom: 8px;
 }
 
 .group-description {
-  font-size: 18px;
-  margin-bottom: 16px;
-  color: #424242;
+  font-size: 14px;
+  color: #616161;
 }
 
 .group-description-box {
   background-color: #f5f5f5;
   padding: 16px;
-}
-
-
-.action-button {
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 10px 20px;
-  margin: 0 10px;
   border-radius: 4px;
-}
-
-.action-button.primary {
-  background-color: #2196f3;
-}
-
-.action-button.primary:hover {
-  background-color: #1769aa;
-}
-
-.action-button.red {
-  background-color: #f44336;
-}
-
-.action-button.red:hover {
-  background-color: #d32f2f;
+  border: 1px solid #e0e0e0;
 }
 
 .options-actions {
   margin-top: 16px;
 }
 
-/* Estilos adicionales */
-@media (max-width: 600px) {
-  .group-description-box {
-    padding: 8px;
-  }
- 
-  
-  .action-button {
-    font-size: 14px;
-    padding: 8px 12px;
-    margin: 0 8px;
-  }
-
-  .group-name {
-    display: flex;
-    align-items: center;
-  }
-
-  .group-name v-icon {
-    margin-right: 8px;
-  }
-
-  .options-actions {
-    margin-top: 32px;
-  }
-
-  .options-actions v-btn {
-    font-size: 16px;
-    padding: 12px 24px;
-  }
-}
-.user-profile {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.user-profile v-icon {
+.action-button {
   margin-right: 8px;
 }
-.user-profile .username {
-  font-size: 16px;
-  color: #616161;
-} 
-
 </style>

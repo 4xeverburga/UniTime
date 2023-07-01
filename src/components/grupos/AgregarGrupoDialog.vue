@@ -9,6 +9,7 @@
           <v-text-field v-model="nombreGrupo" label="Nombre del Grupo"></v-text-field>
           <v-text-field v-model="descripcionGrupo" label="Descripción del Grupo"></v-text-field>
           <v-text-field v-model="maxMiembros" label="Número Máximo de Miembros"></v-text-field>
+          <v-text-field v-model="rol" label="Rol en el Grupo"></v-text-field>
         </v-form>
       </v-card-text>
       <v-card-actions>
@@ -30,6 +31,7 @@ export default {
       nombreGrupo: '',
       descripcionGrupo: '',
       maxMiembros: '',
+      rol: '',
     };
   },
   methods: {
@@ -47,7 +49,8 @@ export default {
       const grupo = {
         nombre: this.nombreGrupo,
         descripcion: this.descripcionGrupo,
-        nro_mienbros: maxMiembrosInt
+        nro_miembros: maxMiembrosInt,
+        rol: this.rol,
       };
 
       // Realizar la solicitud POST al backend
@@ -59,6 +62,9 @@ export default {
 
           // Cerrar el diálogo después de agregar el grupo
           this.cerrarDialog();
+
+          // Llamar al método de actualización de grupos en el componente padre
+          this.$emit('grupoAgregado');
         })
         .catch(error => {
           // Manejar el error en caso de que ocurra
@@ -70,7 +76,9 @@ export default {
       this.nombreGrupo = '';
       this.descripcionGrupo = '';
       this.maxMiembros = '';
+      this.rol = '';
     },
   },
 };
 </script>
+

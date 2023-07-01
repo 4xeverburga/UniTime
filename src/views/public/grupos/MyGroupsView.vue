@@ -10,10 +10,10 @@
           class="elevation-1"
           @click:row="rowClick"
         >
-      </v-data-table>
+        </v-data-table>
       </div>
       <v-btn color="primary" @click="abrirDialog" class="button_agregar">Agregar Grupo</v-btn>
-      <agregar-grupo-dialog ref="agregarGrupoDialog"></agregar-grupo-dialog>
+      <agregar-grupo-dialog ref="agregarGrupoDialog" @grupoAgregado="actualizarGrupos"></agregar-grupo-dialog>
     </div>
     <div class="right-column">
       <h2>Mis Eventos</h2>
@@ -51,18 +51,14 @@ export default {
       headers2: [
         { title: 'Grupo', align: 'start', key: 'grupo' },
         { title: 'Descripción', align: 'start', key: 'descripcion' },
+        {title: 'Rol', align: 'start', key: 'rol'},
       ],
       items: [],
       items2: [],
     };
   },
   created() {
-    axios.get('http://localhost:8080/gruposapi/getgrupos').then(response => {
-      this.items2 = response.data;
-      console.log(this.items2);
-    }).catch(error => {
-      console.error(error);
-    });
+    this.actualizarGrupos();
 
     axios.get('http://localhost:8080/gruposapi/geteventosgrupos').then(response => {
       this.items = response.data;
@@ -94,9 +90,18 @@ export default {
       // Redirigir a la página deseada utilizando el enlace personalizado
       window.location.href = '/grupos/' + itemName;
     },
+    actualizarGrupos() {
+      axios.get('http://localhost:8080/gruposapi/getgrupos').then(response => {
+        this.items2 = response.data;
+        console.log(this.items2);
+      }).catch(error => {
+        console.error(error);
+      });
+    },
   },
 };
 </script>
+
 
 <style>
 body {
